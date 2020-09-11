@@ -1,4 +1,5 @@
 # redcross-artwork
+this is a demo project for an online art exhibition ecommerce site,where art works are been sold out and use to support disaster relieve funds for the redcross
 
 ## Project setup
 ```
