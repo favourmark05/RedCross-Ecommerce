@@ -6,16 +6,19 @@
 </div>
 <portfolio/>
 <trendingArt/>
+<aboutUs/>
 <footerSec/>
 </div>
 </template>
 
 <script>
 import trendingArt from '@/components/sections/trendingArt.vue'
+import aboutUs from '@/components/sections/aboutUs.vue'
 import footerSec from '@/components/footerSec.vue'
 export default {
   components: {
     trendingArt,
+    aboutUs,
     footerSec
   }
 

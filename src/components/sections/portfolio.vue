@@ -4,7 +4,6 @@
 <div class="portfolio text-center bg-dar text-white">
     <h1 class="pt-3 display-1">Portfolio</h1>
     <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid?</p>
-    <!-- <div class="line-divider"></div> -->
     <hr class="style-eight py-4">
 </div>
 <!-- images -->
@@ -335,16 +334,12 @@ hr.style-eight:after {
     top: -1.3em;
     font-size: 3.5em;
     padding: 0 0.25em;
-    /* background: white; */
 }
 .portfolio > h1 {
-  /* font-size: 4.5rem; */
   font-family: 'Sacramento', sans-serif;
-  /* text-transform: uppercase; */
   color:gray !important;
 }
 .artDisplay{
-  /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Martin_Akoghlyan%27s_art_works_55.JPG'); */
   background-image: url('../../assets/images/folio.jpg');
   background-size: cover;
   height: 100%;

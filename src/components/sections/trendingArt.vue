@@ -8,7 +8,7 @@
 
         <!-- first slides -->
         <div class="row">
-          <div class="col">
+          <div class="col-sm">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -36,18 +36,18 @@
             </div>
           </div>
           <!-- first content -->
-          <div class="col"> <h1 class="card-title">Oil Painting</h1>
+          <div class="col-sm"> <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a></div>
         </div>
         <!-- second slide -->
         <div class="row">
-          <div class="col pt-5">
+          <div class="col-sm pt-5">
             <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a>
           </div>
-          <div class="col">
+          <div class="col-sm">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -77,7 +77,7 @@
         </div>
         <!-- third slides -->
         <div class="row">
-          <div class="col">
+          <div class="col-sm">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -104,7 +104,7 @@
               </div>
             </div>
           </div>
-          <div class="col pt-5">
+          <div class="col-sm pt-5">
                <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a>
@@ -112,12 +112,12 @@
         </div>
         <!-- fourth slide -->
         <div class="row">
-          <div class="col pt-5">
+          <div class="col-sm pt-5">
                <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a>
           </div>
-          <div class="col">
+          <div class="col-sm">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">

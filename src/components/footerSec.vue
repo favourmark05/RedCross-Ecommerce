@@ -2,13 +2,22 @@
     <div>
         <footer >
             <div class="footerContent pt-4">
-            <hr class="style-eight py-4"><hr class="style-eight py-4">
+            <hr class="style-eight py-4"><hr class="style-eight py-4"><hr class="style-eight py-4">
             </div>
             <div class="text-center foot">
-            <div class="col">1</div>
-            <div class="col">2</div>
+            <div class="col">
+              <a href="#">Contact Us</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of use</a>
+              <a href="#">FAQ</a>
+            </div>
+            <div class="col py-4">
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i>
+              <i class="fab fa-cc-visa"></i>
+            </div>
             <div class="col pb-4 copy">
-                <p>Copyright &copy; {{ new Date().getFullYear() }} RaffiaCityHub</p>
+                <p class="text-dark">&copy; {{ new Date().getFullYear() }} RaffiaCityHub</p>
             </div>
             </div>
         </footer>
@@ -40,12 +49,12 @@ hr.style-eight {
   margin: 0 auto;
   width: 60%;
   border: none;
-  border-top: medium double #fff;
-  color: rgb(190, 15, 15);
+  border-top: medium double rgb(92, 90, 90);
+  color: rgb(94, 88, 88);
   text-align: center;
 }
 hr.style-eight:after {
-  content: "\03C8";
+  content: "\002665";
   display: inline-block;
   position: relative;
   top: -1.3em;
@@ -65,5 +74,18 @@ footer{
 }
 .copy > p {
     color: white;
+}
+.col > a {
+  padding: 0 8px;
+  text-decoration: none;
+  color: white;
+}
+.col > i {
+  padding: 0 8px;
+  font-size: 2rem;
+}
+.col > i:hover{
+  cursor: pointer;
+  color: white;
 }
 </style>
