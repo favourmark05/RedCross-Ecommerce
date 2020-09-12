@@ -33,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          <li class="nav-item">
+            <router-link to="/admin" class="nav-link" href="#">Admin</router-link>
+          </li>
         </ul>
       </div>
     </nav>
