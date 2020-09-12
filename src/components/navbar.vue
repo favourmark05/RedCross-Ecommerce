@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
       <a class="navbar-brand" href="#">
-    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    <img src="../assets/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
     Red-Ecommerce
   </a>
       <button

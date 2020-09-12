@@ -9,7 +9,7 @@
         <!-- first slides -->
         <div class="row">
           <div class="col-sm">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img
@@ -40,15 +40,18 @@
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a></div>
         </div>
+
         <!-- second slide -->
         <div class="row">
+          <!-- second content -->
           <div class="col-sm pt-5">
             <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link ">View Gallery</a>
           </div>
+          <!-- second images -->
           <div class="col-sm">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img
@@ -78,7 +81,7 @@
         <!-- third slides -->
         <div class="row">
           <div class="col-sm">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img
@@ -118,7 +121,7 @@
     <a href="#" class="card-link ">View Gallery</a>
           </div>
           <div class="col-sm">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <img
@@ -187,7 +190,62 @@ hr.style-eight:after {
   /* text-transform: uppercase; */
   color:gray !important;
 }
+.portfolio > p {
+  font-family: 'Comic Neue', cursive;
+}
 .carousel-inner {
   border: 1px solid #fff;
+}
+.card-link:hover{
+  /* background-color: red; */
+  padding: 0 0.8rem;
+  /* color: white; */
+  border-radius: 1rem;
+}
+/* Shutter Out Horizontal */
+.card-link {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  /* background: #e1e1e1; */
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.card-link:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: red;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  border-radius: 1rem;
+  /* padding: 0 4rem !important; */
+}
+.card-link:hover, .card-link:focus, .card-link:active {
+  color: white;
+}
+.card-link:hover:before, .card-link:focus:before, .card-link:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 </style>

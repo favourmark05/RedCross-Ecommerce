@@ -339,6 +339,9 @@ hr.style-eight:after {
   font-family: 'Sacramento', sans-serif;
   color:gray !important;
 }
+.portfolio > p {
+  font-family: 'Comic Neue', cursive;
+}
 .artDisplay{
   background-image: url('../../assets/images/folio.jpg');
   background-size: cover;
