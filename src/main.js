@@ -8,8 +8,8 @@ import 'popper.js'
 import jQuery from 'jquery'
 window.$ = window.jQuery = jQuery
 
-// window.$ = require('jquery')
-// window.JQuery = require('jquery')
+window.$ = require('jquery')
+window.JQuery = require('jquery')
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
