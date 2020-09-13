@@ -44,44 +44,25 @@
                 <span>General</span>
               </li>
               <li class="sidebar-dropdow">
-                <a href="#">
+                <router-link to="/dashboard">
                   <i class="fa fa-tachometer-alt"></i>
                   <span class="menu-text">Dashboard</span>
-                </a>
+                </router-link>
               </li>
               <li class="sidebar-dropdow">
-                <a href="#">
+                <router-link to="/product">
                   <i class="fa fa-shopping-cart"></i>
                   <span class="menu-text">Product</span>
-                </a>
+                </router-link>
               </li>
               <li class="sidebar-dropdow">
-                <a href="#">
+                <router-link to="/sales">
                   <i class="fas fa-dollar-sign"></i>
                   <span class="menu-text">Sales</span>
-                </a>
+                </router-link>
               </li>
               <li class="header-menu">
                 <span>Extra</span>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-book"></i>
-                  <span class="menu-text">Documentation</span>
-                  <span class="badge badge-pill badge-primary">Beta</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-calendar"></i>
-                  <span class="menu-text">Calendar</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-folder"></i>
-                  <span class="menu-text">Examples</span>
-                </a>
               </li>
             </ul>
           </div>
@@ -221,9 +202,9 @@
             </div>
           </div>
           <div>
-            <a href="#">
+            <router-link to="/Authen">
               <i class="fa fa-power-off"></i>
-            </a>
+            </router-link>
           </div>
           <div class="pinned-footer">
             <a href="#">
@@ -235,6 +216,12 @@
       <!-- page-content  -->
       <main class="page-content pt-2 bg-light">
         <div id="overlay" class="overlay"></div>
+    <div class="container-fluid p-5">
+        <div class="row">
+            <!-- <dashboard/> -->
+             <router-view/>
+        </div>
+    </div>
       </main>
       <!-- page-content" -->
     </div>
@@ -242,8 +229,12 @@
 </template>
 
 <script>
+// import dashboard from '@/components/Adminboard/dashboard.vue'
 export default {
   name: 'admin',
+  components: {
+    // dashboard
+  },
   data () {
     return {
       display: false,
@@ -261,9 +252,7 @@ export default {
 </script>
 
 <style scoped>
-/* .admin{
-    background-color: white !important;
-    background-size: cover;
-    height: 500%;
-} */
+.sidebar-item > ul > li > a {
+    outline: none !important;
+}
 </style>

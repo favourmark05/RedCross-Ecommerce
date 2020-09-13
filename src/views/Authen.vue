@@ -2,6 +2,9 @@
   <div class="login">
     <div class="container">
       <div class="row">
+          <div class="text-center col">
+              <i class="fas fa-shield-alt"></i>
+          </div>
         <div class="col">
           <form>
             <div class="form-group">
@@ -45,7 +48,16 @@
 }
 .col{
     background-color: white;
-    padding: 4rem 4rem;
+    padding: 4rem 1rem;
     border-radius: 2rem;
+}
+.row{
+    background-color: white;
+    border-radius: 2rem;
+}
+.fa-shield-alt{
+    font-size: 20rem;
+    color: rgb(182, 18, 18);
+    text-shadow: 6px 12px rgba(128, 128, 128, 0.918);
 }
 </style>
