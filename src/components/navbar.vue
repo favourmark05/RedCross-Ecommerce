@@ -34,7 +34,7 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <router-link to="/admin" class="nav-link" href="#">Admin</router-link>
+            <router-link to="/Authen" class="nav-link" href="#">Admin</router-link>
           </li>
         </ul>
       </div>

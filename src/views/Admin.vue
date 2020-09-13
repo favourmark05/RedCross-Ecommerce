@@ -10,14 +10,14 @@
           <!-- sidebar-header  -->
           <div class="sidebar-item sidebar-header d-flex flex-nowrap">
             <div class="user-pic">
-              <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture" />
+              <img class="img-responsive img-rounded" src="../assets/logo1.png" alt="User picture" />
             </div>
             <div class="user-info">
               <span class="user-name">
-                Jhon
-                <strong>Smith</strong>
+                {{ firstName }}
+                <strong>{{ lastName }}</strong>
               </span>
-              <span class="user-role">Administrator</span>
+              <span class="user-role">{{ role }}</span>
               <span class="user-status">
                 <i class="fa fa-circle"></i>
                 <span>Online</span>
@@ -246,7 +246,10 @@ export default {
   name: 'admin',
   data () {
     return {
-      display: false
+      display: false,
+      firstName: 'Mfonido Friday',
+      lastName: 'Mark',
+      role: 'Super Admin'
     }
   },
   methods: {
