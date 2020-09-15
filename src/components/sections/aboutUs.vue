@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="about-title text-center text-white">
-      <h1 class="pt-3 display-1">About-Us</h1>
+      <h1 class="pt-3 display-1 ">About-Us</h1>
       <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid?</p>
       <hr class="style-eight py-4" />
     </div>
     <div class="container about-us">
       <div class="row">
         <div class="col-sm">
-            <img src="../../assets/images/img-6.jpg" alt="" srcset="">
+            <img src="../../assets/images/img-6.jpg" class="img-fluid" alt="" srcset="">
         </div>
         <div class="col-sm text-white about">
           <h1>A Little Intro</h1>

@@ -14,7 +14,7 @@
             </div>
             <div class="user-info">
               <span class="user-name">
-                {{ firstName }}
+                {{ firstName }} <br>
                 <strong>{{ lastName }}</strong>
               </span>
               <span class="user-role">{{ role }}</span>
@@ -201,10 +201,10 @@
               <a class="dropdown-item" href="#">Setting</a>
             </div>
           </div>
-          <div>
-            <router-link to="/Authen">
+          <div class="out">
+            <a @click="logout()">
               <i class="fa fa-power-off"></i>
-            </router-link>
+            </a>
           </div>
           <div class="pinned-footer">
             <a href="#">
@@ -229,7 +229,7 @@
 </template>
 
 <script>
-// import dashboard from '@/components/Adminboard/dashboard.vue'
+// import { fire } from '../firebase'
 export default {
   name: 'admin',
   components: {
@@ -244,8 +244,12 @@ export default {
     }
   },
   methods: {
-    drop () {
-      this.display = !this.display
+    logout () {
+      this.auth.signOut().then(() => {
+        this.$router.replace('/')
+      }).catch((err) => {
+        console.log(err)
+      })
     }
   }
 }
@@ -254,5 +258,8 @@ export default {
 <style scoped>
 .sidebar-item > ul > li > a {
     outline: none !important;
+}
+.out{
+  cursor: pointer;
 }
 </style>
