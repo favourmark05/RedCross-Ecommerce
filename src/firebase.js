@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+require('firebase/firestore')
 
 var firebaseConfig = {
   apiKey: 'AIzaSyADdTmyXpRVreo52k7FCxc4PIkQ4L6Jl_s',
@@ -14,5 +15,7 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 firebase.analytics()
-// export var fire = firebase.initializeApp(firebaseConfig)
+var db = firebase.firestore()
+export { db }
 export default firebase.auth()
+// firebase.firestore()

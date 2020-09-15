@@ -15,7 +15,6 @@ window.JQuery = require('jquery')
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-
 Vue.use(Toasted, {
 
   duration: 1000,
