@@ -260,4 +260,10 @@ export default {
 .out{
   cursor: pointer;
 }
+.img-rounded {
+  border-radius: 100% !important;
+  height: 4rem !important;
+  width: 3.6rem !important;
+  z-index: 100 !important;
+}
 </style>

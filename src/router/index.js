@@ -69,7 +69,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-export default router
 
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
@@ -86,3 +85,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+
+export default router

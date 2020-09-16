@@ -25,6 +25,23 @@
       </div>
       <button class="btn btn-danger" @click.prevent="registerProduct()">Submit</button>
     </form>
+    <hr>
+    <table class="table">
+  <thead>
+    <tr>
+      <!-- <th scope="col">#</th> -->
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(product, productID) in products" :key="productID">
+      <!-- <th scope="row"> . </th> -->
+      <td> {{ product.productName }}</td>
+      <td> {{ product.productPrice }}</td>
+    </tr>
+  </tbody>
+</table>
   </div>
 </template>
 
@@ -35,6 +52,7 @@ export default {
   name: 'productPage',
   data () {
     return {
+      products: [],
       product: {
         productName: null,
         productPrice: null
@@ -46,15 +64,28 @@ export default {
       db.collection('products').add(this.product)
         .then((docRef) => {
           console.log('Document written with ID: ', docRef.id)
-          this.product = ''
+          this.readData()
+          this.product.productName = ''
+          this.product.productPrice = ''
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
         })
+    },
+    readData () {
+      this.products = []
+      db.collection('products').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          this.products.push(doc.data())
+        })
+      })
     }
   },
   reset () {
     // Object.assign(this.$data, this.$options.data.apply(this))
+  },
+  created () {
+    this.readData()
   }
 }
 </script>
