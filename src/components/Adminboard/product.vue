@@ -7,7 +7,7 @@
         <input
           type="text"
           class="form-control"
-          id="exampleInputEmail1"
+          id="inputProduct"
           aria-describedby="emailHelp"
           placeholder="Enter product name"
           v-model="product.productName"
@@ -18,30 +18,35 @@
         <input
           type="number"
           class="form-control"
-          id="exampleInputPassword1"
+          id="inputPrice"
           placeholder="Enter product Price"
           v-model="product.productPrice"
         />
       </div>
-      <button class="btn btn-danger" @click.prevent="registerProduct()">Submit</button>
+      <button class="btn btn-danger" @click.prevent="registerProduct()" id="btSubmit" :disabled="!product.productPrice">Submit</button>
     </form>
-    <hr>
+<div class="table-responsive">
+      <hr>
     <table class="table">
   <thead>
     <tr>
-      <!-- <th scope="col">#</th> -->
       <th scope="col">Product Name</th>
       <th scope="col">Product Price</th>
+      <th scope="col">Modify</th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="(product, productID) in products" :key="productID">
-      <!-- <th scope="row"> . </th> -->
       <td> {{ product.productName }}</td>
       <td> {{ product.productPrice }}</td>
+      <td>
+        <button @click="editProduct()" class="btn btn-primary">Edit</button>
+        <button @click="deleteProduct()" class="btn btn-danger">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>
+</div>
   </div>
 </template>
 
@@ -65,8 +70,8 @@ export default {
         .then((docRef) => {
           console.log('Document written with ID: ', docRef.id)
           this.readData()
-          this.product.productName = ''
-          this.product.productPrice = ''
+          this.product = {}
+          this.$toasted.success('Product created successfully', { icon: { name: 'check' } })
         })
         .catch((error) => {
           console.error('Error adding document: ', error)
@@ -89,3 +94,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+td > button {
+  margin: 0 1rem;
+}
+</style>
