@@ -2,8 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
       <router-link to="/homePage" class="navbar-brand" >
-    <img src="../assets/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    Hure-Art
+    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top bg-white img-fluid" alt="" loading="lazy">
   </router-link>
       <button
         class="navbar-toggler"
@@ -36,9 +35,9 @@
           <li class="nav-item">
             <a data-toggle="modal" data-target="#staticBackdrop" class="nav-link" href="#" @click="$bvModal.show('bv-modal-example')">Register</a>
           </li>
-          <!-- <li class="nav-item">
-            <router-link to="/Authen" class="nav-link" href="#">Admin</router-link>
-          </li> -->
+          <li class="nav-item">
+            <router-link to="/Authen" class="nav-link" >Admin</router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -96,8 +95,6 @@ export default {
           this.fullName = ''
           this.email = ''
           this.password = ''
-          // document.getElementById('staticBackdrop').style.display = 'none'
-          // document.querySelector('.modal-backdrop').style.display = 'none'
         })
         .catch((err) => {
         // Handle Errors here.

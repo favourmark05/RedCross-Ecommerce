@@ -37,11 +37,11 @@
   </thead>
   <tbody>
     <tr v-for="(product, productID) in products" :key="productID">
-      <td> {{ product.productName }}</td>
-      <td> {{ product.productPrice }}</td>
+      <td> {{ product.data().productName }}</td>
+      <td> {{ product.data().productPrice }}</td>
       <td>
         <button @click="editProduct()" class="btn btn-primary">Edit</button>
-        <button @click="deleteProduct()" class="btn btn-danger">Delete</button>
+        <button @click="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </tbody>
@@ -65,6 +65,19 @@ export default {
     }
   },
   methods: {
+    deleteProduct (doc) {
+      if (confirm('are you sure')) {
+        db.collection('product').doc('doc').delete().then(() => {
+          console.log('Document successfully deleted!')
+        // alert(doc)
+        }).catch((error) => {
+          console.error('Error removing document: ', error)
+        })
+        // alert(doc)
+      } else {
+
+      }
+    },
     registerProduct () {
       db.collection('products').add(this.product)
         .then((docRef) => {
@@ -81,7 +94,7 @@ export default {
       this.products = []
       db.collection('products').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.products.push(doc.data())
+          this.products.push(doc)
         })
       })
     }

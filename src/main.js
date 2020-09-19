@@ -8,12 +8,18 @@ import 'popper.js'
 import firebase from './firebase'
 import jQuery from 'jquery'
 import Toasted from 'vue-toasted'
+import SweetAlertIcons from 'vue-sweetalert-icons'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
 window.$ = window.jQuery = jQuery
 
 window.$ = require('jquery')
 window.JQuery = require('jquery')
 
 Vue.use(BootstrapVue)
+Vue.use(VueSweetalert2)
+Vue.use(SweetAlertIcons)
 Vue.use(IconsPlugin)
 Vue.use(Toasted, {
 

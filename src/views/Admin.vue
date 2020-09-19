@@ -69,8 +69,8 @@
           <!-- sidebar-menu  -->
         </div>
         <!-- sidebar-footer  -->
-        <div class="sidebar-footer">
-          <div class="dropdown">
+        <div class="sidebar-footer shadow rounded">
+          <!-- <div class="dropdown">
             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-bell"></i>
               <span class="badge badge-pill badge-warning notification">3</span>
@@ -126,8 +126,8 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item text-center" href="#">View all notifications</a>
             </div>
-          </div>
-          <div class="dropdown">
+          </div> -->
+          <!-- <div class="dropdown">
             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-envelope"></i>
               <span class="badge badge-pill badge-success notification">7</span>
@@ -189,8 +189,8 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item text-center" href="#">View all messages</a>
             </div>
-          </div>
-          <div class="dropdown">
+          </div> -->
+          <!-- <div class="dropdown">
             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-cog"></i>
               <span class="badge-sonar"></span>
@@ -200,38 +200,38 @@
               <a class="dropdown-item" href="#">Help</a>
               <a class="dropdown-item" href="#">Setting</a>
             </div>
-          </div>
-          <div class="out">
+          </div> -->
+          <div class="out bg-danger shadow-lg rounded">
             <a @click="logout()">
               <i class="fa fa-power-off"></i>
             </a>
           </div>
-          <div class="pinned-footer">
+          <!-- <div class="pinned-footer">
             <a href="#">
               <i class="fas fa-ellipsis-h"></i>
             </a>
-          </div>
+          </div> -->
         </div>
       </nav>
       <!-- page-content  -->
       <main class="page-content pt-2 bg-light">
-        <div id="overlay" class="overlay"></div>
+        <!-- <div id="overlay" class="overlay"></div> -->
     <div class="container-fluid p-5">
 
              <router-view/>
     </div>
       </main>
-      <!-- page-content" -->
+
     </div>
   </div>
 </template>
 
 <script>
-// import { fire } from '../firebase'
+
 export default {
   name: 'admin',
   components: {
-    // dashboard
+
   },
   data () {
     return {
