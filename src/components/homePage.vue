@@ -26,7 +26,7 @@ export default {
 </script>
 <style scoped>
 .display{
-    background-image: url('../assets/images/bg-2.jpg');
+    background-image: url('../assets/images/test1.jpg');
     height:100vh;
     background-size: cover;
     background-repeat: no-repeat;

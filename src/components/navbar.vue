@@ -1,8 +1,8 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
       <router-link to="/homePage" class="navbar-brand" >
-    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top bg-white img-fluid" alt="" loading="lazy">
+    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top  img-fluid" alt="" loading="lazy">
   </router-link>
       <button
         class="navbar-toggler"
@@ -13,7 +13,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="fas fa-bars"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
@@ -117,4 +117,16 @@ export default {
 </script>
 
 <style scoped>
+.nav-link{
+  color: black !important;
+}
+nav{
+  border-bottom: 8px solid orangered;
+}
+.fa-bars{
+  color: orangered;
+}
+.nav-link:hover{
+  color: orangered !important;
+}
 </style>
