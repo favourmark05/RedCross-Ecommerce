@@ -38,7 +38,7 @@
           <!-- first content -->
           <div class="col-sm"> <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery</a></div>
+    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a></div>
         </div>
 
         <!-- second slide -->
@@ -47,7 +47,7 @@
           <div class="col-sm pt-5">
             <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery</a>
+    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
           </div>
           <!-- second images -->
           <div class="col-sm">
@@ -107,10 +107,10 @@
               </div>
             </div>
           </div>
-          <div class="col-sm pt-5">
+          <div class="col-sm pt-5 justify-content-center">
                <h1 class="card-title">Oil Painting</h1>
-    <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery</a>
+    <p class="card-text pb-5 ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
           </div>
         </div>
         <!-- fourth slide -->
@@ -118,7 +118,7 @@
           <div class="col-sm pt-5">
                <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery</a>
+    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
           </div>
           <div class="col-sm">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -176,7 +176,7 @@ hr.style-eight {
   text-align: center;
 }
 hr.style-eight:after {
-  content: "\002665";
+  /* content: "fab fa-staylinked"; */
   display: inline-block;
   position: relative;
   top: -1.3em;
@@ -247,5 +247,13 @@ hr.style-eight:after {
 .card-link:hover:before, .card-link:focus:before, .card-link:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+}
+.card-text {
+  /* width: 15rem !important; */
+  text-align: center !important;
+  padding: 0 7rem;
+}
+.card-link{
+  color: white;
 }
 </style>

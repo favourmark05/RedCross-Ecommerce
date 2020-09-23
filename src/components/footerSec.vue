@@ -54,7 +54,7 @@ hr.style-eight {
   text-align: center;
 }
 hr.style-eight:after {
-  content: "\002665";
+  /* content: "\002665"; */
   display: inline-block;
   position: relative;
   top: -1.3em;

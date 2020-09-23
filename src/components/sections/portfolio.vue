@@ -19,34 +19,32 @@
   <div class="artDisplay py-4">
   <div class="col-12 py-4">
     <div class="tab-content" id="nav-tabContent">
+
+                    <!-- All art work -->
+
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-          <!-- first -->
           <div class="card-columns">
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title that wraps to a new line</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
   </div>
+
   <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+
   <div class="card bg-dark text-white text-center p-3">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur jkj adipiscing elit. Integer posuere erat.</p>
@@ -57,16 +55,20 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card text-center">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card p-3 text-right">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -77,47 +79,44 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+    <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
   </div>
 </div>
       </div>
+
       <!-- end -->
+
+        <!-- start of nature  -->
+
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
           <!-- second -->
-          <div class="card-columns">
+         <div class="card-columns">
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title that wraps to a new line</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
   </div>
+
   <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-  <div class="card bg-primary text-white text-center p-3">
+
+  <div class="card bg-dark text-white text-center p-3">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur jkj adipiscing elit. Integer posuere erat.</p>
       <footer class="blockquote-footer text-white">
         <small>
           Someone famous in <cite title="Source Title">Source Title</cite>
@@ -125,16 +124,20 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card text-center">
+    <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card p-3 text-right">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -145,47 +148,45 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
   </div>
 </div>
       </div>
-      <!-- end -->
+      <!-- end of nature-->
+
+            <!-- ==================================break================================== -->
+
+          <!-- start of people -->
+
       <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
           <!-- start -->
-          <div class="card-columns">
+         <div class="card-columns">
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title that wraps to a new line</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
   </div>
+
   <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-  <div class="card bg-primary text-white text-center p-3">
+
+  <div class="card bg-dark text-white text-center p-3">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur jkj adipiscing elit. Integer posuere erat.</p>
       <footer class="blockquote-footer text-white">
         <small>
           Someone famous in <cite title="Source Title">Source Title</cite>
@@ -193,16 +194,20 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card text-center">
+    <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card p-3 text-right">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -213,47 +218,45 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
   </div>
 </div>
       </div>
-      <!-- end -->
+      <!-- end of people -->
+
+      <!-- =======================================break============================================== -->
+
+                <!-- start of street -->
+
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
           <!-- start -->
           <div class="card-columns">
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title that wraps to a new line</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
   </div>
+
   <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
-  <div class="card bg-primary text-white text-center p-3">
+
+  <div class="card bg-dark text-white text-center p-3">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur jkj adipiscing elit. Integer posuere erat.</p>
       <footer class="blockquote-footer text-white">
         <small>
           Someone famous in <cite title="Source Title">Source Title</cite>
@@ -261,16 +264,20 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card text-center">
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>
+
   <div class="card">
-    <img src="" class="card-img-top" alt="...">
+    <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
   </div>
+
   <div class="card p-3 text-right">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -281,15 +288,15 @@
       </footer>
     </blockquote>
   </div>
+
   <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
   </div>
 </div>
       </div>
+
+      <!-- end of street -->
+
     </div>
   </div>
 </div>
@@ -357,5 +364,8 @@ hr.style-eight:after {
   background-color: #d9534f ;
   border:2px solid #d9534f ;
 }
-
+.card{
+  border: 10px solid rgb(73, 49, 40);
+  border-inline-start-style: groove;
+}
 </style>
