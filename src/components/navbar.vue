@@ -132,7 +132,7 @@ nav{
 
  @media only screen and (max-width: 976px) {
   .navbar {
-    position: relative;
+    /* position: fixed; */
 }
 .brand {
     position: absolute;
