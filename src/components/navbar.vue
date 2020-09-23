@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
       <router-link to="/homePage" class="navbar-brand" >
-    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top  img-fluid" alt="" loading="lazy">
+    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top  img-fluid brand" alt="" loading="lazy">
   </router-link>
       <button
         class="navbar-toggler"
@@ -128,5 +128,18 @@ nav{
 }
 .nav-link:hover{
   color: orangered !important;
+}
+
+ @media only screen and (max-width: 976px) {
+  .navbar {
+    position: relative;
+}
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;
+    margin-top: -25px !important;
+    display: block;
+}
 }
 </style>
