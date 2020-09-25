@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <img src="../assets/images/oriona.jpeg" class="img-fluid pt-5" alt srcset />
+          <img src="../assets/images/oriona.jpeg" class="img-fluid pt-5 logo-img" alt srcset />
         </div>
         <div class="col-sm-4 pt-5 map">
           <h1 class="text-white pt-5">Our contact Info</h1>
@@ -76,16 +76,16 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="FullName" class="text-white">Full Name</label>
-                <input type="text" class="form-control bg-dark" id="FullName" />
+                <input type="text" class="form-control bg-dark text-white" id="FullName" />
               </div>
               <div class="form-group col-md-6">
                 <label for="email" class="text-white">Email</label>
-                <input type="email" class="form-control bg-dark" id="email" />
+                <input type="email" class="form-control bg-dark text-white" id="email" />
               </div>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1" class="text-white">Message</label>
-              <textarea class="form-control bg-dark" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control bg-dark text-white" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" @send.prevent="message" class="btn btn-dark">Send</button>
           </form>
@@ -104,7 +104,7 @@
                 <div class="input-group mb-3 form">
             <input
               type="email"
-              class="form-control bg-dark"
+              class="form-control bg-dark text-white"
               placeholder="Email Address"
               aria-label="Email Address"
               aria-describedby="button-addon2"
@@ -147,9 +147,9 @@
   background-size: cover;
   /* opacity: 0.2; */
 }
-.col-sm > img {
-  height: 400px;
-  border-radius: 90px !important;
+.logo-img {
+  height: 500px;
+  border-radius: 10% !important;
 }
 .fas {
   color: gray;
