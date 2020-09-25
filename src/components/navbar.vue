@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <router-link to="/main" class="nav-link">Gallery</router-link>
+            <router-link to="/sideBar" class="nav-link">Gallery</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/contactUs" class="nav-link">Contact</router-link>
