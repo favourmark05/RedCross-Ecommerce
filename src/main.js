@@ -31,7 +31,7 @@ Vue.use(Toasted, {
 Vue.component('navbar', require('./components/navbar.vue').default)
 Vue.component('homePage', require('./components/homePage.vue').default)
 Vue.component('portfolio', require('./components/sections/portfolio.vue').default)
-// Vue.component('footerSec', require('./components/footerSec.vue').default)
+Vue.component('footerSec', require('./components/footerSec.vue').default)
 
 Vue.prototype.auth = firebase
 
