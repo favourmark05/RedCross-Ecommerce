@@ -27,10 +27,10 @@
             <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <router-link to="/main" class="nav-link" href="#">Gallery</router-link>
+            <router-link to="/main" class="nav-link">Gallery</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <router-link to="/contactUs" class="nav-link">Contact</router-link>
           </li>
           <li class="nav-item">
             <a data-toggle="modal" data-target="#staticBackdrop" class="nav-link" href="#" @click="$bvModal.show('bv-modal-example')">Register</a>
