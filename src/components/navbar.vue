@@ -18,16 +18,16 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <router-link to="/" class="nav-link" >
               Home
               <span class="sr-only">(current)</span>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Gallery</a>
+            <router-link to="/main" class="nav-link" href="#">Gallery</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>

@@ -194,7 +194,8 @@ hr.style-eight:after {
   font-family: 'Comic Neue', cursive;
 }
 .carousel-inner {
-  border: 1px solid #fff;
+  border: 6px solid #fff;
+  border-inline-start-style: groove;
 }
 .card-link:hover{
   /* background-color: red; */
@@ -255,5 +256,8 @@ hr.style-eight:after {
 }
 .card-link{
   color: white;
+}
+.row{
+  padding: 0 0.5rem !important;
 }
 </style>

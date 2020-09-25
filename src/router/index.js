@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import homePage from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
+import main from '../components/Gallery/main.vue'
 import dashboard from '../components/Adminboard/dashboard.vue'
 import product from '../components/Adminboard/product.vue'
 import sales from '../components/Adminboard/sales.vue'
@@ -19,6 +20,29 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: Admin,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: dashboard
+      },
+      {
+        path: '/product',
+        name: 'product',
+        component: product
+      },
+      {
+        path: '/sales',
+        name: 'sales',
+        component: sales
+      }
+    ]
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: main,
     meta: { requiresAuth: true },
     children: [
       {
