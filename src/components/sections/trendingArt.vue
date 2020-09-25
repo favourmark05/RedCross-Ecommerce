@@ -9,30 +9,26 @@
         <!-- first slides -->
         <div class="row">
           <div class="col-sm">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div id="carousel1" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img
-                    src="../../assets/images/blog-images/blog-img1.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <img src="../../assets/images/blog-images/blog-img1.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img2.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <img src="../../assets/images/blog-images/blog-img3.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img3.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <img src="../../assets/images/blog-images/blog-img2.jpg" class="d-block w-100" alt="...">
                 </div>
               </div>
+              <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
           </div>
           <!-- first content -->
@@ -51,61 +47,53 @@
           </div>
           <!-- second images -->
           <div class="col-sm">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img
-                    src="../../assets/images/blog-images/blog-img4.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img5.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img6.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
+            <div id="carousel2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../assets/images/blog-images/blog-img4.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img5.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img6.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
+            <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
           </div>
         </div>
         <!-- third slides -->
         <div class="row">
           <div class="col-sm">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img
-                    src="../../assets/images/blog-images/blog-img7.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img8.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img9.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
+            <div id="carousel3" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../assets/images/blog-images/blog-img10.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img12.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img16.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
+            <a class="carousel-control-prev" href="#carousel3" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel3" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
           </div>
           <div class="col-sm pt-5 justify-content-center">
                <h1 class="card-title">Oil Painting</h1>
@@ -121,31 +109,27 @@
     <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
           </div>
           <div class="col-sm">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img
-                    src="../../assets/images/blog-images/blog-img10.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img11.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../../assets/images/blog-images/blog-img12.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
-                </div>
+            <div id="carousel4" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../assets/images/blog-images/blog-img9.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img8.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/blog-images/blog-img13.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
+            <a class="carousel-control-prev" href="#carousel4" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel4" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
           </div>
         </div>
         <!-- end of slides -->

@@ -17,12 +17,22 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <router-link to="/" class="nav-link" >
               Home
               <span class="sr-only">(current)</span>
             </router-link>
-          </li>
+          </li> -->
+          <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <router-link to="/Authen" class="dropdown-item">Login</router-link>
+          <a class="dropdown-item" data-toggle="modal" data-target="#staticBackdrop"  @click="$bvModal.show('bv-modal-example')">REGISTER</a>
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
@@ -32,12 +42,12 @@
           <li class="nav-item">
             <router-link to="/contactUs" class="nav-link">Contact</router-link>
           </li>
-          <li class="nav-item">
-            <a data-toggle="modal" data-target="#staticBackdrop" class="nav-link" href="#" @click="$bvModal.show('bv-modal-example')">Register</a>
+          <!-- <li class="nav-item">
+            <a >Register</a>
           </li>
           <li class="nav-item">
-            <router-link to="/Authen" class="nav-link" >Admin</router-link>
-          </li>
+
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -118,7 +128,7 @@ export default {
 
 <style scoped>
 .nav-link{
-  color: black !important;
+  color: gray !important;
 }
 nav{
   border-bottom: 8px solid orangered;
@@ -128,6 +138,17 @@ nav{
 }
 .nav-link:hover{
   color: orangered !important;
+}
+.fa-sign-in-alt:hover{
+  color: orangered !important;
+  text-decoration: none;
+}
+.dropdown-item:hover{
+  color: orangered;
+  cursor: pointer !important;
+}
+.fa-sign-in-alt,.dropdown-toggle{
+  color: gray !important;
 }
 
  @media only screen and (max-width: 976px) {

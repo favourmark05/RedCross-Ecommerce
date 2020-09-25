@@ -33,7 +33,7 @@
     padding-top:5rem;
 }
 .nav-link{
-    color: white !important;
+    color: rgb(138, 129, 129) !important;
     padding: 0 20px !important;
 }
 .fa-bars{

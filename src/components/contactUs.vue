@@ -2,7 +2,7 @@
   <div>
     <navbar />
     <div class="contact">
-      <h1 class="text-center pt-5">Contact-Us</h1>
+      <h1 class="text-center pt-5 ">Contact-Us</h1>
     </div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb pl-5">
@@ -20,19 +20,19 @@
         <div class="col-sm-4 pt-5 map">
           <h1 class="text-white pt-5">Our contact Info</h1>
           <i class="fas fa-map-marker-alt pb-4">
-            <span>22 Abuja Road, Nigeria</span>
+            <span>  22 Abuja Road, Nigeria</span>
           </i>
           <br />
           <i class="fas fa-mobile-alt pb-4">
-            <span>+2349034754819</span>
+            <span>  +2349034754819</span>
           </i>
           <br />
           <i class="fas fa-fax pb-4">
-            <span>0187465</span>
+            <span>  0187465</span>
           </i>
           <br />
           <i class="fas fa-envelope pb-4">
-            <span>oriona@gmail.com</span>
+            <span>  oriona@gmail.com</span>
           </i>
           <br />
           <div class="social">
@@ -50,19 +50,19 @@
         <div class="col-sm-4">
           <h1 class="text-white pt-5">Our Lagos Office</h1>
           <i class="fas fa-map-marker-alt pb-4">
-            <span>22 Abuja Road, Nigeria</span>
+            <span>  22 Abuja Road, Nigeria</span>
           </i>
           <br />
           <i class="fas fa-mobile-alt pb-4">
-            <span>+2349034754819</span>
+            <span>  +2349034754819</span>
           </i>
           <br />
           <i class="fas fa-fax pb-4">
-            <span>0187465</span>
+            <span>  0187465</span>
           </i>
           <br />
           <i class="fas fa-envelope pb-4">
-            <span>oriona@gmail.com</span>
+            <span>  oriona@gmail.com</span>
           </i>
           <br />
           <div class="social">
@@ -129,12 +129,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 .contact {
   background-image: url("../assets/images/contactUs.jpg");
-  height: 45vh;
+  height: 35vh;
   background-size: cover;
   padding-top: 5.5rem;
 }
 .contact > h1 {
   font-size: 8vw;
+  color: whitesmoke;
 }
 .home {
   color: orangered !important;
@@ -180,5 +181,11 @@
 }
 .subContent{
     color: rgb(163, 158, 158) !important;
+}
+.fas {
+  color: white !important;
+}
+i > span{
+  color:rgb(129, 125, 125);
 }
 </style>
