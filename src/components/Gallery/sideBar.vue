@@ -11,8 +11,8 @@
     <div class="navbar-nav">
       <a class="nav-link active" href="#">My Account <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="#">CheckOut</a>
-      <a class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> N5000</a>
-      <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      <a class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</a>
+      <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
     </div>
   </div>
 </nav>
@@ -24,8 +24,169 @@
     <hr class="style-eight py-4">
 </div>
 </div>
+
+            <!-- ====================== side bar ==================== -->
+<div class="container">
+    <div class="row">
+    <div class="card-deck">
+  <div class="card">
+    <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+</div>
+
+    <!-- second set of images -->
+    <div class="card-deck py-5">
+  <div class="card">
+    <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+</div>
+
+<!-- third set of images -->
+<div class="card-deck">
+  <div class="card">
+    <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> {{ title }} </h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h4 class="text-muted"> {{ price }} </h4>
+    </div>
+    <div class="card-footer text-center">
+      <h3 class="text-muted text-center">Add to cart</h3>
+    </div>
+  </div>
+</div>
+    </div>
+</div>
+            <!-- ========================= End of side bar ================= -->
+            <footerSec/>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      title: 'Art Name',
+      price: '$590'
+    }
+  }
+}
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
@@ -60,5 +221,12 @@ hr.style-eight:after {
 }
 .caption > h1 {
     font-family: 'Sacramento', sans-serif;
+}
+h3:hover{
+    color: white !important;
+}
+.card-footer:hover{
+    background-color: orangered;
+    color: white !important;
 }
 </style>
