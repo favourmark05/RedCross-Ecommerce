@@ -1,8 +1,10 @@
 <template>
   <div class="productPage">
     <h1 class="text-center">product</h1>
+    <!-- =============== create product ======== -->
     <form>
-      <div class="form-group">
+      <div class="form-row">
+    <div class="form-group col-md-6">
         <label for="exampleInputEmail1">product name</label>
         <input
           type="text"
@@ -13,7 +15,7 @@
           v-model="product.productName"
         />
       </div>
-      <div class="form-group">
+    <div class="form-group col-md-6">
         <label for="exampleInputPassword1">Product Price</label>
         <input
           type="number"
@@ -23,8 +25,25 @@
           v-model="product.productPrice"
         />
       </div>
+  </div>
+  <div class="form-group">
+    <label for="productTags">Product Tags</label>
+    <input type="text" class="form-control" id="productTags" placeholder="Tags">
+  </div>
+  <div class="form-group">
+    <label for="productDescription">Product Description</label>
+    <textarea class="form-control" id="productDescription" rows="5"></textarea>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="productImage">Product Image</label>
+    <input type="file" class="form-control-file" id="productImage" accept="image/*"/>
+    </div>
+  </div>
       <button class="btn btn-danger" @click.prevent="registerProduct()" id="btSubmit" :disabled="!product.productPrice || !product.productName">Submit</button>
     </form>
+
+    <!-- =============== end of create product ============ -->
 <div class="table-responsive">
       <hr>
     <table class="table">
@@ -109,9 +128,20 @@ export default {
     }
   },
   methods: {
+    watcher () {
+      db.collection('products').onSnapshot((querySnapshot) => {
+        this.products = []
+        querySnapshot.forEach((doc) => {
+          this.products.push(doc)
+        })
+        // console.log('Current cities in CA: ', this.products.join(', '))
+      })
+    },
     updateProduct () {
       db.collection('products').doc(this.activeItem).update(this.product)
         .then(() => {
+          this.product = {}
+          this.watcher()
           this.$toasted.success('Product updated successfully', { icon: { name: 'check' } })
         })
         .catch((error) => {
@@ -124,17 +154,47 @@ export default {
       this.activeItem = product.id
     },
     deleteProduct (doc) {
-      if (confirm('are you sure')) {
+      const swalWithBootstrapButtons = this.$swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
         db.collection('products').doc(doc).delete().then(() => {
+          this.watcher()
           console.log('Document successfully deleted!')
           // alert(doc)
         }).catch((error) => {
           console.error('Error removing document: ', error)
         })
-        // alert(doc)
-      } else {
-
-      }
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        } else if (
+        /* Read more about handling dismissals below */
+          result.dismiss === this.$swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
     },
     registerProduct () {
       db.collection('products').add(this.product)
