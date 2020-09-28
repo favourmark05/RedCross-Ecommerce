@@ -6,20 +6,24 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'popper.js'
 import firebase from './firebase'
-import jQuery from 'jquery'
 import Toasted from 'vue-toasted'
-import SweetAlertIcons from 'vue-sweetalert-icons'
-import VueSweetalert2 from 'vue-sweetalert2'
-import 'sweetalert2/dist/sweetalert2.min.css'
+import Swal from 'sweetalert2'
+import VueFirestore from 'vue-firestore'
+import jQuery from 'jquery'
+
+Vue.use(VueFirestore, {
+  key: 'id', // the name of the property. Default is '.key'.
+  enumerable: true //  whether it is enumerable or not. Default is true.
+})
+
+window.Swal = Swal
 
 window.$ = window.jQuery = jQuery
 
 window.$ = require('jquery')
 window.JQuery = require('jquery')
-
+Vue.use(VueFirestore)
 Vue.use(BootstrapVue)
-Vue.use(VueSweetalert2)
-Vue.use(SweetAlertIcons)
 Vue.use(IconsPlugin)
 Vue.use(Toasted, {
 

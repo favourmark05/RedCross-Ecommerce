@@ -1,6 +1,6 @@
 <template>
   <div class="productPage">
-    <h1 class="text-center">product</h1>
+    <h1 class="text-center text-muted pb-3">Add New Product</h1>
     <!-- =============== create product ======== -->
     <form>
       <div class="form-row">
@@ -28,39 +28,45 @@
   </div>
   <div class="form-group">
     <label for="productTags">Product Tags</label>
-    <input type="text" class="form-control" id="productTags" placeholder="Tags">
+    <input type="text" class="form-control" v-model="product.productTag" id="productTags" placeholder="Tags">
   </div>
   <div class="form-group">
     <label for="productDescription">Product Description</label>
-    <textarea class="form-control" id="productDescription" rows="5"></textarea>
+    <textarea class="form-control" v-model="product.productDescription" id="productDescription" rows="5"></textarea>
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="productImage">Product Image</label>
-    <input type="file" class="form-control-file" id="productImage" accept="image/*"/>
+    <input type="file" class="form-control-file" @change="uploadImage()" id="productImage" accept="image/*"/>
     </div>
   </div>
-      <button class="btn btn-danger" @click.prevent="registerProduct()" id="btSubmit" :disabled="!product.productPrice || !product.productName">Submit</button>
+      <button class="btn btn-success float-right " @click.prevent="registerProduct()" id="btSubmit" >Add Product</button>
     </form>
 
     <!-- =============== end of create product ============ -->
-<div class="table-responsive">
+<div class="table-responsive pt-4">
       <hr>
     <table class="table">
   <thead>
     <tr>
       <th scope="col">Product Name</th>
       <th scope="col">Product Price</th>
+      <th scope="col">Product Tag</th>
+      <th scope="col">Desscription</th>
+      <th scope="col">Images</th>
       <th scope="col">Modify</th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="(product, productID) in products" :key="productID">
-      <td> {{ product.data().productName }}</td>
-      <td> {{ product.data().productPrice }}</td>
+      <td> {{ product.productName }}</td>
+      <td> $ {{ product.productPrice }}</td>
+      <td> {{ product.productTag }}</td>
+      <td> {{ product.productDescription }}</td>
+      <td> {{ product.productImage }}</td>
       <td>
         <button @click="editProduct(product)" class="btn btn-primary" data-toggle="modal" data-target="#edit">Edit</button>
-        <button @click="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+        <button @click="deleteProduct(product)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </tbody>
@@ -69,7 +75,7 @@
       <!-- ========== for the edit modal =========== -->
       <!-- Modal -->
         <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="editLabel">Edit Product</h5>
@@ -79,32 +85,48 @@
               </div>
               <div class="modal-body">
                 <!-- ===== the form ==== -->
-                <div class="form-group">
-                  <label for="exampleInputEmail1">product name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputProduct"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter product name"
-                    v-model="product.productName"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Product Price</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="inputPrice"
-                    placeholder="Enter product Price"
-                    v-model="product.productPrice"
-                  />
-                </div>
+                <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="exampleInputEmail1">product name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputProduct"
+          aria-describedby="emailHelp"
+          placeholder="Enter product name"
+          v-model="product.productName"
+        />
+      </div>
+    <div class="form-group col-md-6">
+        <label for="exampleInputPassword1">Product Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="inputPrice"
+          placeholder="Enter product Price"
+          v-model="product.productPrice"
+        />
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="productTags">Product Tags</label>
+    <input type="text" class="form-control" v-model="product.productTag" id="productTags" placeholder="Tags">
+  </div>
+  <div class="form-group">
+    <label for="productDescription">Product Description</label>
+    <textarea class="form-control" v-model="product.productDescription" id="productDescription" rows="5"></textarea>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="productImage">Product Image</label>
+    <input type="file" class="form-control-file" @change="uploadImage()" id="productImage" accept="image/*"/>
+    </div>
+  </div>
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" @click="updateProduct()" data-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-primary" @click="updateProduct(product)" data-dismiss="modal">Save changes</button>
               </div>
             </div>
           </div>
@@ -114,6 +136,7 @@
 
 <script>
 import { db } from '../../firebase'
+import Swal from 'sweetalert2'
 
 export default {
   name: 'productPage',
@@ -122,106 +145,60 @@ export default {
       products: [],
       product: {
         productName: null,
-        productPrice: null
+        productPrice: null,
+        productTag: null,
+        productDescription: null,
+        productImage: null
       },
       activeItem: null
     }
   },
+  firestore () {
+    return {
+      products: db.collection('products')
+    }
+  },
   methods: {
-    watcher () {
-      db.collection('products').onSnapshot((querySnapshot) => {
-        this.products = []
-        querySnapshot.forEach((doc) => {
-          this.products.push(doc)
-        })
-        // console.log('Current cities in CA: ', this.products.join(', '))
-      })
-    },
     updateProduct () {
-      db.collection('products').doc(this.activeItem).update(this.product)
-        .then(() => {
-          this.product = {}
-          this.watcher()
-          this.$toasted.success('Product updated successfully', { icon: { name: 'check' } })
-        })
-        .catch((error) => {
-          // The document probably doesn't exist.
-          console.error('Error updating document: ', error)
-        })
+      this.$firestore.products.doc(this.product.id).update(this.product)
+      this.product = {}
+      this.$toasted.success('Product updated successfully', { icon: { name: 'check' } })
     },
     editProduct (product) {
-      this.product = product.data()
-      this.activeItem = product.id
+      this.product = product
     },
     deleteProduct (doc) {
-      const swalWithBootstrapButtons = this.$swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
-
-      swalWithBootstrapButtons.fire({
+      Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
-        db.collection('products').doc(doc).delete().then(() => {
-          this.watcher()
-          console.log('Document successfully deleted!')
-          // alert(doc)
-        }).catch((error) => {
-          console.error('Error removing document: ', error)
-        })
         if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
+          this.$firestore.products.doc(doc['.key']).delete()
+          Swal.fire(
             'Deleted!',
             'Your file has been deleted.',
             'success'
-          )
-        } else if (
-        /* Read more about handling dismissals below */
-          result.dismiss === this.$swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
-            'error'
           )
         }
       })
     },
     registerProduct () {
-      db.collection('products').add(this.product)
-        .then((docRef) => {
-          console.log('Document written with ID: ', docRef.id)
-          this.readData()
-          this.product = {}
-          this.$toasted.success('Product created successfully', { icon: { name: 'check' } })
-        })
-        .catch((error) => {
-          console.error('Error adding document: ', error)
-        })
+      this.$firestore.products.add(this.product)
+      this.product = {}
+      this.$toasted.success('Product created successfully', { icon: { name: 'check' } })
     },
     readData () {
-      this.products = []
-      db.collection('products').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          this.products.push(doc)
-        })
-      })
+
     }
   },
   reset () {
-    // Object.assign(this.$data, this.$options.data.apply(this))
   },
   created () {
-    this.readData()
   }
 }
 </script>
