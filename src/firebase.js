@@ -1,5 +1,7 @@
 import firebase from 'firebase'
+// import 'firebase/storage'
 require('firebase/firestore')
+// require('firebase/storage')
 
 var firebaseConfig = {
   apiKey: 'AIzaSyADdTmyXpRVreo52k7FCxc4PIkQ4L6Jl_s',
@@ -16,6 +18,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 firebase.analytics()
 var db = firebase.firestore()
+// var fb = firebase.storage()
 export { db }
 export default firebase.auth()
-// firebase.firestore()

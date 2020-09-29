@@ -28,16 +28,20 @@
   </div>
   <div class="form-group">
     <label for="productTags">Product Tags</label>
-    <input type="text" class="form-control" v-model="product.productTag" id="productTags" placeholder="Tags">
+    <input type="text" class="form-control" @keyup.188="addTag()" v-model="tag" id="productTags" placeholder="Tags">
+    <ul class="tag-list">
+      <li v-for="(tag, tagList) in product.productTags" :key="tagList">{{ tag }}</li>
+    </ul>
   </div>
   <div class="form-group">
     <label for="productDescription">Product Description</label>
-    <textarea class="form-control" v-model="product.productDescription" id="productDescription" rows="5"></textarea>
+    <vue-editor v-model="product.productDescription"></vue-editor>
+    <!-- <textarea class="form-control" v-model="product.productDescription" id="productDescription" rows="5"></textarea> -->
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="productImage">Product Image</label>
-    <input type="file" class="form-control-file" @change="uploadImage()" id="productImage" accept="image/*"/>
+    <input type="file" class="form-control-file" @change="uploadImage" id="productImage" accept="image/*"/>
     </div>
   </div>
       <button class="btn btn-success float-right " @click.prevent="registerProduct()" id="btSubmit" >Add Product</button>
@@ -61,7 +65,7 @@
     <tr v-for="(product, productID) in products" :key="productID">
       <td> {{ product.productName }}</td>
       <td> $ {{ product.productPrice }}</td>
-      <td> {{ product.productTag }}</td>
+      <td> {{ product.productTags }}</td>
       <td> {{ product.productDescription }}</td>
       <td> {{ product.productImage }}</td>
       <td>
@@ -110,16 +114,19 @@
   </div>
   <div class="form-group">
     <label for="productTags">Product Tags</label>
-    <input type="text" class="form-control" v-model="product.productTag" id="productTags" placeholder="Tags">
+    <input type="text" class="form-control" @keyup.188="addTag()" v-model="tag" id="productTags" placeholder="Tags">
+    <ul class="tag-list">
+      <li v-for="(tag, tagList) in product.productTags" :key="tagList">{{ tag }}</li>
+    </ul>
   </div>
   <div class="form-group">
     <label for="productDescription">Product Description</label>
-    <textarea class="form-control" v-model="product.productDescription" id="productDescription" rows="5"></textarea>
+    <vue-editor v-model="product.productDescription"></vue-editor>
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="productImage">Product Image</label>
-    <input type="file" class="form-control-file" @change="uploadImage()" id="productImage" accept="image/*"/>
+    <input type="file" class="form-control-file" @change="uploadImage" id="productImage" accept="image/*"/>
     </div>
   </div>
 
@@ -135,10 +142,14 @@
 </template>
 
 <script>
+import { VueEditor } from 'vue2-editor'
 import { db } from '../../firebase'
 import Swal from 'sweetalert2'
 
 export default {
+  components: {
+    VueEditor
+  },
   name: 'productPage',
   data () {
     return {
@@ -146,11 +157,12 @@ export default {
       product: {
         productName: null,
         productPrice: null,
-        productTag: null,
+        productTags: [],
         productDescription: null,
         productImage: null
       },
-      activeItem: null
+      activeItem: null,
+      tag: null
     }
   },
   firestore () {
@@ -159,6 +171,19 @@ export default {
     }
   },
   methods: {
+    uploadImage (e) {
+      // const file = e.target.files[0]
+
+      // var storageRef = fb.storage().ref('products/' + file.name)
+
+      // storageRef.put(file)
+
+      // console.log(e.target.files[0])
+    },
+    addTag () {
+      this.product.productTags.push(this.tag)
+      this.tag = ''
+    },
     updateProduct () {
       this.$firestore.products.doc(this.product.id).update(this.product)
       this.product = {}
@@ -178,7 +203,7 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.$firestore.products.doc(doc['.key']).delete()
+          this.$firestore.products.doc(doc.id).delete()
           Swal.fire(
             'Deleted!',
             'Your file has been deleted.',
@@ -205,6 +230,12 @@ export default {
 
 <style scoped>
 td > button {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
+}
+.tag-list > li {
+  text-decoration: none;
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 3px;
 }
 </style>
