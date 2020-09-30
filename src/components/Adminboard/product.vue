@@ -50,7 +50,7 @@
                         <span class="deleteImg" @click="deleteImg(image,images)">X</span>
                 </div>
               </div>
-      <button class="btn btn-success float-right " @click.prevent="registerProduct()" id="btSubmit" >Add Product</button>
+      <button class="btn btn-success float-right " @click.prevent="registerProduct()" id="btSubmit" :disabled="!product.productName || !product.productPrice || !product.productDescription">Add Product</button>
     </form>
 
     <!-- =============== end of create product ============ -->
