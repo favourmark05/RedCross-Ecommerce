@@ -44,6 +44,12 @@
     <input type="file" class="form-control-file" @change="uploadImage" id="productImage" accept="image/*"/>
     </div>
   </div>
+            <div class="form-group d-flex py-3">
+                <div  v-for="(image, images) in product.productImage" :key="images">
+                        <img :src="image" alt="" srcset="" class="disImage img-fluid p-2">
+                        <span class="deleteImg" @click="deleteImg(image,images)">X</span>
+                </div>
+              </div>
       <button class="btn btn-success float-right " @click.prevent="registerProduct()" id="btSubmit" >Add Product</button>
     </form>
 
@@ -111,24 +117,30 @@
           v-model="product.productPrice"
         />
       </div>
-  </div>
-  <div class="form-group">
-    <label for="productTags">Product Tags</label>
-    <input type="text" class="form-control" @keyup.188="addTag()" v-model="tag" id="productTags" placeholder="Tags">
-    <ul class="tag-list">
-      <li v-for="(tag, tagList) in product.productTags" :key="tagList">{{ tag }}</li>
-    </ul>
-  </div>
-  <div class="form-group">
-    <label for="productDescription">Product Description</label>
-    <vue-editor v-model="product.productDescription"></vue-editor>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="productImage">Product Image</label>
-    <input type="file" class="form-control-file" @change="uploadImage" id="productImage" accept="image/*"/>
-    </div>
-  </div>
+            </div>
+            <div class="form-group">
+              <label for="productTags">Product Tags</label>
+              <input type="text" class="form-control" @keyup.188="addTag()" v-model="tag" id="productTags" placeholder="Tags">
+              <ul class="tag-list">
+                <li v-for="(tag, tagList) in product.productTags" :key="tagList">{{ tag }}</li>
+              </ul>
+            </div>
+            <div class="form-group">
+              <label for="productDescription">Product Description</label>
+              <vue-editor v-model="product.productDescription"></vue-editor>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="productImage">Product Image</label>
+              <input type="file" class="form-control-file" @change="uploadImage" id="productImage" accept="image/*"/>
+              </div>
+            </div>
+            <div class="form-group d-flex ">
+              <div  v-for="(image, images) in product.productImage" :key="images">
+                      <img :src="image" alt="" srcset="" class="disImage img-fluid p-2">
+                      <span class="deleteImg" @click="deleteImg(image,images)">X</span>
+              </div>
+            </div>
 
               </div>
               <div class="modal-footer">
@@ -143,8 +155,9 @@
 
 <script>
 import { VueEditor } from 'vue2-editor'
-import { db } from '../../firebase'
+import { db, st } from '../../firebase'
 import Swal from 'sweetalert2'
+// import { st } from 'firebase/storage'
 
 export default {
   components: {
@@ -159,7 +172,7 @@ export default {
         productPrice: null,
         productTags: [],
         productDescription: null,
-        productImage: null
+        productImage: []
       },
       activeItem: null,
       tag: null
@@ -171,14 +184,32 @@ export default {
     }
   },
   methods: {
+    deleteImg (img, images) {
+      const image = st.refFromURL(img)
+      this.product.productImage.splice(images, 1)
+      image.delete().then(() => {
+        console.log('image deleted')
+      }).catch(function (error) {
+        console.log('error occured', error)
+      })
+    },
     uploadImage (e) {
-      // const file = e.target.files[0]
+      if (e.target.files[0]) {
+        var file = e.target.files[0]
+        var storageRef = st.ref('products/' + file.name)
+        const uploadTask = storageRef.put(file)
 
-      // var storageRef = fb.storage().ref('products/' + file.name)
-
-      // storageRef.put(file)
-
-      // console.log(e.target.files[0])
+        uploadTask.on('state_changed', (snapshot) => {
+        }, (error) => {
+        // Handle unsuccessful uploads
+          console.log(error)
+        }, () => {
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            this.product.productImage.push(downloadURL)
+            console.log('File available at', downloadURL)
+          })
+        })
+      }
     },
     addTag () {
       this.product.productTags.push(this.tag)
@@ -191,6 +222,7 @@ export default {
     },
     editProduct (product) {
       this.product = product
+      // this.product = {}
     },
     deleteProduct (doc) {
       Swal.fire({
@@ -237,5 +269,18 @@ td > button {
   list-style-type: none;
   display: inline-block;
   padding: 0 3px;
+}
+.disImage{
+  height: 10rem;
+  width: 10rem;
+}
+.deleteImg {
+  position: relative;
+  top: -14;
+  left: -2px;
+  cursor: pointer;
+  color: red;
+  background-color: white;
+  border: 100%;
 }
 </style>
