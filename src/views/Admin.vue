@@ -62,6 +62,12 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
+                <router-link to="/userProfiles">
+                  <i class="fas fa-users"></i>
+                  <span class="menu-text">User Profiles</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
                 <a @click="logout()">
               <i class="fa fa-power-off"></i>
               <span class="menu-text">LogOut</span>

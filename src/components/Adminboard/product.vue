@@ -63,7 +63,7 @@
       <th scope="col">Product Price</th>
       <th scope="col">Product Tag</th>
       <th scope="col">Desscription</th>
-      <th scope="col">Images</th>
+      <!-- <th scope="col">Images</th> -->
       <th scope="col">Modify</th>
     </tr>
   </thead>
@@ -73,7 +73,7 @@
       <td> $ {{ product.productPrice }}</td>
       <td> {{ product.productTags }}</td>
       <td> {{ product.productDescription }}</td>
-      <td> {{ product.productImage }}</td>
+      <!-- <td> {{ product.productImage }}</td> -->
       <td>
         <button @click="editProduct(product)" class="btn btn-primary" data-toggle="modal" data-target="#edit">Edit</button>
         <button @click="deleteProduct(product)" class="btn btn-danger">Delete</button>
@@ -206,6 +206,7 @@ export default {
         }, () => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.product.productImage.push(downloadURL)
+            // this.productImage = ''
             console.log('File available at', downloadURL)
           })
         })
@@ -213,7 +214,7 @@ export default {
     },
     addTag () {
       this.product.productTags.push(this.tag)
-      this.tag = ''
+      this.tag = []
     },
     updateProduct () {
       this.$firestore.products.doc(this.product.id).update(this.product)
@@ -247,6 +248,7 @@ export default {
     registerProduct () {
       this.$firestore.products.add(this.product)
       this.product = {}
+      // this.reset() = {}
       this.$toasted.success('Product created successfully', { icon: { name: 'check' } })
     },
     readData () {
@@ -254,6 +256,13 @@ export default {
     }
   },
   reset () {
+    this.product = {
+      productName: null,
+      productPrice: null,
+      productTags: [],
+      productDescription: null,
+      productImage: []
+    }
   },
   created () {
   }
