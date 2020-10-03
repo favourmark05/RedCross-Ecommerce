@@ -16,7 +16,7 @@
         />
       </div>
     <div class="form-group col-md-6">
-        <label for="exampleInputPassword1">Product Price</label>
+        <label for="exampleInputPassword1">Product Prices</label>
         <input
           type="number"
           class="form-control"
