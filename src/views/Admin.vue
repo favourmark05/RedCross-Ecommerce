@@ -14,10 +14,10 @@
             </div>
             <div class="user-info">
               <span class="user-name">
-                {{ firstName }} <br>
-                <strong>{{ lastName }}</strong>
+                <!-- {{  }} <br> -->
+                <!-- <strong>{{  }}</strong> -->
               </span>
-              <span class="user-role">{{ role }}</span>
+              <span class="user-role">{{ email }}</span>
               <span class="user-status">
                 <i class="fa fa-circle"></i>
                 <span>Online</span>
@@ -100,7 +100,7 @@ span {
 </style>
 
 <script>
-
+// import { db } from '../firebase'
 export default {
   name: 'admin',
   components: {
@@ -108,10 +108,10 @@ export default {
   },
   data () {
     return {
-      display: false,
-      firstName: 'Mfonido Friday',
-      lastName: 'Mark',
-      role: 'Super Admin'
+      // display: false,
+      fullName: null,
+      email: null
+      // role: 'Super Admin'
     }
   },
   methods: {
@@ -122,6 +122,11 @@ export default {
         console.log(err)
       })
     }
+  },
+  created () {
+    var user = this.auth.currentUser
+    this.fullName = user.uid
+    this.email = user.email
   }
 }
 </script>

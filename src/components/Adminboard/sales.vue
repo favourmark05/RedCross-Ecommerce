@@ -9,3 +9,10 @@ export default {
   name: 'sales'
 }
 </script>
+
+<style scoped>
+.sales{
+  background-color: white !important;
+    height: 100vh !important;
+}
+</style>
