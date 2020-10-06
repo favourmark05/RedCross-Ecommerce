@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import { db } from '../firebase'
+
 export default {
   data () {
     return {
@@ -87,7 +89,18 @@ export default {
   methods: {
     register () {
       this.auth.createUserWithEmailAndPassword(this.email, this.password)
-        .then(() => {
+        .then((user) => {
+          // Add a new document in collection "profiles"
+          db.collection('profiles').doc(user.user.uid).set({
+            fullName: this.fullName
+          })
+            .then(() => {
+              // console.log('Document successfully written!')
+            })
+            .catch((error) => {
+              console.error('Error writing document: ', error)
+            })
+
           this.$toasted.success('Account created successfuly', { icon: { name: 'check' } })
           this.fullName = ''
           this.email = ''

@@ -19,7 +19,7 @@
                                 <div class="form-row pt-5">
                                     <div class="form-group col-md-6">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" v-model="profile.name" id="fullName">
+                                    <input type="text" class="form-control" v-model="profile.fullName" id="fullName">
                                     </div>
                                     <div class="form-group col-md-6">
                                     <label for="phoneNumber">Phone Number</label>
@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" v-model="profile.zipCode" id="inputZip">
                                     </div>
                                 </div>
-                                <button type="submit" @click="saveChanges" class="btn btn-primary">Save</button>
+                                <button type="submit" @click.prevent="saveChanges" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="list-account" role="tabpanel" aria-labelledby="list-account-list">
@@ -97,6 +97,7 @@
 </template>
 
 <script>
+import { db } from '../../firebase'
 export default {
   data () {
     return {
@@ -121,9 +122,16 @@ export default {
       }
     }
   },
+  firestore () {
+    const user = this.auth.currentUser
+    return {
+      profile: db.collection('profiles').doc(user.uid)
+    }
+  },
   methods: {
     saveChanges () {
-
+      this.$firestore.profile.update(this.profile)
+      this.profile = {}
     }
   }
 }
