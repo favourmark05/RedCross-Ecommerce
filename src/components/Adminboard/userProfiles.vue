@@ -3,7 +3,7 @@
         <div class="container text-cente text-center">
 
                         <h1>Profile Settings</h1>
-                        <p>change your profile settings here</p>
+                        <p>change your profile settings here and</p>
 
         </div>
         <!-- <div class="settings"> -->
