@@ -131,6 +131,7 @@ export default {
   methods: {
     saveChanges () {
       this.$firestore.profile.update(this.profile)
+      this.$toasted.success('Details updated successfully', { icon: { name: 'check' } })
       this.profile = {}
     }
   }

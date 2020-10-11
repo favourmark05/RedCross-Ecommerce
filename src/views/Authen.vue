@@ -1,12 +1,9 @@
 <template>
-  <div class="login">
-    <div class="container">
-      <div class="row">
-          <div class="text-center col">
-              <i class="fas fa-shield-alt"></i>
-          </div>
-        <div class="col">
-          <form>
+  <!-- <div class="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm- bg-white">
+        <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
               <input
@@ -27,10 +24,57 @@
             </div>
             <button class="btn btn-danger" type="submit" @click.prevent="access()">Login</button>
           </form>
-        </div>
       </div>
     </div>
   </div>
+  </div> -->
+      <div class="limiter">
+          <div class="container-login100">
+              <div class="wrap-login100">
+              <form class="login100-form validate-form">
+                  <span class="login100-form-title p-b-43">
+                  Login to continue
+                  </span>
+
+                  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                  <input class="input100" type="text" name="email" v-model="email">
+                  <span class="focus-input100"></span>
+                  <span class="label-input100" >Email</span>
+                  </div>
+
+                  <div class="wrap-input100 validate-input" data-validate="Password is required">
+                  <input class="input100" type="password" name="pass" v-model="password">
+                  <span class="focus-input100"></span>
+                  <span class="label-input100">Password</span>
+                  </div>
+
+                  <div class="flex-sb-m w-full p-t-3 p-b-32">
+                  <div class="contact100-form-checkbox">
+                  <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                  <label class="label-checkbox100" for="ckb1">
+                  Remember me
+                  </label>
+                  </div>
+
+                  <div>
+                  <a href="#" class="txt1">
+                  Forgot Password?
+                  </a>
+                  </div>
+                  </div>
+
+                  <div class="container-login100-form-btn">
+                  <button class="login100-form-btn" @click.prevent="access()">
+                  Login
+                  </button>
+                  </div>
+              </form>
+
+              <div class="login100-more" >
+              </div>
+              </div>
+          </div>
+      </div>
 </template>
 
 <script>
@@ -68,27 +112,7 @@ export default {
 </script>
 
 <style scoped>
-.login {
-  background-image: url("https://wpengine.com/wp-content/uploads/2015/02/security-compressor-1000x628.jpg");
-  background-size: cover;
-  height: 100vh;
-}
-.container{
-    padding: 5.1rem 10rem;
-    /* background-color: white; */
-}
-.col{
-    background-color: white;
-    padding: 4rem 1rem;
-    border-radius: 2rem;
-}
-.row{
-    background-color: white;
-    border-radius: 2rem;
-}
-.fa-shield-alt{
-    font-size: 20rem;
-    color: rgb(182, 18, 18);
-    text-shadow: 6px 12px rgba(128, 128, 128, 0.918);
+.login100-more{
+  background-image: url('../assets/images/test.jpg');
 }
 </style>

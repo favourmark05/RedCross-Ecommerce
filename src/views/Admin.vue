@@ -14,7 +14,7 @@
             </div>
             <div class="user-info">
               <span class="user-name">
-                {{ name }} <br>
+                {{ fullName }} <br>
                 <!-- <strong>{{  }}</strong> -->
               </span>
               <span class="user-role">{{ email }}</span>
@@ -108,10 +108,8 @@ export default {
   },
   data () {
     return {
-      // display: false,
-      name: null,
+      fullName: null,
       email: null
-      // role: 'Super Admin'
     }
   },
   methods: {
@@ -125,7 +123,7 @@ export default {
   },
   created () {
     var user = this.auth.currentUser
-    this.name = user.name
+    this.fullName = user.fullName
     this.email = user.email
   }
 }
