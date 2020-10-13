@@ -1,33 +1,4 @@
 <template>
-  <!-- <div class="login">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm- bg-white">
-        <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control" required
-                id="exampleInputEmail1"
-                v-model="email"
-                aria-describedby="emailHelp"
-              />
-              <small
-                id="emailHelp"
-                class="form-text text-muted"
-              >We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" v-model="password" class="form-control" required id="exampleInputPassword1" />
-            </div>
-            <button class="btn btn-danger" type="submit" @click.prevent="access()">Login</button>
-          </form>
-      </div>
-    </div>
-  </div>
-  </div> -->
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -57,14 +28,14 @@
                   </div>
 
                   <div>
-                  <a href="#" class="txt1">
+                  <router-link to="reset" class="txt1" >
                   Forgot Password?
-                  </a>
+                  </router-link>
                   </div>
                   </div>
 
                   <div class="container-login100-form-btn">
-                  <button class="login100-form-btn" @click.prevent="access()">
+                  <button class="login100-form-btn" @click.prevent="login()">
                   Login
                   </button>
                   </div>
@@ -90,7 +61,7 @@ export default {
     }
   },
   methods: {
-    access () {
+    login () {
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           this.$router.replace('/admin')
