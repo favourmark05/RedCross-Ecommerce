@@ -244,4 +244,7 @@ hr.style-eight:after {
 .row{
   padding: 0 0.5rem !important;
 }
+.card-title{
+  color: white !important;
+}
 </style>

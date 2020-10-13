@@ -368,4 +368,7 @@ hr.style-eight:after {
   border: 10px solid rgb(73, 49, 40);
   border-inline-start-style: groove;
 }
+.tab-content{
+  background-color: transparent;
+}
 </style>

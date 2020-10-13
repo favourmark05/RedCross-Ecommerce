@@ -63,8 +63,8 @@
     <blockquote class="blockquote mb-0">
       <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
     </blockquote>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ price }} </h3>
+    <p class="pl-2 text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
+    <h3 class="pl-2 text-white"> {{ price }} </h3>
     <div class="card-footer text-center">
       <h4 class="text-muted text-center">Add to cart</h4>
     </div>

@@ -38,8 +38,9 @@ export default {
     resetPassword () {
       this.auth.sendPasswordResetEmail(this.user.email).then(() => {
         // Email sent.
-        this.$toasted.success('Reset Link sent', { icon: { name: 'check' } })
+        this.$toasted.success('check your mail for Reset Link sent', { icon: { name: 'check' } })
         this.user = {}
+        this.$router.replace('/Authen')
       }).catch((error) => {
         // An error happened.
 

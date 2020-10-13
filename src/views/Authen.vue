@@ -1,4 +1,6 @@
 <template>
+<div>
+  <navbar></navbar>
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -46,6 +48,7 @@
               </div>
           </div>
       </div>
+</div>
 </template>
 
 <script>
