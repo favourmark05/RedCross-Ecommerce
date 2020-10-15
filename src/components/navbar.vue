@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
-      <router-link to="/homePage" class="navbar-brand" >
+      <router-link to="/Home" class="navbar-brand" >
     <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top  img-fluid brand" alt="" loading="lazy">
   </router-link>
       <button
