@@ -3,10 +3,10 @@ import VueRouter from 'vue-router'
 import homePage from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
-import dashboard from '../components/Adminboard/dashboard.vue'
-import product from '../components/Adminboard/product.vue'
-import userProfiles from '../components/Adminboard/userProfiles.vue'
-import sales from '../components/Adminboard/sales.vue'
+import dashboard from '../components/users/dashboard.vue'
+import product from '../components/users/product.vue'
+import userProfiles from '../components/users/userProfiles.vue'
+import sales from '../components/users/sales.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -60,16 +60,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/authen',
-    name: 'Authen',
+    path: '/login',
+    name: 'login',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Authen.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Authentication/login.vue')
   },
   {
-    path: '/homePage',
-    name: 'homePage',
+    path: '/signUp',
+    name: 'signUp',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/Authentication/signUp.vue')
+  },
+  {
+    path: '/Home',
+    name: 'Home',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -81,7 +89,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/contactUs.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/pages/contactUs.vue')
   },
   {
     path: '/reset',
@@ -89,7 +97,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/sections/reset.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/Authentication/reset.vue')
   }
 ]
 

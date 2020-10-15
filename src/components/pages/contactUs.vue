@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <img src="../assets/images/oriona.jpeg" class="img-fluid pt-5 logo-img" alt srcset />
+          <img src="../../assets/images/oriona.jpeg" class="img-fluid pt-5 logo-img" alt srcset />
         </div>
         <div class="col-sm-4 pt-5 map">
           <h1 class="text-white pt-5">Our contact Info</h1>
@@ -128,7 +128,7 @@
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 .contact {
-  background-image: url("../assets/images/contactUs.jpg");
+  background-image: url("../../assets/images/contactUs.jpg");
   height: 35vh;
   background-size: cover;
   padding-top: 5.5rem;
@@ -142,7 +142,7 @@
   text-decoration: none;
 }
 .map {
-  background-image: url("../assets/images/map.png");
+  background-image: url("../../assets/images/map.png");
   background-repeat: no-repeat;
   background-size: cover;
   /* opacity: 0.2; */

@@ -87,6 +87,6 @@ export default {
 
 <style scoped>
 .login100-more{
-  background-image: url('../assets/images/test.jpg');
+  background-image: url('../../assets/images/test.jpg');
 }
 </style>
