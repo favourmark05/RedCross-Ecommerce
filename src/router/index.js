@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import homePage from '../views/Home.vue'
-import Admin from '../views/Admin.vue'
+import admin from '../views/admin.vue'
+import userDashboard from '../views/userDashboard.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/users/product.vue'
@@ -26,7 +27,14 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: Admin,
+    component: admin,
+    meta: { requiresAuth: true },
+    children: []
+  },
+  {
+    path: '/userDashboard',
+    name: 'userDashboard',
+    component: userDashboard,
     meta: { requiresAuth: true },
     children: [
       {

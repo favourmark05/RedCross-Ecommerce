@@ -65,9 +65,14 @@ export default {
   },
   methods: {
     login () {
+      const Admin = 'admin@oriona.com'
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          this.$router.replace('/admin')
+          if (this.email !== Admin) {
+            this.$router.replace('/userDashboard')
+          } else {
+            this.$router.replace('/admin')
+          }
           this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
         }).catch((err) => {
         // Handle Errors here.

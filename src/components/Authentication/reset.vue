@@ -40,7 +40,7 @@ export default {
         // Email sent.
         this.$toasted.success('check your mail for Reset Link sent', { icon: { name: 'check' } })
         this.user = {}
-        this.$router.replace('/Authen')
+        this.$router.replace('/Home')
       }).catch((error) => {
         // An error happened.
 
