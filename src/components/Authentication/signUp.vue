@@ -6,7 +6,7 @@
               <div class="wrap-login100">
               <form class="login100-form validate-form">
                   <span class="login100-form-title p-b-43">
-                  signUp to have an Account
+                  <i class="fas fa-user-plus"></i>
                   </span>
                   <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                   <input class="input100" type="text" name="fullName" v-model="fullName">
@@ -27,7 +27,7 @@
 
                   <div class="container-login100-form-btn">
                   <button class="login100-form-btn" @click.prevent="register()" :disabled="!password || !email ||  !fullName">
-                  Login
+                  SignUp
                   </button>
                   </div>
               </form>
@@ -95,5 +95,12 @@ export default {
 <style scoped>
 .login100-more{
   background-image: url('../../assets/images/test.jpg');
+}
+.fa-user-plus{
+  font-size: 5rem;
+  /* color: rgb(11, 211, 38); */
+}
+.login100-form-btn{
+  background-color:orangered
 }
 </style>

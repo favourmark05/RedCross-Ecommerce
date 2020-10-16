@@ -9,7 +9,7 @@
         <li class="breadcrumb-item">
           <router-link to="/" class="home">Home</router-link>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">ContactUs</li>
+        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
       </ol>
     </nav>
     <div class="container">

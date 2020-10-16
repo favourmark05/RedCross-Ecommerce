@@ -5,9 +5,9 @@ import admin from '../views/admin.vue'
 import userDashboard from '../views/userDashboard.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import dashboard from '../components/users/dashboard.vue'
-import product from '../components/users/product.vue'
+import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
-import sales from '../components/users/sales.vue'
+import sales from '../components/Admin/sales.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -29,7 +29,18 @@ const routes = [
     name: 'admin',
     component: admin,
     meta: { requiresAuth: true },
-    children: []
+    children: [
+      {
+        path: '/product',
+        name: 'product',
+        component: product
+      },
+      {
+        path: '/sales',
+        name: 'sales',
+        component: sales
+      }
+    ]
   },
   {
     path: '/userDashboard',
@@ -43,19 +54,9 @@ const routes = [
         component: dashboard
       },
       {
-        path: '/product',
-        name: 'product',
-        component: product
-      },
-      {
         path: '/userProfiles',
         name: 'userProfiles',
         component: userProfiles
-      },
-      {
-        path: '/sales',
-        name: 'sales',
-        component: sales
       }
     ]
   },

@@ -6,7 +6,7 @@
               <div class="wrap-login100">
               <form class="login100-form validate-form">
                   <span class="login100-form-title p-b-43">
-                  Login to continue
+                  <i class="fas fa-fingerprint"></i>
                   </span>
 
                   <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -93,5 +93,11 @@ export default {
 <style scoped>
 .login100-more{
   background-image: url('../../assets/images/test.jpg');
+}
+.login100-form-btn{
+  background-color:orangered
+}
+.fa-fingerprint{
+font-size: 5rem;
 }
 </style>
