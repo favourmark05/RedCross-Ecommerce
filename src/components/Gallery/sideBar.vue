@@ -9,7 +9,7 @@
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active" href="#">My Account <span class="sr-only">(current)</span></a>
+      <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
       <a class="nav-link" href="#">CheckOut</a>
       <a class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</a>
       <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
