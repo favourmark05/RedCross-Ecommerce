@@ -17,12 +17,15 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
-          <li class="nav-item" >
+          <li class="nav-item" v-show="!auth.currentUser">
             <router-link to="/Login" class="nav-link">Login</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-show="!auth.currentUser">
             <router-link to="/signUp" class="nav-link">SignUp</router-link>
           </li>
+          <p class="nav-item" v-show="auth.currentUser">
+            <a  class="nav-link"> Hi <b>{{ profile && profile.fullName }}</b> </a>
+          </p>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
@@ -37,6 +40,32 @@
     </nav>
   </div>
 </template>
+
+<script>
+import { db } from '../firebase'
+export default {
+  data () {
+    return {
+      profile: []
+      // profile: []
+    }
+  },
+  firestore (e) {
+    if (this.auth.currentUser) {
+      const user = this.auth.currentUser
+      return {
+        profile: db.collection('profiles').doc(user.uid)
+      }
+    }
+  },
+  created () {
+    if (this.auth.currentUser) {
+      var user = this.auth.currentUser
+      this.email = user.email
+    }
+  }
+}
+</script>
 
 <style scoped>
 .nav-link{
