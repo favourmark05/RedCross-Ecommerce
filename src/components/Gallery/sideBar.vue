@@ -110,9 +110,12 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-body">
+    <!-- <div class="card-body">
       <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
-    </div>
+    </div> -->
+    <div  v-for="(image, images) in product.productImages" :key="images" class="card-body">
+                      <img :src="url" alt="" srcset="" class="disImage img-fluid p-2">
+              </div>
     <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
     <h3 class="pl-2"> {{ price }} </h3>
     <div class="card-footer text-center">
@@ -127,11 +130,23 @@
 </template>
 
 <script>
+import { db } from '../../firebase'
 export default {
   data () {
     return {
       title: 'Art Name',
-      price: '$590'
+      price: '$590',
+      products: [],
+      product: {
+        productImages: []
+      }
+    }
+  },
+  methods: {
+    firestore () {
+      return {
+        products: db.collection('products')
+      }
     }
   }
 }

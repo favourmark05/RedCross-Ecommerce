@@ -8,14 +8,18 @@
         </div>
         <!-- <div class="settings"> -->
             <!-- <div class="row"> -->
-            <div class="list-group profiles " id="list-tab" role="tablist">
-                <button class="btn btn-primary btn1" id="list-Profile-list" data-toggle="list" href="#list-Profile" role="tab" aria-controls="Profile">Profiles</button>
-                <button class="btn btn-primary btn2" id="list-account-list" data-toggle="list" href="#list-account" role="tab" aria-controls="account">Account Settings</button>
-            </div>
+            <!-- <div class="list-group profiles " id="list-tab" role="tablist"> -->
+                <!-- <button class="btn btn-primary btn1" id="list-Profile-list" data-toggle="list" href="#list-Profile" role="tab" aria-controls="Profile">Profiles</button> -->
+                <!-- <button class="btn btn-primary btn2" id="list-account-list" data-toggle="list" href="#list-account" role="tab" aria-controls="account">Account Settings</button> -->
+            <!-- </div> -->
             <div class="col-12">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-Profile" role="tabpanel" aria-labelledby="list-Profile-list">
                             <form>
+                              <div class="form-group">
+                                    <p>Update Avater</p>
+                                    <input type="file" class="form-control-file" @change="uploadAvater" name="image" id="avater"  accept="image/*">
+                                </div>
                                 <div class="form-row pt-5">
                                     <div class="form-group col-md-6">
                                     <label for="fullName">Full Name</label>
@@ -97,7 +101,7 @@
 </template>
 
 <script>
-import { db } from '../../firebase'
+import { db, st } from '../../firebase'
 export default {
   data () {
     return {
@@ -109,7 +113,8 @@ export default {
         country: null,
         state: null,
         city: null,
-        zipCode: null
+        zipCode: null,
+        photoUrl: null
       },
       account: {
         username: null,
@@ -133,6 +138,25 @@ export default {
       this.$firestore.profile.update(this.profile)
       this.$toasted.success('Details updated successfully', { icon: { name: 'check' } })
       this.profile = {}
+    },
+    uploadAvater (e) {
+      if (e.target.files[0]) {
+        var file = e.target.files[0]
+        var storageRef = st.ref('products/' + file.name)
+        const uploadTask = storageRef.put(file)
+
+        uploadTask.on('state_changed', (snapshot) => {
+        }, (error) => {
+        // Handle unsuccessful uploads
+          console.log(error)
+        }, () => {
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            this.product.productImage.push(downloadURL)
+            // this.productImage = ''
+            console.log('File available at', downloadURL)
+          })
+        })
+      }
     }
   }
 }

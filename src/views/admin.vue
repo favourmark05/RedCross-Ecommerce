@@ -14,7 +14,7 @@
             </div>
             <div class="user-info">
               <span class="user-name">
-                {{ fullName }} <br>
+                {{ profile.fullName }} <br>
                 <!-- <strong>{{  }}</strong> -->
               </span>
               <span class="user-role">{{ email }}</span>
@@ -50,21 +50,15 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
-                <router-link to="">
+                <router-link to="/product">
                   <i class="fa fa-shopping-cart"></i>
                   <span class="menu-text">Product</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
-                <router-link to="">
+                <router-link to="/sales">
                   <i class="fas fa-dollar-sign"></i>
                   <span class="menu-text">Sales</span>
-                </router-link>
-              </li>
-              <li class="sidebar-dropdow">
-                <router-link to="">
-                  <i class="fas fa-users"></i>
-                  <span class="menu-text">User Profiles</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
@@ -100,7 +94,7 @@ span {
 </style>
 
 <script>
-// import { db } from '../firebase'
+import { db } from '../firebase'
 export default {
   name: 'admin',
   components: {
@@ -125,6 +119,12 @@ export default {
     var user = this.auth.currentUser
     this.fullName = user.fullName
     this.email = user.email
+  },
+  firestore () {
+    const user = this.auth.currentUser
+    return {
+      profile: db.collection('profiles').doc(user.uid)
+    }
   }
 }
 </script>

@@ -5,16 +5,16 @@
         <div class="sidebar-content">
           <!-- sidebar-brand  -->
           <div class="sidebar-item sidebar-brand">
-            <h3 class="text-white">Administrator</h3>
+            <h3 class="text-white">Oriona ArtWorld</h3>
           </div>
           <!-- sidebar-header  -->
           <div class="sidebar-item sidebar-header d-flex flex-nowrap">
-            <div class="user-pic">
-              <img class="img-responsive img-rounded" src="../assets/logo1.png" alt="User picture" />
+            <div class="user-pic" v-for="(image, images) in product.productImage" :key="images">
+              <img class="img-responsive img-rounded"  src="image" alt="User picture" />
             </div>
             <div class="user-info">
               <span class="user-name">
-                {{ fullName }} <br>
+                {{ profile.fullName }} <br>
                 <!-- <strong>{{  }}</strong> -->
               </span>
               <span class="user-role">{{ email }}</span>
@@ -49,16 +49,16 @@
                   <span class="menu-text">Dashboard</span>
                 </router-link>
               </li>
-              <li class="sidebar-dropdow">
+              <!-- <li class="sidebar-dropdow">
                 <router-link to="/product">
                   <i class="fa fa-shopping-cart"></i>
                   <span class="menu-text">Product</span>
                 </router-link>
-              </li>
+              </li> -->
               <li class="sidebar-dropdow">
-                <router-link to="/sales">
+                <router-link to="">
                   <i class="fas fa-dollar-sign"></i>
-                  <span class="menu-text">Sales</span>
+                  <span class="menu-text">Purchased History</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
@@ -100,7 +100,7 @@ span {
 </style>
 
 <script>
-// import { db } from '../firebase'
+import { db } from '../firebase'
 export default {
   name: 'admin',
   components: {
@@ -108,7 +108,11 @@ export default {
   },
   data () {
     return {
-      fullName: null,
+      profiles: [],
+      products: [],
+      product: {
+        productImage: null
+      },
       email: null
     }
   },
@@ -123,8 +127,16 @@ export default {
   },
   created () {
     var user = this.auth.currentUser
-    this.fullName = user.fullName
     this.email = user.email
+  },
+  getImage (images) {
+    return images[0]
+  },
+  firestore (e) {
+    const user = this.auth.currentUser
+    return {
+      profile: db.collection('profiles').doc(user.uid)
+    }
   }
 }
 </script>
