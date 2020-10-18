@@ -29,14 +29,22 @@
             <div class="container">
                 <h1 class="text-center text-light pb-3">Product list</h1>
                 <div class="row">
-                  <div class="col-md-4 shadow" v-for="(product, index) in products" :key="index.id">
+                  <div class="col-md-3 shadow" v-for="(product, index) in products" :key="index.id">
                     <div class="card product-item">
                       <div v-for="(image, index) in product.productImage" :key="index">
                         <img :src="image" class="card-img-top product-image">
-                        <p class="card-text px-2" v-html="product.productDescription"></p>
-                        <h4 class="pl-3">$ {{ product.productPrice}} </h4>
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName}}</b> </h5>
+                        <!-- <p class="card-text px-2" v-html="product.productDescription"></p> -->
+                        <!-- <p class="card-text px-2"> {{ product.productTags }} </p> -->
+                        <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
+                        <!-- <h6 class="pl-3 card-prices">$ {{ product.user.id}} </h6> -->
                         <div class="card-footer">
-                          <h5 class="text-center "> <i class="fas fa-shopping-cart"></i> Add to cart</h5>
+                            <addToCart
+                            :product-image="getImage(product.productImage)"
+                              :name="product.productName"
+                              :price="product.productPrice"
+                              :product-id="product.id">
+                            </addToCart>
                         </div>
                       </div>
                     </div>
@@ -64,6 +72,7 @@ export default {
   methods: {
     getImage (images) {
       return images[0]
+      // console.log(images[0])
     }
   }
 }
@@ -103,18 +112,22 @@ hr.style-eight:after {
 .caption > h1 {
     font-family: 'Sacramento', sans-serif;
 }
-h5:hover{
+/* h5:hover{
   color: white !important;
-}
+} */
 .card-footer:hover{
     background-color: orangered;
     color: white !important;
     cursor: pointer;
 }
 .product-image{
-  height: 20rem !important;
+  height: 15rem !important;
 }
 .product-item>img:hover{
   background-image: linear-gradient(to right, red , yellow);
+}
+addToCart{
+  text-align: center !important;
+  justify-content: center !important;
 }
 </style>
