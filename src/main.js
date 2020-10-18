@@ -11,6 +11,8 @@ import Swal from 'sweetalert2'
 import VueFirestore from 'vue-firestore'
 import jQuery from 'jquery'
 import VueCarousel from 'vue-carousel'
+import store from './store'
+
 Vue.use(VueCarousel)
 
 Vue.use(VueFirestore, {
@@ -49,6 +51,7 @@ firebase.onAuthStateChanged((user) => {
   if (!app) {
     new Vue({
       router,
+      store,
       render: h => h(App)
     }).$mount('#app')
   }
