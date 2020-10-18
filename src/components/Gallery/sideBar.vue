@@ -26,111 +26,23 @@
 </div>
 
             <!-- ====================== side bar ==================== -->
-<div class="container">
-<div class="card-columns">
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
-    </div>
-    <strong class="pl-2 "> {{ products.title }} </strong>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card bg-dark text-white  p-3">
-    <blockquote class="blockquote mb-0">
-      <img src="../../assets/port/img-5.jpg" class="card-img-top" alt="...">
-    </blockquote>
-    <p class="pl-2 text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2 text-white"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-1.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-4.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-6.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card">
-    <div class="card-body">
-      <img src="../../assets/port/img-2.jpg" class="card-img-top" alt="...">
-    </div>
-    <p class="pl-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui vitae ab iste.</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <!-- <div class="card" v-for="product in products" :key="product">
-    <div class="card-body">
-      <img src="../../assets/port/img-3.jpg" class="card-img-top" alt="...">
-    </div>
-    <div  v-for="(image, images) in products.productImage" :key="images" class="card-body">
-                      <img :src="image" alt="" srcset="" class="disImage img-fluid p-2">
-              </div>
-    <p class="pl-2">na him be this</p>
-    <h3 class="pl-2"> {{ products.price }} </h3>
-    <div class="card-footer text-center">
-      <h4 class="text-muted text-center">Add to cart</h4>
-    </div>
-  </div> -->
-  <div class="col-md-4" v-for="(product, id) in products" :key="id">
-<div v-for="(image, index) in product.productImage" :key="index">
-  <img :src="image" width="250px">
-  <p class="text-white">{{ product.productPrice}}</p>
-  <p class="text-white"> {{ product.productDescription}}</p>
-</div>
-  </div>
-</div>
-</div>
+            <div class="container">
+                <h1 class="text-center text-light pb-3">Product list</h1>
+                <div class="row">
+                  <div class="col-md-4 shadow" v-for="(product, index) in products" :key="index.id">
+                    <div class="card product-item">
+                      <div v-for="(image, index) in product.productImage" :key="index">
+                        <img :src="image" class="card-img-top product-image">
+                        <p class="card-text px-2" v-html="product.productDescription"></p>
+                        <h4 class="pl-3">$ {{ product.productPrice}} </h4>
+                        <div class="card-footer">
+                          <h5 class="text-center "> <i class="fas fa-shopping-cart"></i> Add to cart</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
             <!-- ========================= End of side bar ================= -->
             <footerSec/>
     </div>
@@ -191,12 +103,18 @@ hr.style-eight:after {
 .caption > h1 {
     font-family: 'Sacramento', sans-serif;
 }
-h4:hover{
+h5:hover{
   color: white !important;
 }
 .card-footer:hover{
     background-color: orangered;
     color: white !important;
     cursor: pointer;
+}
+.product-image{
+  height: 20rem !important;
+}
+.product-item>img:hover{
+  background-image: linear-gradient(to right, red , yellow);
 }
 </style>
