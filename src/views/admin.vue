@@ -98,7 +98,6 @@ import { db } from '../firebase'
 export default {
   name: 'admin',
   components: {
-
   },
   data () {
     return {

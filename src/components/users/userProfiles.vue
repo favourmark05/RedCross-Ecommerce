@@ -16,10 +16,10 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="list-Profile" role="tabpanel" aria-labelledby="list-Profile-list">
                             <form>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                     <p>Update Avater</p>
                                     <input type="file" class="form-control-file" @change="uploadAvater" name="image" id="avater"  accept="image/*">
-                                </div>
+                                </div> -->
                                 <div class="form-row pt-5">
                                     <div class="form-group col-md-6">
                                     <label for="fullName">Full Name</label>
@@ -101,11 +101,11 @@
 </template>
 
 <script>
-import { db, st } from '../../firebase'
+import { db } from '../../firebase'
 export default {
   data () {
     return {
-      profile: {
+      profiles: {
         fullName: null,
         phone: null,
         mailAdd: null,
@@ -113,8 +113,8 @@ export default {
         country: null,
         state: null,
         city: null,
-        zipCode: null,
-        photoUrl: null
+        zipCode: null
+        // photoUrl: null
       },
       account: {
         username: null,
@@ -138,26 +138,26 @@ export default {
       this.$firestore.profile.update(this.profile)
       this.$toasted.success('Details updated successfully', { icon: { name: 'check' } })
       this.profile = {}
-    },
-    uploadAvater (e) {
-      if (e.target.files[0]) {
-        var file = e.target.files[0]
-        var storageRef = st.ref('products/' + file.name)
-        const uploadTask = storageRef.put(file)
-
-        uploadTask.on('state_changed', (snapshot) => {
-        }, (error) => {
-        // Handle unsuccessful uploads
-          console.log(error)
-        }, () => {
-          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-            this.product.productImage.push(downloadURL)
-            // this.productImage = ''
-            console.log('File available at', downloadURL)
-          })
-        })
-      }
     }
+    // uploadAvater (e) {
+    //   if (e.target.files[0]) {
+    //     var file = e.target.files[0]
+    //     var storageRef = st.ref('products/' + file.name)
+    //     const uploadTask = storageRef.put(file)
+
+    //     uploadTask.on('state_changed', (snapshot) => {
+    //     }, (error) => {
+    //     // Handle unsuccessful uploads
+    //       console.log(error)
+    //     }, () => {
+    //       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+    //         this.product.productImage.push(downloadURL)
+    //         // this.productImage = ''
+    //         console.log('File available at', downloadURL)
+    //       })
+    //     })
+    //   }
+    // }
   }
 }
 </script>

@@ -60,6 +60,7 @@ export default {
           db.collection('profiles').doc(user.user.uid).set({
             fullName: this.fullName
           })
+          this.$router.replace('/Home')
             .then(() => {
               // console.log('Document successfully written!')
             })

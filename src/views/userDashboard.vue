@@ -44,9 +44,9 @@
                 <span>General</span>
               </li>
               <li class="sidebar-dropdow">
-                <router-link to="/dashboard">
+                <router-link to="/Home">
                   <i class="fa fa-tachometer-alt"></i>
-                  <span class="menu-text">Dashboard</span>
+                  <span class="menu-text">Home</span>
                 </router-link>
               </li>
               <!-- <li class="sidebar-dropdow">

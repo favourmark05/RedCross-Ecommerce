@@ -7,6 +7,7 @@ import sideBar from '../components/Gallery/sideBar.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
+// import updateProfiles from '../components/Admin/updateProfiles.vue'
 import sales from '../components/Admin/sales.vue'
 import firebase from '../firebase'
 
@@ -35,6 +36,11 @@ const routes = [
         name: 'product',
         component: product
       },
+      // {
+      //   path: '/updateProfiles',
+      //   name: 'updateProfiles',
+      //   component: updateProfiles
+      // },
       {
         path: '/sales',
         name: 'sales',
