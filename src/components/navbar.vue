@@ -23,9 +23,23 @@
           <li class="nav-item" v-show="!auth.currentUser">
             <router-link to="/signUp" class="nav-link">SignUp</router-link>
           </li>
-          <p class="nav-item" v-show="auth.currentUser">
+          <!-- <li class="nav-item" v-show="auth.currentUser">
             <a  class="nav-link"> Hi <b>{{ profile && profile.fullName }}</b> </a>
-          </p>
+          </li> -->
+          <div class="dropdown" v-show="auth.currentUser">
+          <button class="btn btn-primary dropdown-toggle name" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi <b>{{ profile && profile.fullName }}</b>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <router-link to="/userDashBoard" class="dropdown-item">
+            <i class="fas fa-user-alt"></i>
+            Account</router-link>
+            <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+            <a class="dropdown-item" @click="logout()">
+              <i class="fas fa-power-off"></i>
+              SignOut</a>
+          </div>
+        </div>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
           </li>
@@ -63,11 +77,28 @@ export default {
       var user = this.auth.currentUser
       this.email = user.email
     }
+  },
+  methods: {
+    logout () {
+      this.auth.signOut().then(() => {
+        this.$router.replace('/')
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
   }
 }
 </script>
 
 <style scoped>
+.fas{
+  padding-right: 2rem;
+}
+.dropdown > button{
+  color: white !important;
+  background-color: orangered;
+  border: 2px solid orangered;
+}
 .nav-link{
   color: gray !important;
 }

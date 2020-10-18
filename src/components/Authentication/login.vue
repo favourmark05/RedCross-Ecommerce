@@ -69,7 +69,7 @@ export default {
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           if (this.email !== Admin) {
-            this.$router.replace('/userDashboard')
+            this.$router.replace('/Home')
           } else {
             this.$router.replace('/admin')
           }
