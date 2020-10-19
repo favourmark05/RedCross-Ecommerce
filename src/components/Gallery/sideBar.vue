@@ -11,7 +11,7 @@
     <div class="navbar-nav">
       <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
       <a class="nav-link" href="#">CheckOut</a>
-      <a class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</a>
+      <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</router-link>
       <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
     </div>
   </div>
@@ -34,16 +34,13 @@
                       <div v-for="(image, index) in product.productImage" :key="index">
                         <img :src="image" class="card-img-top product-image">
                         <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName}}</b> </h5>
-                        <!-- <p class="card-text px-2" v-html="product.productDescription"></p> -->
-                        <!-- <p class="card-text px-2"> {{ product.productTags }} </p> -->
                         <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
-                        <!-- <h6 class="pl-3 card-prices">$ {{ product.user.id}} </h6> -->
                         <div class="card-footer">
                             <addToCart
-                            :product-image="getImage(product.productImage)"
+                              :image="getImage(product.productImage)"
                               :name="product.productName"
                               :price="product.productPrice"
-                              :product-id="product.id">
+                              :p-id="product.id">
                             </addToCart>
                         </div>
                       </div>
