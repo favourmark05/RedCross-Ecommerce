@@ -1,22 +1,7 @@
 <template>
     <div>
 <navbar></navbar>
-<section class="galleryNavBar">
-    <nav class="navbar navbar-expand-lg navbar-light ">
-  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
-      <a class="nav-link" href="#">CheckOut</a>
-      <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</router-link>
-      <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
-    </div>
-  </div>
-</nav>
-</section>
+<gNav></gNav>
 <div class="container">
     <div class="caption text-center bg-dar text-white">
     <h1 class="pt-3 display-1">Gallery</h1>

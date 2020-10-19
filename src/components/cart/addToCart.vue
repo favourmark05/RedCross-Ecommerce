@@ -27,6 +27,7 @@ export default {
   methods: {
     addToCart () {
       this.$store.commit('addToCart', this.item)
+      this.$router.replace('/cartPreview')
     }
   }
 }

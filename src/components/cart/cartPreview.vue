@@ -1,23 +1,9 @@
 <template>
     <div class="cartPreview">
         <navbar></navbar>
-        <div class="galleryNavBar">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <h1 class="navbar-brand text-white" >Shop Cart</h1>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fas fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
-                    <a class="nav-link" href="#">CheckOut</a>
-                    <a class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</a>
-                    <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
-                    </div>
-                </div>
-                </nav>
-        </div>
-        <div class="container">
+        <gNav></gNav>
+        <h1 class="navbar-brand pl-4">Shop Cart</h1>
+        <div class="container pt-3">
             <table class="table table-dark">
                     <thead>
                         <tr>
@@ -31,17 +17,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="item in this.$store.state.cart" :key="item">
                         <!-- <th scope="row">1</th> -->
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <img :src="item.productImage" alt="" srcset="" class="itemImage">
+                        </td>
+                        <td class="tdata"> {{ item.productName }} </td>
+                        <td class="tdata"> $ {{ item.productPrice }} </td>
+                        <td class="tdata"> {{ item.productQuantity }} </td>
+                        <td class="tdata"> $ {{ item.productPrice }} </td>
+                        <td class="tdata"></td>
                         </tr>
                     </tbody>
             </table>
             <router-link to="sidebar" class="table-router">CONTINUE SHOPPING</router-link>
         </div>
-        <div class="container">
+        <div class="container py-5">
             <div class="row">
                 <div class="col-sm"></div>
                 <div class="col-sm">
@@ -73,7 +64,6 @@
 
 <script>
 export default {
-  name: 'cartPreview'
 
 }
 </script>
@@ -91,6 +81,7 @@ export default {
 }
 .navbar-brand{
     font-size: 2.5rem !important;
+    color: gray;
 }
 .table-router{
     text-decoration: none;
@@ -99,5 +90,15 @@ export default {
 }
 .table-router:hover{
     color: white;
+    background-color: gray;
+    /* border-radius: 30%; */
+    padding: 4px 4px;
+}
+.itemImage{
+    height: 6rem;
+    width: 6rem;
+}
+.tdata{
+    padding: 3rem 0;
 }
 </style>
