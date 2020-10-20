@@ -6,27 +6,31 @@
         <div class="container pt-3">
             <table class="table table-dark">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                         <!-- <th scope="col">#</th> -->
-                        <th scope="col">Image</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Remove</th>
+                        <th scope="col" class="thead">Image</th>
+                        <th scope="col" class="thead">Product</th>
+                        <th scope="col" class="thead">Price</th>
+                        <th scope="col" class="thead">Quantity</th>
+                        <th scope="col" class="thead">Total</th>
+                        <th scope="col" class="thead">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in this.$store.state.cart" :key="index">
+                        <tr v-for="(item, index) in this.$store.state.cart" :key="index" class="text-center">
                         <!-- <th scope="row">1</th> -->
                         <td>
                             <img :src="item.productImage" alt="" srcset="" class="itemImage">
                         </td>
                         <td class="tdata"> {{ item.productName }} </td>
                         <td class="tdata"> $ {{ item.productPrice }} </td>
-                        <td class="tdata"> {{ item.productQuantity }} </td>
+                        <td class="tdata"> {{ item.productQuantity }}
+                            <!-- <input type="number" v-model="item.productQuantity" step="1" value="1" min="1" class="text-center"> -->
+                        </td>
                         <td class="tdata"> $ {{ item.productPrice }} </td>
-                        <td class="tdata"></td>
+                        <td class="tdata">
+                            <span @click="$store.commit('removeFromCart', item)">&times;</span>
+                        </td>
                         </tr>
                     </tbody>
             </table>
@@ -54,7 +58,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="float-right table-router" @click.prevent="checkOut">CHECKOUT</button>
+                    <button class="float-right table-router" @click="checkOut">CHECKOUT</button>
                 </div>
             </div>
         </div>
@@ -80,6 +84,8 @@ export default {
         this.$router.push('/checkOut')
       }
     }
+    // removeItem () {
+    // }
   }
 }
 </script>
@@ -115,6 +121,25 @@ export default {
     width: 6rem;
 }
 .tdata{
-    padding: 3rem 0;
+    /* padding: 3rem 0px; */
+    text-align: center !important;
+    padding-top: 3rem;
+}
+.spec{
+    /* padding: 0rem 2rem 0rem 0rem; */
+    /* justify-content: center !important; */
+    text-align: center !important;
+}
+.tdata > span {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+.tdata > span:hover {
+    color: rgb(168, 12, 12);
+    background-color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 30%;
+    transition: ease;
 }
 </style>
