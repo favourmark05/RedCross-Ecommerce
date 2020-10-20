@@ -8,9 +8,11 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                         <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
-                        <a class="nav-link" href="#">CheckOut</a>
-                        <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ 0 }} items</router-link>
-                        <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ 400 }}</a>
+                        <a class="nav-link" href="#">Check Out</a>
+                        <!-- <div > -->
+                        <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ item.productQuantity }} items</router-link>
+                        <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ item.productPrice }}</a>
+                        <!-- </div> -->
                         </div>
                     </div>
                 </nav>
@@ -22,7 +24,20 @@
 export default {
   data () {
     return {
-    //   sideBar: true
+      item: {
+        productQuantity: null
+      }
+    }
+  },
+  methods: {
+    addToCart (state, item) {
+      var found = state.cart.find(product => product.productId === item.productId)
+
+      if (found) {
+        found.productQuantity++
+      } else {
+        state.cart.push(item)
+      }
     }
   }
 }

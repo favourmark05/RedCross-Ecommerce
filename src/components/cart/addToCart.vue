@@ -1,6 +1,6 @@
 <template>
     <div class="addToCart">
-            <button class="text-center" @click.prevent="addToCart"> <i class="fas fa-shopping-cart"></i> Add To Cart </button>
+            <button class="text-center" @click="addToCart"><i class="fas fa-shopping-cart"></i> Add To Cart </button>
     </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   methods: {
     addToCart () {
       this.$store.commit('addToCart', this.item)
-      this.$router.replace('/cartPreview')
+      this.$router.push('/cartPreview')
     }
   }
 }

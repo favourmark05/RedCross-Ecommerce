@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in this.$store.state.cart" :key="item">
+                        <tr v-for="(item, index) in this.$store.state.cart" :key="index">
                         <!-- <th scope="row">1</th> -->
                         <td>
                             <img :src="item.productImage" alt="" srcset="" class="itemImage">
@@ -54,7 +54,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <router-link to="" class="float-right table-router">CHECKOUT</router-link>
+                    <router-link to="/checkout" class="float-right table-router">CHECKOUT</router-link>
                 </div>
             </div>
         </div>
