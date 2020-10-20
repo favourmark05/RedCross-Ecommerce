@@ -54,7 +54,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <router-link to="/checkout" class="float-right table-router">CHECKOUT</router-link>
+                    <button class="float-right table-router" @click.prevent="checkOut">CHECKOUT</button>
                 </div>
             </div>
         </div>
@@ -63,8 +63,24 @@
 </template>
 
 <script>
+// import { db } from '../firebase'
 export default {
+  name: 'cartPreview',
+  data () {
+    return {
 
+    }
+  },
+  methods: {
+    checkOut () {
+      if (!this.auth.currentUser) {
+        this.$router.push('/login')
+        this.$toasted.info('login to continue to checkout', { icon: { name: 'fa-exclamation-triangle' } })
+      } else {
+        this.$router.push('/checkOut')
+      }
+    }
+  }
 }
 </script>
 
