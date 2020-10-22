@@ -27,7 +27,7 @@
                         <td class="tdata"> {{ item.productQuantity }}
                             <!-- <input type="number" v-model="item.productQuantity" step="1" value="1" min="1" class="text-center"> -->
                         </td>
-                        <td class="tdata"> $ {{ item.productPrice }} </td>
+                        <td class="tdata"> $ {{ item.productPrice * item.productQuantity }} </td>
                         <td class="tdata">
                             <span @click="$store.commit('removeFromCart', item)">&times;</span>
                         </td>
