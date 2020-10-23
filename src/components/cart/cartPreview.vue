@@ -44,17 +44,17 @@
                         <thead>
                             <tr>
                             <th scope="col">CART TOTAL</th>
-                            <td> {{ }} </td>
+                            <td> $ {{ this.$store.getters.totalPrice }} </td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <th scope="col">SHIPPING</th>
-                            <td> {{ }} </td>
+                            <td> $ {{ 100 }} </td>
                             </tr>
                             <tr>
                             <th scope="col">ORDER PRICE TOTAL</th>
-                            <td> {{ }} </td>
+                            <td>$ {{ this.$store.getters.totalPrice + 100 }} </td>
                             </tr>
                         </tbody>
                     </table>

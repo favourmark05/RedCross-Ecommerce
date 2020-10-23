@@ -11,7 +11,7 @@
                         <a class="nav-link" href="#">Check Out</a>
                         <!-- <div > -->
                         <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ item.productQuantity }} items</router-link>
-                        <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ item.productPrice }}</a>
+                        <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ this.$store.getters.totalPrice + 100 }}</a>
                         <!-- </div> -->
                         </div>
                     </div>
@@ -30,14 +30,9 @@ export default {
     }
   },
   methods: {
-    addToCart (state, item) {
-      var found = state.cart.find(product => product.productId === item.productId)
-
-      if (found) {
-        found.productQuantity++
-      } else {
-        state.cart.push(item)
-      }
+    addToCart () {
+      this.$store.commit('addToCart', this.item)
+      this.$router.push('/cartPreview')
     }
   }
 }
