@@ -19,6 +19,14 @@ export default new Vuex.Store({
       })
 
       return total
+    },
+    productInCart: state => {
+      let inCart = 0
+      state.cart.filter((item) => {
+        inCart += (item.productQuantity)
+      })
+
+      return inCart
     }
   },
 

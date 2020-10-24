@@ -23,11 +23,11 @@
                             <img :src="item.productImage" alt="" srcset="" class="itemImage">
                         </td>
                         <td class="tdata"> {{ item.productName }} </td>
-                        <td class="tdata"> $ {{ item.productPrice }} </td>
+                        <td class="tdata"> ${{ item.productPrice }} </td>
                         <td class="tdata"> {{ item.productQuantity }}
                             <!-- <input type="number" v-model="item.productQuantity" step="1" value="1" min="1" class="text-center"> -->
                         </td>
-                        <td class="tdata"> $ {{ item.productPrice * item.productQuantity }} </td>
+                        <td class="tdata"> ${{ item.productPrice * item.productQuantity }} </td>
                         <td class="tdata">
                             <span @click="$store.commit('removeFromCart', item)">&times;</span>
                         </td>
@@ -44,17 +44,17 @@
                         <thead>
                             <tr>
                             <th scope="col">CART TOTAL</th>
-                            <td> $ {{ this.$store.getters.totalPrice }} </td>
+                            <td> ${{ this.$store.getters.totalPrice }} </td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                             <th scope="col">SHIPPING</th>
-                            <td> $ {{ 100 }} </td>
+                            <td> ${{ 50 }} </td>
                             </tr>
                             <tr>
                             <th scope="col">ORDER PRICE TOTAL</th>
-                            <td>$ {{ this.$store.getters.totalPrice + 100 }} </td>
+                            <td>${{ this.$store.getters.totalPrice + 50 }} </td>
                             </tr>
                         </tbody>
                     </table>

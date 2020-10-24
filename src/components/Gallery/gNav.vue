@@ -10,8 +10,8 @@
                         <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
                         <a class="nav-link" href="#">Check Out</a>
                         <!-- <div > -->
-                        <router-link to="cartPreview" class="nav-link" href="#">Shopping Cart <i class="fas fa-shopping-cart"></i> {{ item.productQuantity }} items</router-link>
-                        <a class="nav-link"><i class="fas fa-dollar-sign"></i> {{ this.$store.getters.totalPrice + 100 }}</a>
+                        <router-link to="/cartPreview" class="nav-link" >Shopping Cart <i class="fas fa-shopping-cart"></i> {{ this.$store.getters.productInCart }} items</router-link>
+                        <a class="nav-link" ><i class="fas fa-dollar-sign"></i> {{ this.$store.getters.totalPrice + item.shipping }}</a>
                         <!-- </div> -->
                         </div>
                     </div>
@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       item: {
-        productQuantity: null
+        shipping: 50
       }
     }
   },
