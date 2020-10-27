@@ -18,7 +18,9 @@
                     <div class="card product-item">
                       <div v-for="(image, index) in product.productImage" :key="index">
                         <img :src="image" class="card-img-top product-image">
-                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName}}</b> </h5>
+                        <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName }}</b> </h5>
+                        </router-link>
                         <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
                         <div class="card-footer">
                             <addToCart
@@ -54,7 +56,6 @@ export default {
   methods: {
     getImage (images) {
       return images[0]
-      // console.log(images[0])
     }
   }
 }

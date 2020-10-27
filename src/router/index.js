@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import homePage from '../views/Home.vue'
+import Home from '../views/Home.vue'
 import admin from '../views/admin.vue'
 import userDashboard from '../views/userDashboard.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
+import productPreview from '../components/Gallery/productPreview.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
@@ -15,9 +16,9 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'homePage',
-    component: homePage
+    path: '/Home',
+    name: 'Home',
+    component: Home
   },
   {
     path: '/sideBar',
@@ -36,11 +37,6 @@ const routes = [
         name: 'product',
         component: product
       },
-      // {
-      //   path: '/updateProfiles',
-      //   name: 'updateProfiles',
-      //   component: updateProfiles
-      // },
       {
         path: '/sales',
         name: 'sales',
@@ -91,14 +87,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/Authentication/signUp.vue')
   },
   {
-    path: '/Home',
-    name: 'Home',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
-  },
-  {
     path: '/contactUs',
     name: 'contactUs',
     // route level code-splitting
@@ -129,7 +117,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/cart/checkout.vue')
-  }
+  },
+  // {
+  //   path: '/productPreview',
+  //   name: 'productPreview',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../components/Gallery/productPreview.vue')
+  // },
+  { path: '/productPreview/:productId', name: 'productPreview', component: productPreview }
 ]
 
 const router = new VueRouter({

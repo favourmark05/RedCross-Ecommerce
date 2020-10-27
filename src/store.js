@@ -8,7 +8,8 @@ var cart = window.localStorage.getItem('cart')
 
 export default new Vuex.Store({
   state: {
-    cart: cart ? JSON.parse(cart) : []
+    cart: cart ? JSON.parse(cart) : [],
+    products: []
   },
 
   getters: {

@@ -39,6 +39,7 @@ Vue.use(Toasted, {
 Vue.component('navbar', require('./components/navbar.vue').default)
 Vue.component('addToCart', require('./components/cart/addToCart.vue').default)
 Vue.component('gNav', require('./components/Gallery/gNav.vue').default)
+Vue.component('productPreview', require('./components/Gallery/productPreview.vue').default)
 Vue.component('portfolio', require('./components/landingPage/portfolio.vue').default)
 Vue.component('footerSec', require('./components/footerSec.vue').default)
 

@@ -58,7 +58,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="float-right table-router" @click="checkOut">CHECKOUT</button>
+                    <button class="float-right table-router" @click="checkOut" :disabled="true">CHECKOUT</button>
                 </div>
             </div>
         </div>
