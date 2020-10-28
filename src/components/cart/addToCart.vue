@@ -12,7 +12,7 @@ export default {
     price: String,
     pId: String,
     image: String
-    // shipping: String
+    // tags: [Number, String]
   },
   data () {
     return {
@@ -23,6 +23,7 @@ export default {
         productImage: this.image,
         productQuantity: 1,
         shippingPrice: 500
+        // productTags: this.tags
       }
     }
   },
