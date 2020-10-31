@@ -72,7 +72,7 @@
       <td> {{ product.productName }}</td>
       <td> $ {{ product.productPrice }}</td>
       <td> {{ product.productTags }}</td>
-      <td> {{ product.productDescription }}</td>
+      <!-- <td> {{ product.productDescription }}</td> -->
       <!-- <td> {{ product.productImage }}</td> -->
       <td>
         <button @click="editProduct(product)" class="btn btn-primary" data-toggle="modal" data-target="#edit">Edit</button>

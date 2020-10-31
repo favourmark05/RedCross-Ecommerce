@@ -32,7 +32,16 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4">yea</div>
+    <div class="col-sm-4">
+<div class="card col-sm my-3  ml-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Artist Details</h5>
+                    <hr>
+                    <h6><b> Name: </b> {{  }} </h6>
+                    <h6><b> Country: </b> {{  }} </h6>
+                  </div>
+                </div>
+    </div>
   </div>
 </div>
 <div class="container my-5 bg-white" v-if="product">
