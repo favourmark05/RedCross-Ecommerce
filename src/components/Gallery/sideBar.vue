@@ -109,8 +109,8 @@ hr.style-eight:after {
 .product-item>img:hover{
   background-image: linear-gradient(to right, red , yellow);
 }
-addToCart{
+/* addToCart{ */
   /* text-align: center !important; */
   /* justify-content: center !important; */
-}
+/* } */
 </style>
