@@ -110,7 +110,7 @@ hr.style-eight:after {
   background-image: linear-gradient(to right, red , yellow);
 }
 addToCart{
-  text-align: center !important;
-  justify-content: center !important;
+  /* text-align: center !important; */
+  /* justify-content: center !important; */
 }
 </style>

@@ -19,7 +19,7 @@
               <!-- <p class="card-text" v-html="product.productDescription"></p> -->
               <h4 class="card-prices">$ {{ product.productPrice}} </h4>
             </div>
-            <div class="card-footer bg-transparent ">
+            <div class="card-footer ">
               <addToCart
                               :image="getImage(product.productImage)"
                               :name="product.productName"
@@ -89,7 +89,7 @@
                     <h6><b>Size : </b> {{ }} </h6>
                     <h6><b>Weight : </b> {{ }} </h6>
                     <h6><b>Frame Color : </b> {{ }} </h6>
-                    <h6><b>Artist Name : </b> {{ }} </h6>
+                    <!-- <h6><b>Artist Name : </b> {{ }} </h6> -->
                     <h6><b>Model Id : </b> {{ product.id }} </h6>
                   </div>
                 </div>
@@ -157,10 +157,16 @@ export default {
 }
 .card-footer:hover{
     background-color: orangered;
-    color: white !important;
+    /* color: white !important; */
     cursor: pointer;
 }
 .container{
   border-radius: 1% !important;
+}
+addToCart:hover{
+  color: black !important;
+}
+button:hover{
+    color: white !important;
 }
 </style>
