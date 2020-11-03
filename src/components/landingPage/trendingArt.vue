@@ -34,7 +34,7 @@
           <!-- first content -->
           <div class="col-sm"> <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a></div>
+    <router-link to="sideBar" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </router-link></div>
         </div>
 
         <!-- second slide -->
@@ -43,7 +43,7 @@
           <div class="col-sm pt-5">
             <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
+    <router-link to="sideBar" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </router-link>
           </div>
           <!-- second images -->
           <div class="col-sm">
@@ -98,7 +98,7 @@
           <div class="col-sm pt-5 justify-content-center">
                <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5 ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
+    <router-link to="sideBar" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </router-link>
           </div>
         </div>
         <!-- fourth slide -->
@@ -106,7 +106,7 @@
           <div class="col-sm pt-5">
                <h1 class="card-title">Oil Painting</h1>
     <p class="card-text pb-5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </a>
+    <router-link to="sideBar" class="card-link ">View Gallery <i class="fas fa-external-link-alt"></i> </router-link>
           </div>
           <div class="col-sm">
             <div id="carousel4" class="carousel slide" data-ride="carousel">
