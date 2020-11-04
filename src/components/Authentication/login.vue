@@ -41,6 +41,11 @@
                   Login
                   </button>
                   </div>
+                  <h6 class="text-center pt-4">Login with your Social Account</h6>
+                  <div class="d-flex justify-content-around">
+                    <i class="fab fa-twitter social pt-3"></i>
+                    <i class="fab fa-facebook social pt-3"></i>
+                  </div>
               </form>
 
               <div class="login100-more" >
@@ -99,5 +104,15 @@ export default {
 }
 .fa-fingerprint{
 font-size: 5rem;
+}
+.social{
+  font-size: 2rem !important;
+  cursor: pointer;
+}
+.fa-twitter{
+  color: rgb(29,161,242)
+}
+.fa-facebook{
+  color: rgb(66,103,178);
 }
 </style>
