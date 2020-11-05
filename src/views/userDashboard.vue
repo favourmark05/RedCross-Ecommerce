@@ -114,6 +114,7 @@ export default {
         productImage: null
       },
       email: null
+      // displayName: null
     }
   },
   methods: {

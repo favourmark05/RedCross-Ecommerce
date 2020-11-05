@@ -44,7 +44,7 @@
                   <h6 class="text-center pt-4">Login with your Social Account</h6>
                   <div class="d-flex justify-content-around">
                     <i class="fab fa-twitter social pt-3"></i>
-                    <i class="fab fa-facebook social pt-3"></i>
+                    <button class="fab fa-facebook social pt-3" @click.prevent="facebookLogin()"></button>
                   </div>
               </form>
 
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { firebase } from '../../firebase'
 export default {
   name: 'login',
   components: {
@@ -89,6 +90,26 @@ export default {
             this.$toasted.error(errorMessage, { icon: { name: 'fa-times' } })
           }
         })
+    },
+    facebookLogin () {
+      // Sign in using a popup.
+      const Admin = 'admin@oriona.com'
+      var provider = new firebase.auth.FacebookAuthProvider()
+
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Facebook Access Token.
+        var token = result.credential.accessToken
+        // The signed-in user info.
+        console.log(token)
+        var user = result.user
+        console.log(user)
+        if (this.email !== Admin) {
+          this.$router.replace('/Home')
+        } else {
+          this.$router.replace('/admin')
+        }
+        this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
+      })
     }
   }
 
