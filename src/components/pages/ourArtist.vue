@@ -22,6 +22,7 @@
                 </div>
             </div>
         </div>
+        <footerSec></footerSec>
     </div>
 </template>
 <script>
