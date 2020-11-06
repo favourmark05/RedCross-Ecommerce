@@ -44,6 +44,9 @@
             <a class="nav-link" href="#">About Us</a>
           </li>
           <li class="nav-item">
+            <router-link to="ourArtist" class="nav-link" >Our Artist</router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/sideBar" class="nav-link">Gallery</router-link>
           </li>
           <li class="nav-item">
