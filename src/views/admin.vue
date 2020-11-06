@@ -62,6 +62,12 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
+                <router-link to="/artist">
+                  <i class="fas fa-palette"></i>
+                  <span class="menu-text">Artists</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
                 <a @click="logout()">
               <i class="fa fa-power-off"></i>
               <span class="menu-text">LogOut</span>

@@ -10,6 +10,7 @@ import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
 // import updateProfiles from '../components/Admin/updateProfiles.vue'
 import sales from '../components/Admin/sales.vue'
+import artist from '../components/Admin/artist.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -46,6 +47,11 @@ const routes = [
         path: '/sales',
         name: 'sales',
         component: sales
+      },
+      {
+        path: '/artist',
+        name: 'artist',
+        component: artist
       }
     ]
   },
