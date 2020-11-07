@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-<div class="card col-sm my-3  ml-3">
+                <div class="card col-sm my-3  ml-3">
                   <div class="card-body">
                     <h5 class="card-title">Artist Details</h5>
                     <hr>
@@ -142,9 +142,11 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 .navbar-brand{
     font-size: 2.5rem !important;
     color: gray;
+    font-family: 'Sacramento', sans-serif;
 }
 .props{
   height: 40vh;
