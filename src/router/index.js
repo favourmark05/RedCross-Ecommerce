@@ -11,6 +11,7 @@ import userProfiles from '../components/users/userProfiles.vue'
 // import updateProfiles from '../components/Admin/updateProfiles.vue'
 import sales from '../components/Admin/sales.vue'
 import artist from '../components/Admin/artist.vue'
+import ArtistPreview from '../components/pages/ArtistPreview.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -145,7 +146,8 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../components/Gallery/productPreview.vue')
   // },
-  { path: '/productPreview/:productId', name: 'productPreview', component: productPreview }
+  { path: '/productPreview/:productId', name: 'productPreview', component: productPreview },
+  { path: '/ArtistPreview/:ArtistId', name: 'ArtistPreview', component: ArtistPreview }
 ]
 
 const router = new VueRouter({

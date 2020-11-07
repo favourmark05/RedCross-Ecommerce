@@ -3,25 +3,22 @@
         <navbar></navbar>
         <h1 class="text-center text-white ">Meet-Our-Artists</h1>
         <div class="container">
-            <div class="row row-cols-3">
-                <div class="card mb-3 mx-2" style="max-width: 350px;" v-for="(Artist, index) in Artists " :key="index.id">
-                    <div class="row no-gutters">
-                        <!-- <div class="col-sm-4"></div> -->
-                        <div class="col-md-4" v-for="(image, index) in Artist.artistImage" :key="index">
-                        <img :src="image" class="card-img artistDP" alt="...">
-                        </div>
-                        <div class="col-md-8 pl-4">
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ Artist.name }} </h5>
-                            <p class="card-text"> {{ Artist.shortBio }} </p>
-                            <p class="card-text"> {{ Artist.country }} </p>
-                            <p class="card-text"> {{ Artist.email }} </p>
-                        </div>
-                        </div>
+                <!-- <h1 class="text-center text-light pb-3">Product list</h1> -->
+                <div class="row">
+                  <div class="col-md-4 shadow" v-for="(Artist, index) in Artists" :key="index.id">
+                    <div class="card product-item">
+                      <div v-for="(image, index) in Artist.artistImage" :key="index">
+                        <img :src="image" class="card-img-top product-image">
+                        <router-link :to="{ name: 'ArtistPreview', params: { ArtistId: Artist.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ Artist.name }}</b> </h5>
+                        </router-link>
+                        <h6 class="pl-3 card-prices"><b>Email: </b> {{ Artist.email}} </h6>
+                          <button class="btn btn-primary float-right"> Follow <i class="fas fa-user-plus"></i> </button>
+                      </div>
                     </div>
+                  </div>
                 </div>
             </div>
-        </div>
         <footerSec></footerSec>
     </div>
 </template>
@@ -45,8 +42,11 @@ h1{
     font-family: 'Monoton', cursive;
     padding-top: 7rem;
 }
-.artistDP{
-    height: 15rem;
-    width: 10rem !important;
+.product-image{
+  height: 20rem !important;
+}
+.btn-primary{
+  background-color: orangered !important;
+  border: orangered;
 }
 </style>
