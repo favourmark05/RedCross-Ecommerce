@@ -43,8 +43,8 @@
                   </div>
                   <h6 class="text-center pt-4">Login with your Social Account</h6>
                   <div class="d-flex justify-content-around">
-                    <i class="fab fa-twitter social pt-3"></i>
                     <button class="fab fa-facebook social pt-3" @click.prevent="facebookLogin()"></button>
+                    <button class="fab fa-google social pt-3" @click.prevent="GoogleLogin()"></button>
                   </div>
               </form>
 
@@ -110,9 +110,28 @@ export default {
         }
         this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
       })
+    },
+    GoogleLogin () {
+    // Sign in using a popup.
+      const Admin = 'admin@oriona.com'
+      var provider = new firebase.auth.GoogleAuthProvider()
+
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+      // This gives you a Facebook Access Token.
+        var token = result.credential.accessToken
+        // The signed-in user info.
+        console.log(token)
+        var user = result.user
+        console.log(user)
+        if (this.email !== Admin) {
+          this.$router.replace('/Home')
+        } else {
+          this.$router.replace('/admin')
+        }
+        this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
+      })
     }
   }
-
 }
 </script>
 
@@ -130,8 +149,8 @@ font-size: 5rem;
   font-size: 2rem !important;
   cursor: pointer;
 }
-.fa-twitter{
-  color: rgb(29,161,242)
+.fa-google{
+  color:#DB4437
 }
 .fa-facebook{
   color: rgb(66,103,178);
