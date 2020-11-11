@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
       <router-link to="/Home" class="navbar-brand" >
-    <img src="../assets/ge.png" width="100" height="100" class="d-inline-block align-top  img-fluid brand" alt="" loading="lazy">
+    <img src="../assets/logo.png" width="100" height="100" class="d-inline-block align-top  img-fluid brand" alt="" loading="lazy">
   </router-link>
       <button
         class="navbar-toggler"
@@ -41,7 +41,7 @@
           </div>
         </div>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <router-link to="/aboutUs" class="nav-link">About Us</router-link>
           </li>
           <li class="nav-item">
             <router-link to="ourArtist" class="nav-link" >Our Artist</router-link>

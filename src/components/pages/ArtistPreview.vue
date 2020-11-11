@@ -27,8 +27,8 @@
                   <div class="card-body">
                     <h5 class="card-title">Artist Details</h5>
                     <hr>
-                    <h6><b> Country: </b> {{  }} </h6>
-                    <h6><b> County / State / Region: </b> {{  }} </h6>
+                    <h6><b> Country: </b> {{ Artist.country }} </h6>
+                    <h6><b> County / State / Region: </b> {{ Artist.location }} </h6>
                     <h6><b> Specialty: </b> {{  }} </h6>
                     <h6><b> Total Art Work Displayed: </b> {{  }} </h6>
                   </div>

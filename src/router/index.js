@@ -8,7 +8,6 @@ import productPreview from '../components/Gallery/productPreview.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
-// import updateProfiles from '../components/Admin/updateProfiles.vue'
 import sales from '../components/Admin/sales.vue'
 import artist from '../components/Admin/artist.vue'
 import ArtistPreview from '../components/pages/ArtistPreview.vue'
@@ -105,6 +104,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/pages/contactUs.vue')
+  },
+  {
+    path: '/aboutUs',
+    name: 'aboutUs',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/pages/aboutUs.vue')
   },
   {
     path: '/ourArtist',

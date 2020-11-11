@@ -14,7 +14,16 @@
           <h1>A Little Intro</h1>
           <p
             class="pb-4"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt rem officia earum odio, dolores minus repudiandae corporis a vitae dolorum!</p>
+          >Oriọna is an online Arts and Craft gallery.
+
+          Want to know what makes us distinctive?
+
+          Here's an art gallery that is motivated by Charity.
+
+          With an overwhelming virtual presence, we exhibit the best of arts pieces from renowned and
+          budding Artists from all over the world while some
+          percentage of the proceeds are donated to Charity through charitable Organizations.
+          </p>
 
           <h1>Our Exhibition</h1>
           <p
