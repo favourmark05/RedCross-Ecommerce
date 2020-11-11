@@ -6,7 +6,7 @@
             </div>
             <div class="text-center foot">
             <div class="col">
-              <a href="#">Contact Us</a>
+              <router-link to="/contactUs">Contact Us</router-link>
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of use</a>
               <a href="#">FAQ</a>
