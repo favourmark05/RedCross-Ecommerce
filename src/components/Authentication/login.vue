@@ -41,10 +41,10 @@
                   Login
                   </button>
                   </div>
-                  <h6 class="text-center pt-4">Login with your Social Account</h6>
+                  <!-- <h6 class="text-center pt-4">Login with your Social Account</h6> -->
                   <div class="d-flex justify-content-around">
-                    <button class="fab fa-facebook social pt-3" @click.prevent="facebookLogin()"></button>
-                    <button class="fab fa-google social pt-3" @click.prevent="GoogleLogin()"></button>
+                    <!-- <button class="fab fa-facebook social pt-3" @click.prevent="facebookLogin()"></button> -->
+                    <!-- <button class="fab fa-google social pt-3" @click.prevent="GoogleLogin()"></button> -->
                   </div>
               </form>
 
@@ -93,42 +93,55 @@ export default {
     },
     facebookLogin () {
       // Sign in using a popup.
-      const Admin = 'admin@oriona.com'
+      // const Admin = 'admin@oriona.com'
       var provider = new firebase.auth.FacebookAuthProvider()
 
-      firebase.auth().signInWithPopup(provider).then(function (result) {
-        // This gives you a Facebook Access Token.
+      firebase.auth().signInWithPopup(provider).then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+        // eslint-disable-next-line no-unused-vars
         var token = result.credential.accessToken
+        // return token
         // The signed-in user info.
-        console.log(token)
         var user = result.user
         console.log(user)
-        if (this.email !== Admin) {
-          this.$router.replace('/Home')
-        } else {
-          this.$router.replace('/admin')
-        }
-        this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
+        this.$router.replace('/Home')
+      // ...
+      }).catch(function (error) {
+      // Handle Errors here.
+        var errorCode = error.code
+        var errorMessage = error.message
+        // The email of the user's account used.
+        var email = error.email
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential
+        console.log(errorCode, errorMessage, email, credential)
+      // ...
       })
     },
     GoogleLogin () {
     // Sign in using a popup.
-      const Admin = 'admin@oriona.com'
+      // const Admin = 'admin@oriona.com'
       var provider = new firebase.auth.GoogleAuthProvider()
 
       firebase.auth().signInWithPopup(provider).then(function (result) {
-      // This gives you a Facebook Access Token.
-        var token = result.credential.accessToken
+      // This gives you a Google Access Token. You can use it to access the Google API.
+        // var token = result.credential.accessToken
         // The signed-in user info.
-        console.log(token)
+        // Authorization: Bearer[TOKEN] 'https://www.googleapis.com/oauth2/v2/userinfo'
+
         var user = result.user
         console.log(user)
-        if (this.email !== Admin) {
-          this.$router.replace('/Home')
-        } else {
-          this.$router.replace('/admin')
-        }
-        this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
+        this.$router.replace('/Home')
+      }).catch(function (error) {
+      // Handle Errors here.
+        var errorCode = error.code
+        var errorMessage = error.message
+        // The email of the user's account used.
+        var email = error.email
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential
+        console.log(errorCode, errorMessage, email, credential)
+      // ...
       })
     }
   }

@@ -120,4 +120,7 @@ hr:after {
 .about{
     font-family: 'Sacramento', sans-serif;
 }
+.img-fluid{
+    border: 4px solid white;
+}
 </style>
