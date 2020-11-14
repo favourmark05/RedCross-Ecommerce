@@ -48,11 +48,19 @@ export default new Vuex.Store({
       this.commit('saveData')
     },
     followArtist (state, person) {
+      const found = state.follow.find(Artist => Artist.ArtistId === person.artistId)
+      if (found) {
 
+      } else {
+        state.follow.push(person)
+      }
+      this.commit('saveFollow')
     },
-
     saveData (state) {
       window.localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
+    saveFollow (state) {
+      window.localStorage.setItem('follow', JSON.stringify(state.follow))
     },
 
     removeFromCart (state, item) {

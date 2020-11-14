@@ -8,6 +8,7 @@ import productPreview from '../components/Gallery/productPreview.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
 import userProfiles from '../components/users/userProfiles.vue'
+import followedArtist from '../components/users/followedArtist.vue'
 import sales from '../components/Admin/sales.vue'
 import artist from '../components/Admin/artist.vue'
 import ArtistPreview from '../components/pages/ArtistPreview.vue'
@@ -70,6 +71,11 @@ const routes = [
         path: '/userProfiles',
         name: 'userProfiles',
         component: userProfiles
+      },
+      {
+        path: '/followedArtist',
+        name: 'followedArtist',
+        component: followedArtist
       }
     ]
   },

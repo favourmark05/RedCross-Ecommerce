@@ -30,7 +30,7 @@ export default {
   methods: {
     follow () {
       this.$store.commit('followArtist', this.person)
-    //   this.$router.push('/cartPreview')
+      this.$router.push('/followedArtist')
     }
   }
 }
