@@ -5,11 +5,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 var cart = window.localStorage.getItem('cart')
+var follow = window.localStorage.getItem('follow')
 
 export default new Vuex.Store({
   state: {
     cart: cart ? JSON.parse(cart) : [],
-    products: []
+    follow: follow ? JSON.parse(follow) : [],
+    products: [],
+    Artists: []
   },
 
   getters: {
@@ -43,6 +46,9 @@ export default new Vuex.Store({
       }
 
       this.commit('saveData')
+    },
+    followArtist (state, person) {
+
     },
 
     saveData (state) {

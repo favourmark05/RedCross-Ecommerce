@@ -13,7 +13,16 @@
                         <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ Artist.name }}</b> </h5>
                         </router-link>
                         <h6 class="pl-3 card-prices"><b>Email: </b> {{ Artist.email}} </h6>
-                          <button class="btn btn-primary float-right" v-show="auth.currentUser"> Follow <i class="fas fa-user-plus"></i> </button>
+                        <followArtist
+                              :image="getImages(Artist.artistImage)"
+                              :images="viewImages(Artist.productImage)"
+                              :name="Artist.name"
+                              :email="Artist.email"
+                              :country="Artist.country"
+                              :p-id="Artist.id"
+                        >
+                        </followArtist>
+                          <!-- <button class="btn btn-primary float-right" v-show="auth.currentUser" @click="follow()"> Follow <i class="fas fa-user-plus"></i> </button> -->
                       </div>
                     </div>
                   </div>
@@ -34,6 +43,14 @@ export default {
     return {
       Artists: db.collection('Artists')
     }
+  },
+  methods: {
+    getImages (images) {
+      return images[0]
+    },
+    viewImages (images) {
+      return images[0]
+    }
   }
 }
 </script>
@@ -44,9 +61,5 @@ h1{
 }
 .product-image{
   height: 20rem !important;
-}
-.btn-primary{
-  background-color: orangered !important;
-  border: orangered;
 }
 </style>
