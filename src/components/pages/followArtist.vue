@@ -16,6 +16,7 @@ export default {
   },
   data () {
     return {
+      Artist: [],
       person: {
         artistName: this.name,
         // productPrice: this.price,
@@ -29,8 +30,15 @@ export default {
   },
   methods: {
     follow () {
+      var Artist = 'artistId'
+      var person = 'artistId'
       this.$store.commit('followArtist', this.person)
-      this.$router.push('/followedArtist')
+      if (Artist.artistId === person.artistId) {
+        this.$toasted.success('Already followed', { icon: { name: 'check' } })
+        // this.$router.replace('/ourArtist')
+      } else {
+        this.$router.push('/followedArtist')
+      }
     }
   }
 }
