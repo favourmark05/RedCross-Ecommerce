@@ -4,18 +4,32 @@
 <gNav></gNav>
 <div class="container">
     <div class="caption text-center bg-dar text-white">
-    <h1 class="pt-3 display-1">Gallery</h1>
+    <h1 class="pt-3 display-1 text-white">Gallery</h1>
     <p class="py-3">Feel the Impact of our full Art gallery</p>
     <hr class="style-eight py-4">
 </div>
 </div>
 
             <!-- ====================== side bar ==================== -->
-            <div class="container">
+            <div class="container-fluid">
                 <h1 class="text-center text-light pb-3">Product list</h1>
                 <div class="row">
-                  <div class="col-md-3 shadow" v-for="(product, index) in products" :key="index.id">
-                    <div class="card product-item">
+                  <div class="col-sm-2">
+                    <h3 class="text-white text-centr">Categories</h3>
+                    <div class="list-group" id="list-tab" role="tablist">
+                    <button type="button" class="btn btn-primary btn-lg btn-block list-group-item-action active" id="list-all-list" data-toggle="list" href="#all" role="tab" aria-controls="home">All</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block btn-lg btn-block list-group-item-action " id="list-person-list" data-toggle="list" href="#person" role="tab" aria-controls="home">Person</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block btn-lg btn-block list-group-item-action " id="list-street-list" data-toggle="list" href="#street" role="tab" aria-controls="home">street</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block btn-lg btn-block list-group-item-action " id="list-nature-list" data-toggle="list" href="#nature" role="tab" aria-controls="home">Nature</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-10">
+                    <div class="tab-content" id="nav-tabContent">
+                      <!-- this displays all items in the art gallery -->
+                      <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="list-all-list">
+                    <div class="row">
+                    <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id">
+                    <div class="card product-item d-flex">
                       <div v-for="(image, index) in product.productImage" :key="index">
                         <img :src="image" class="card-img-top product-image">
                         <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
@@ -31,6 +45,89 @@
                             </addToCart>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  </div>
+                      </div>
+                      <!-- end of all -->
+
+                      <!-- start of second -->
+                      <div class="tab-pane fade show active" id="person" role="tabpanel" aria-labelledby="list-person-list">
+                    <div class="row">
+                    <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id">
+                    <div class="card product-item d-flex">
+                      <div v-for="(image, index) in product.productImage" :key="index">
+                        <img :src="image" class="card-img-top product-image">
+                        <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName }}</b> </h5>
+                        </router-link>
+                        <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
+                        <div class="card-footer">
+                            <addToCart
+                              :image="getImage(product.productImage)"
+                              :name="product.productName"
+                              :price="product.productPrice"
+                              :p-id="product.id">
+                            </addToCart>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                      </div>
+                      <!-- end of second -->
+
+                      <!-- start of third -->
+                      <div class="tab-pane fade show active" id="street" role="tabpanel" aria-labelledby="list-street-list">
+                    <div class="row">
+                    <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id">
+                    <div class="card product-item d-flex">
+                      <div v-for="(image, index) in product.productImage" :key="index">
+                        <img :src="image" class="card-img-top product-image">
+                        <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName }}</b> </h5>
+                        </router-link>
+                        <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
+                        <div class="card-footer">
+                            <addToCart
+                              :image="getImage(product.productImage)"
+                              :name="product.productName"
+                              :price="product.productPrice"
+                              :p-id="product.id">
+                            </addToCart>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                      </div>
+                      <!-- end of third -->
+
+                      <!-- start of fourth -->
+                      <div class="tab-pane fade show active" id="nature" role="tabpanel" aria-labelledby="list-nature-list">
+                    <div class="row">
+                    <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id">
+                    <div class="card product-item d-flex">
+                      <div v-for="(image, index) in product.productImage" :key="index">
+                        <img :src="image" class="card-img-top product-image">
+                        <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName }}</b> </h5>
+                        </router-link>
+                        <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
+                        <div class="card-footer">
+                            <addToCart
+                              :image="getImage(product.productImage)"
+                              :name="product.productName"
+                              :price="product.productPrice"
+                              :p-id="product.id">
+                            </addToCart>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                      </div>
+                      <!-- end of fourth -->
                     </div>
                   </div>
                 </div>
@@ -109,8 +206,8 @@ hr.style-eight:after {
 .product-item>img:hover{
   background-image: linear-gradient(to right, red , yellow);
 }
-/* addToCart{ */
-  /* text-align: center !important; */
-  /* justify-content: center !important; */
-/* } */
+.btn{
+  background-color: orangered !important;
+  text-align: center !important;
+}
 </style>
