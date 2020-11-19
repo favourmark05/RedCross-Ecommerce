@@ -1,92 +1,49 @@
 <template>
     <div class="profile">
-        <div class="container text-cente text-center">
-
-                        <h1>Profile Settings</h1>
-                        <p>change your profile settings here and</p>
-
-        </div>
-            <div class="col-12">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-Profile" role="tabpanel" aria-labelledby="list-Profile-list">
-                            <form>
-                                <div class="form-row pt-5">
-                                    <div class="form-group col-md-6">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" v-model="profile.fullName" id="fullName">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                    <label for="phoneNumber">Phone Number</label>
-                                    <input type="number" class="form-control" v-model="profile.phone" id="phoneNumber">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Mailing Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" v-model="profile.mailAdd" placeholder="1234 Main St">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Home Address </label>
-                                    <input type="text" class="form-control" id="inputAddress2" v-model="profile.homeAdd" placeholder="Apartment, studio, or floor">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                    <label for="inputState">country</label>
-                                    <select id="inputState" v-model="profile.country" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" v-model="profile.state" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" v-model="profile.city" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip Code</label>
-                                    <input type="text" class="form-control" v-model="profile.zipCode" id="inputZip">
-                                    </div>
-                                </div>
-                                <button type="submit" @click.prevent="saveChanges" class="btn btn-primary">Save</button>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade" id="list-account" role="tabpanel" aria-labelledby="list-account-list">
-                            <form>
-                                <div class="form-row pt-5">
-                                    <div class="form-group col-md-6">
-                                    <label for="fullName">UserName</label>
-                                    <input type="text" class="form-control" v-model="account.username" id="fullName">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" class="form-control" v-model="account.email" id="email">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="newPassword">New-Password</label>
-                                    <input type="password" class="form-control" id="newPassword" v-model="account.password" placeholder="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="Confirm">Confirm Password</label>
-                                    <input type="password" class="form-control" id="confirm" v-model="account.confirmPassword" placeholder="">
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" class="form-control-file" name="image" id="avater"  accept="image/*">
-                                </div>
-                                <button type="submit" class="btn btn-primary float-right">update Settings</button>
-                            </form>
-                            </div>
+            <div class="card col-sm-10">
+                <h5 class="card-header">Update Your Profile</h5>
+                    <div class="card-body">
+                        <form>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                        <label for="fullName">Full Name</label>
+                                                        <input type="text" class="form-control" v-model="profile.fullName" id="fullName">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                        <label for="phoneNumber">Phone Number</label>
+                                                        <input type="number" class="form-control" v-model="profile.phone" id="phoneNumber">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputAddress">Mailing Address</label>
+                                                        <input type="text" class="form-control" id="inputAddress" v-model="profile.mailAdd" placeholder="1234 Main St">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputAddress2">Home Address </label>
+                                                        <input type="text" class="form-control" id="inputAddress2" v-model="profile.homeAdd" placeholder="Apartment, studio, or floor">
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                        <label for="inputCity">Country</label>
+                                                        <input type="text" v-model="profile.country" class="form-control" id="inputCity">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                        <label for="inputCity">State</label>
+                                                        <input type="text" v-model="profile.state" class="form-control" id="inputCity">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                        <label for="inputCity">City</label>
+                                                        <input type="text" v-model="profile.city" class="form-control" id="inputCity">
+                                                        </div>
+                                                        <div class="form-group col-md-2">
+                                                        <label for="inputZip">Zip Code</label>
+                                                        <input type="text" class="form-control" v-model="profile.zipCode" id="inputZip">
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" @click.prevent="saveChanges" class="btn btn-primary">Save</button>
+                                                </form>
                     </div>
             </div>
-            <!-- </div> -->
-        <!-- </div> -->
     </div>
 </template>
 
