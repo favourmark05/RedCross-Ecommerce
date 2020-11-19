@@ -1,27 +1,27 @@
 <template>
     <div>
         <div class="row">
-        <!-- <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id">
+        <div class="col-md-4  shadow" v-for="(person, index) in persons" :key="index.id">
                     <div class="card product-item d-flex">
-                      <div v-for="(image, index) in product.productImage" :key="index">
+                      <div v-for="(image, index) in person.productImage" :key="index">
                         <img :src="image" class="card-img-top product-image">
-                        <router-link :to="{ name: 'productPreview', params: { productId: product.id } }">
-                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ product.productName }}</b> </h5>
+                        <router-link :to="{ name: 'productPreview', params: { productId: person.id } }">
+                        <h5 class="card-title px-3 pt-3" style="text-transform:uppercase"> <b>{{ person.productName }}</b> </h5>
                         </router-link>
-                        <h6 class="pl-3 card-prices">$ {{ product.productPrice}} </h6>
+                        <h6 class="pl-3 card-prices">$ {{ person.productPrice}} </h6>
                         <div class="card-footer">
                             <addToCart
-                              :image="getImage(product.productImage)"
-                              :name="product.productName"
-                              :price="product.productPrice"
-                              :p-id="product.id">
+                              :image="getImage(person.productImage)"
+                              :name="person.productName"
+                              :price="person.productPrice"
+                              :p-id="person.id">
                             </addToCart>
                         </div>
                       </div>
                     </div>
-                  </div> -->
+                  </div>
         </div>
-                  <h1 class="text-white"> person layout</h1>
+                  <!-- <h1 class="text-white"> person layout</h1> -->
     </div>
 </template>
 
@@ -30,12 +30,12 @@ import { db } from '../../firebase'
 export default {
   data () {
     return {
-      products: []
+      persons: []
     }
   },
   firestore () {
     return {
-      products: db.collection('products')
+      persons: db.collection('persons')
     }
   },
   methods: {

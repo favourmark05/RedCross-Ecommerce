@@ -25,7 +25,7 @@
                           </div>
                           <div class="col-sm-10">
                             <div class="row">
-                              <div class="col-md-4  shadow" v-for="(product, index) in products" :key="index.id" v-show="$route.name === 'sideBar'">
+                              <div class="col-md-4  shadow " v-for="(product, index) in products" :key="index.id" v-show="$route.name === 'sideBar'">
                                 <div class="card product-item d-flex">
                                   <div v-for="(image, index) in product.productImage" :key="index">
                                     <img :src="image" class="card-img-top product-image">
@@ -44,8 +44,8 @@
                                   </div>
                                 </div>
                               </div>
-                            <router-view></router-view>
                             </div>
+                            <router-view></router-view>
                           </div>
                         </div>
                   </div>

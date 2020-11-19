@@ -12,6 +12,8 @@ import allProduct from '../components/Gallery/allProduct.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
 import addPerson from '../components/Admin/addPerson.vue'
+import addNature from '../components/Admin/addNature.vue'
+import addStreet from '../components/Admin/addStreet.vue'
 import userProfiles from '../components/users/userProfiles.vue'
 import followedArtist from '../components/users/followedArtist.vue'
 import sales from '../components/Admin/sales.vue'
@@ -84,6 +86,16 @@ const routes = [
         path: '/addPerson',
         name: 'addPerson',
         component: addPerson
+      },
+      {
+        path: '/addNature',
+        name: 'addNature',
+        component: addNature
+      },
+      {
+        path: '/addStreet',
+        name: 'addStreet',
+        component: addStreet
       }
     ]
   },

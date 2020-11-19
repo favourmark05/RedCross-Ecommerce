@@ -56,9 +56,21 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
-                <router-link to="/person">
+                <router-link to="/addPerson">
                   <i class="fa fa-shopping-cart"></i>
                   <span class="menu-text">person</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
+                <router-link to="/addNature">
+                  <i class="fa fa-shopping-cart"></i>
+                  <span class="menu-text">Nature</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
+                <router-link to="/addStreet">
+                  <i class="fa fa-shopping-cart"></i>
+                  <span class="menu-text">Street</span>
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
