@@ -56,6 +56,12 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
+                <router-link to="/person">
+                  <i class="fa fa-shopping-cart"></i>
+                  <span class="menu-text">person</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
                 <router-link to="/sales">
                   <i class="fas fa-dollar-sign"></i>
                   <span class="menu-text">Sales</span>

@@ -5,8 +5,13 @@ import admin from '../views/admin.vue'
 import userDashboard from '../views/userDashboard.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import productPreview from '../components/Gallery/productPreview.vue'
+import person from '../components/Gallery/person.vue'
+import street from '../components/Gallery/street.vue'
+import nature from '../components/Gallery/nature.vue'
+import allProduct from '../components/Gallery/allProduct.vue'
 import dashboard from '../components/users/dashboard.vue'
 import product from '../components/Admin/product.vue'
+import addPerson from '../components/Admin/addPerson.vue'
 import userProfiles from '../components/users/userProfiles.vue'
 import followedArtist from '../components/users/followedArtist.vue'
 import sales from '../components/Admin/sales.vue'
@@ -31,7 +36,28 @@ const routes = [
     path: '/sideBar',
     name: 'sideBar',
     component: sideBar,
-    children: []
+    children: [
+      {
+        path: '/person',
+        name: 'person',
+        component: person
+      },
+      {
+        path: '/street',
+        name: 'street',
+        component: street
+      },
+      {
+        path: '/nature',
+        name: 'nature',
+        component: nature
+      },
+      {
+        path: '/allProduct',
+        name: 'allProduct',
+        component: allProduct
+      }
+    ]
   },
   {
     path: '/admin',
@@ -53,6 +79,11 @@ const routes = [
         path: '/artist',
         name: 'artist',
         component: artist
+      },
+      {
+        path: '/addPerson',
+        name: 'addPerson',
+        component: addPerson
       }
     ]
   },
@@ -151,14 +182,6 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../components/cart/checkout.vue')
   },
-  // {
-  //   path: '/productPreview',
-  //   name: 'productPreview',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../components/Gallery/productPreview.vue')
-  // },
   { path: '/productPreview/:productId', name: 'productPreview', component: productPreview },
   { path: '/ArtistPreview/:ArtistId', name: 'ArtistPreview', component: ArtistPreview }
 ]
