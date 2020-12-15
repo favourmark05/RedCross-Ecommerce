@@ -22,7 +22,6 @@
                               :p-id="Artist.id"
                         >
                         </followArtist>
-                          <!-- <button class="btn btn-primary float-right" v-show="auth.currentUser" @click="follow()"> Follow <i class="fas fa-user-plus"></i> </button> -->
                       </div>
                     </div>
                   </div>
@@ -36,12 +35,17 @@ import { db } from '../../firebase'
 export default {
   data () {
     return {
-      Artists: []
+      Artists: [],
+      follows: {
+        // name: this.Artists.name,
+        // email: this.Artists.email
+      }
     }
   },
   firestore () {
     return {
-      Artists: db.collection('Artists')
+      Artists: db.collection('Artists'),
+      follows: db.collection('follows')
     }
   },
   methods: {
