@@ -52,6 +52,9 @@
           <li class="nav-item">
             <router-link to="/contactUs" class="nav-link">Contact</router-link>
           </li>
+          <li class="nav-item" v-show="auth.currentUser">
+            <router-link to="#" class="nav-link">Community Chat</router-link>
+          </li>
         </ul>
       </div>
     </nav>

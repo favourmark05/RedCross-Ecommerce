@@ -19,24 +19,20 @@ export default {
       Artist: [],
       person: {
         artistName: this.name,
-        // productPrice: this.price,
         artistId: this.pId,
         artistImage: this.image
-        // productQuantity: 1,
-        // shippingPrice: 500
-        // productTags: this.tags
       }
     }
   },
   methods: {
     follow () {
-      var Artist = 'artistId'
-      var person = 'artistId'
-      this.$store.commit('followArtist', this.person)
-      if (Artist.artistId === person.artistId) {
+      var Artist = 'Artist.id'
+      var person = this.pId
+      if (Artist === person) {
         this.$toasted.success('Already followed', { icon: { name: 'check' } })
         // this.$router.replace('/ourArtist')
       } else {
+        this.$store.commit('followArtist', this.person)
         this.$router.push('/followedArtist')
       }
     }
