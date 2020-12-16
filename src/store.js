@@ -1,14 +1,11 @@
-// import { auth } from 'firebase'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { db } from '../src/firebase'
-// import getters from './getters'
 
 Vue.use(Vuex)
 
 var cart = window.localStorage.getItem('cart')
 var follow = window.localStorage.getItem('follow')
-// var check = auth.currentUser.getItem('check')
 
 export default new Vuex.Store({
   state: {
@@ -16,9 +13,7 @@ export default new Vuex.Store({
     follow: follow ? JSON.parse(follow) : [],
     products: [],
     Artists: []
-    // check: check ? JSON.parse(check) : []
   },
-
   getters: {
     totalPrice: state => {
       let total = 0
@@ -46,7 +41,6 @@ export default new Vuex.Store({
       if (found) {
         found.productQuantity++
       } else {
-        // state.check.push(item)
         state.cart.push(item)
       }
 
@@ -55,9 +49,7 @@ export default new Vuex.Store({
     followArtist (state, person) {
       const found = state.follow.find(Artist => Artist.artistId === person.artistId)
       if (found) {
-        // window.alert('already followed')
         console.log('already followed')
-        // this.$router.push('/Home')
       } else {
         state.follow.push(person)
       }
@@ -65,6 +57,7 @@ export default new Vuex.Store({
     },
     saveData (state) {
       window.localStorage.setItem('cart', JSON.stringify(state.cart))
+      window.localStorage.setItem('follow', JSON.stringify(state.follow))
     },
     saveFollow (state) {
       window.localStorage.setItem('follow', JSON.stringify(state.follow))
@@ -73,6 +66,12 @@ export default new Vuex.Store({
     removeFromCart (state, item) {
       const index = state.cart.indexOf(item)
       state.cart.splice(index, 1)
+
+      this.commit('saveData')
+    },
+    removeFrom (state, person) {
+      const index = state.follow.indexOf(person)
+      state.follow.splice(index, 1)
 
       this.commit('saveData')
     },

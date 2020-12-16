@@ -10,10 +10,10 @@ import Toasted from 'vue-toasted'
 import Swal from 'sweetalert2'
 import VueFirestore from 'vue-firestore'
 import jQuery from 'jquery'
-import VueCarousel from 'vue-carousel'
+// import VueCarousel from 'vue-carousel'
 import store from './store'
 
-Vue.use(VueCarousel)
+// Vue.use(VueCarousel)
 
 Vue.use(VueFirestore, {
   key: 'id', // the name of the property. Default is '.key'.
