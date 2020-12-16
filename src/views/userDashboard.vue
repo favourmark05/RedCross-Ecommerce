@@ -12,7 +12,7 @@
             </div>
             <ul class="list-group list-group-flush">
               <router-link to="Home" class="list-group-item"> <i class="fa fa-tachometer-alt"></i> Home </router-link>
-              <router-link to="#" class="list-group-item"> Purchased History </router-link>
+              <router-link to="#" class="list-group-item"> <i class="fas fa-money-check-alt"></i> Purchased History </router-link>
               <router-link to="userProfiles" class="list-group-item"> <i class="fas fa-users"></i> Update Profile</router-link>
               <router-link to="followedArtist" class="list-group-item"><i class="fas fa-users"></i> Followed Artist</router-link>
               <a class="list-group-item" @click="logOut()"><i class="fa fa-power-off"></i> LogOut User</a>
