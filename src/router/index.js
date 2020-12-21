@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import admin from '../views/admin.vue'
+import community from '../views/community.vue'
 import userDashboard from '../views/userDashboard.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import productPreview from '../components/Gallery/productPreview.vue'
@@ -123,12 +124,33 @@ const routes = [
     ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/community',
+    name: 'community',
+    component: community,
+    meta: { requiresAuth: true },
+    props: true,
+    // beforeEnter: (to, from, next) => {
+    //   if (to.profile.fullName) {
+    //     next()
+    //   }
+    // },
+    children: [
+      {
+        path: '/',
+        name: ''
+        // component:
+      },
+      {
+        path: '/',
+        name: ''
+        // component:
+      },
+      {
+        path: '/',
+        name: ''
+        // component: followedArtist
+      }
+    ]
   },
   {
     path: '/login',
