@@ -128,7 +128,7 @@
                 <div class="received_withd_msg">
                   <p>We work directly with our designers and suppliers,
                     and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford.</p>
+                    products, at a price anyone can afford..</p>
                   <span class="time_date"> 11:01 AM    |    Today</span></div>
               </div>
             </div>
