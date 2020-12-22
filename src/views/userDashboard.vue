@@ -32,7 +32,6 @@
                     <hr>
                     <h4 class="card-text"> {{ profile.fullName }} </h4>
                     <p class="card-text"> {{ email }} </p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                   </div>
                 </div>
                 <div class="card my-3 ml-2" style="width: 18rem;">
@@ -43,32 +42,9 @@
                     <p class="card-text"> {{ profile.fullName}} </p>
                     <p class=""> {{ profile.mailAdd }} </p>
                     <p class=""> {{ profile.phone }} </p>
-                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                   </div>
                 </div>
                 </div>
-                <!-- main specification -->
-                <!-- <div class="card-group">
-                <div class="card col-sm-8 my-3">
-                  <div class="card-body">
-                    <h5 class="card-title">Specification</h5>
-                    <hr>
-                    <h6><b>Main Material : </b> {{ }} </h6>
-                    <h6><b>Model : </b> {{ }} </h6>
-                    <h6><b>Size : </b> {{ }} </h6>
-                    <h6><b>Weight : </b> {{ }} </h6>
-                    <h6><b>Frame Color : </b> {{ }} </h6>
-                    <h6><b>Model Id : </b> {{ product.id }} </h6>
-                  </div>
-                </div>
-                <div class="card col-sm-4 my-3  ml-3">
-                  <div class="card-body">
-                    <h5 class="card-title">Tags</h5>
-                    <hr>
-                    <h6><b> {{ product.productTags }} </b></h6>
-                  </div>
-                </div>
-                </div> -->
               </div>
             </div>
           </div>

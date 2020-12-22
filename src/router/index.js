@@ -8,6 +8,11 @@ import sideBar from '../components/Gallery/sideBar.vue'
 import productPreview from '../components/Gallery/productPreview.vue'
 import person from '../components/Gallery/person.vue'
 import street from '../components/Gallery/street.vue'
+import GeneralChat from '../components/Chats/GeneralChat.vue'
+import visual from '../components/Chats/visual.vue'
+import paint from '../components/Chats/paint.vue'
+import decorative from '../components/Chats/decorative.vue'
+import craft from '../components/Chats/craft.vue'
 import nature from '../components/Gallery/nature.vue'
 import allProduct from '../components/Gallery/allProduct.vue'
 import dashboard from '../components/users/dashboard.vue'
@@ -136,19 +141,29 @@ const routes = [
     // },
     children: [
       {
-        path: '/',
-        name: ''
-        // component:
+        path: '/GeneralChat',
+        name: 'GeneralChat',
+        component: GeneralChat
       },
       {
-        path: '/',
-        name: ''
-        // component:
+        path: '/craft',
+        name: 'craft',
+        component: craft
       },
       {
-        path: '/',
-        name: ''
-        // component: followedArtist
+        path: '/decorative',
+        name: 'decorative',
+        component: decorative
+      },
+      {
+        path: '/visual',
+        name: 'visual',
+        component: visual
+      },
+      {
+        path: '/paint',
+        name: 'paint',
+        component: paint
       }
     ]
   },
