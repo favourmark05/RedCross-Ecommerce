@@ -1,57 +1,70 @@
 <template>
-    <div>
+    <div class="GeneralChat">
       <p class="text-white text-center py-1">General Chat</p>
         <div class="mesgs">
           <div class="msg_history">
-            <div class="incoming_msg">
+            <div v-for="(message, index) in messages" :key="index" class="incoming_msg">
               <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
               <div class="received_msg">
                 <div class="received_withd_msg">
-                  <p>Test which is a new approach to have all
-                    solutions</p>
-                  <span class="time_date"> 11:01 AM    |    June 9</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Test which is a new approach to have all
-                  solutions</p>
-                <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test, which is a new approach to have</p>
-                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Apollo University, Delhi, India Test</p>
-                <span class="time_date"> 11:01 AM    |    Today</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>We work directly with our designers and suppliers,
-                    and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford..</p>
-                  <span class="time_date"> 11:01 AM    |    Today</span></div>
+                  <p> {{ message.message }} </p>
+                  <span class="time_date"> 11:01 AM    |    June 9 {{ message.author }} </span></div>
               </div>
             </div>
           </div>
           <div class="type_msg">
             <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fas fa-paper-plane"></i></button>
+              <input @keyup.enter="sendMessage" v-model="message" type="text" class="write_msg" placeholder="Type a message" />
+              <button  @click="sendMessage" class="msg_send_btn" type="button"><i class="fas fa-paper-plane"></i></button>
             </div>
           </div>
         </div>
     </div>
 </template>
 
+<script>
+import { db } from '../../firebase'
+export default {
+  name: 'GeneralChat',
+  data () {
+    return {
+      message: null,
+      messages: [],
+      profile: []
+    }
+  },
+  firestore (e) {
+    if (this.auth.currentUser) {
+      const user = this.auth.currentUser
+      return {
+        profile: db.collection('profiles').doc(user.uid)
+      }
+    }
+  },
+  methods: {
+    sendMessage () {
+      db.collection('GeneralChat').add({
+        message: this.message,
+        createdAt: new Date(),
+        author: this.profile.fullName
+      })
+      this.message = null
+    },
+    fetchMessages () {
+      db.collection('GeneralChat').orderBy('createdAt').onSnapshot((querySnapshot) => {
+        const allMessages = []
+        querySnapshot.forEach(doc => {
+          allMessages.push(doc.data())
+        })
+        this.messages = allMessages
+      })
+    }
+  },
+  created () {
+    this.fetchMessages()
+  }
+}
+</script>
 <style scoped>
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
