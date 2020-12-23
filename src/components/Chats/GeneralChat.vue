@@ -5,7 +5,7 @@
           <div class="msg_history">
             <div v-for="(message, index) in messages" :key="index" class="incoming_msg">
               <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
-              <div class="received_msg">
+              <div :class="[message.author === profile.fullName?'sent_msg':'received_msg']">
                 <div class="received_withd_msg">
                   <p> {{ message.message }} </p>
                   <span class="time_date"> 11:01 AM    |    June 9 {{ message.author }} </span></div>
@@ -42,11 +42,17 @@ export default {
     }
   },
   methods: {
+    scrollToBottom () {
+      var box = document.querySelector('.msg_history')
+      box.scrollTop = box.scrollHeight
+    },
     sendMessage () {
       db.collection('GeneralChat').add({
         message: this.message,
         createdAt: new Date(),
         author: this.profile.fullName
+      }).then(() => {
+        this.scrollToBottom()
       })
       this.message = null
     },
@@ -57,6 +63,9 @@ export default {
           allMessages.push(doc.data())
         })
         this.messages = allMessages
+        setTimeout(() => {
+          this.scrollToBottom()
+        }, 1000)
       })
     }
   },
@@ -167,11 +176,13 @@ img{ max-width:100%;}
   margin: 0; color:#fff;
   padding: 5px 10px 5px 12px;
   width:100%;
+  display: inline-block !important;
 }
 .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
 .sent_msg {
-  float: right;
+  float:right;
   width: 46%;
+  display: block !important;
 }
 .input_msg_write input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
