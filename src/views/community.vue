@@ -78,6 +78,7 @@
           </div>
         </div>
           <router-view></router-view>
+          <h5 v-show="$route.name === 'community'" class="text-white text-center pt-5"> Please click on General community to begin <br> chat on general Art discussions</h5>
       </div>
 </div>
 </div>
