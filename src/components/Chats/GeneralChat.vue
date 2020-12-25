@@ -8,7 +8,7 @@
               <div :class="[message.author === profile.fullName?'sent_msg':'received_msg']">
                 <div class="received_withd_msg">
                   <p> {{ message.message }} </p>
-                  <span class="time_date">   {{ messageDate() }} {{ message.author }} </span></div>
+                  <span class="time_date">   {{ message.createdAt | checkDate }} {{ message.author }} </span></div>
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@
 
 <script>
 import { db } from '../../firebase'
-import moment from 'moment'
+// import moment from 'moment'
 // var moment = require('moment')
 export default {
   name: 'GeneralChat',
@@ -32,17 +32,16 @@ export default {
     return {
       message: null,
       messages: [],
-      profile: [],
-      dateToFilter: Date.now()
+      profile: []
     }
     // dateToFilter: Date.now()
   },
-  filters: {
-    changeDateFilter:
-    function (value) {
-      return moment(value).fromNow()
-    }
-  },
+  // filters: {
+  //   changeDateFilter:
+  //   function (value) {
+  //     return moment(value).fromNow()
+  //   }
+  // },
   firestore (e) {
     if (this.auth.currentUser) {
       const user = this.auth.currentUser
@@ -52,9 +51,9 @@ export default {
     }
   },
   methods: {
-    messageDate () {
-      return moment().format('MMMM Do YYYY, h:mm:ss a')
-    },
+    // messageDate () {
+    //   return moment().format('MMMM Do YYYY, h:mm:ss a')
+    // },
     scrollToBottom () {
       var box = document.querySelector('.msg_history')
       box.scrollTop = box.scrollHeight
@@ -62,7 +61,7 @@ export default {
     sendMessage () {
       db.collection('GeneralChat').add({
         message: this.message,
-        createdAt: Date.now(),
+        createdAt: new Date().toLocaleString(),
         author: this.profile.fullName
       }).then(() => {
         this.scrollToBottom()

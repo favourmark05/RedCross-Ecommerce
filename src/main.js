@@ -12,6 +12,13 @@ import VueFirestore from 'vue-firestore'
 import jQuery from 'jquery'
 import store from './store'
 import VueChatScroll from 'vue-chat-scroll'
+import moment from 'moment'
+
+Vue.filter('checkDate', function (value) {
+  if (value) {
+    return moment(String(value)).format('MMMM Do YYYY, h:mm:ss a')
+  }
+})
 
 Vue.use(VueChatScroll)
 
