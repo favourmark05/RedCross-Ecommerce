@@ -4,7 +4,6 @@
         <div class="mesgs">
           <div class="msg_history">
             <div v-for="(message, index) in messages" :key="index" class="incoming_msg">
-              <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
               <div :class="[message.author === profile.fullName?'sent_msg':'received_msg']">
                 <div class="received_withd_msg">
                   <p> {{ message.message }} </p>
@@ -24,8 +23,6 @@
 
 <script>
 import { db } from '../../firebase'
-// import moment from 'moment'
-// var moment = require('moment')
 export default {
   name: 'GeneralChat',
   data () {
@@ -34,14 +31,7 @@ export default {
       messages: [],
       profile: []
     }
-    // dateToFilter: Date.now()
   },
-  // filters: {
-  //   changeDateFilter:
-  //   function (value) {
-  //     return moment(value).fromNow()
-  //   }
-  // },
   firestore (e) {
     if (this.auth.currentUser) {
       const user = this.auth.currentUser
@@ -51,9 +41,6 @@ export default {
     }
   },
   methods: {
-    // messageDate () {
-    //   return moment().format('MMMM Do YYYY, h:mm:ss a')
-    // },
     scrollToBottom () {
       var box = document.querySelector('.msg_history')
       box.scrollTop = box.scrollHeight
