@@ -6,13 +6,16 @@
                 <div class="col-sm-8 pt-5">
                     <h1 class="pt-3">Oriọna</h1>
                     <!-- <h5 class="text-title text-white">About Us</h5> -->
-                    <p class="text-white">
-                        Oriọna is an online Arts and Craft gallery.
-                        Want to know what makes us distinctive?
-                        Here's an art gallery that is motivated by Charity.
-                        With an overwhelming virtual presence, we exhibit the best of
-                        arts pieces from renowned and budding Artists from all over the
-                        world while s percentage of the proceeds are donated to Charity through charitable Organizations.
+                    <p class="text-white about-content">
+                        Oriona Artword is a global Social/Commercial Art Community for Art/Craft lovers, enthusiasts and Artist.
+
+                        With an over whelming virtual presence, we exibit the best of Art Masterpieces from renowned and budding Artists around the globe.
+
+                        We carry out holistic and purposeful artistic programmes and education which includes exhibitions, Workshops, Symposia, Community Development Programmes aimed at deepening Visual Arts awareness and appreciation.
+
+                        As a Corporate Policy, We leverage on our Services Arts for Community impact by donating percentage of the sales by our artist to charity organisations.
+
+                        In our desire to be a leading destination for Arts/Crafts, we support young Artists to build a Career and showcase their talents and linking them to the global art Community of Arts.
                     </p>
                 </div>
                 <div class="col-sm-4"></div>
@@ -80,7 +83,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 .cover{
-    background-image: linear-gradient(rgb(10,10,10,0.4),rgb(10,10,10,0.4),rgb(10,10,10,0.4)), url('../../assets/oil.jpg');
+    background-image: linear-gradient(rgba(10, 10, 10, 0.6),rgba(10, 10, 10, 0.6),rgba(10, 10, 10, 0.6)), url('../../assets/oil.jpg');
     background-size: cover;
     height: 70vh;
     border-bottom: 3px solid orangered;
@@ -122,5 +125,8 @@ hr:after {
 }
 .img-fluid{
     border: 4px solid white;
+}
+.about-content{
+    font-weight: bolder !important;
 }
 </style>

@@ -104,22 +104,78 @@
               </div>
             </div>
           </div>
+          <!-- <h1>top reviews</h1> -->
+          <div class="container bg-white">
+            <div class="row">
+              <div class="col">
+                  <h1>reviews</h1>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="col px-3">
+              <div class="card-group">
+                <div class="card col-sm-8 my-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Product Review</h5>
+                    <div class="card border-success mb-3" style="max-width: 18rem;" v-for="(Review, index) in Reviews" :key="index.id">
+                      <div class="card-header bg-transparent"> {{ Review.title }} </div>
+                      <div class="card-body">
+                        <p class="card-text"> {{ Review.ReviewNote }} </p>
+                      </div>
+                      <div class="card-footer bg-transparent border-succes"> <b class="text-success">{{ Review.author }} </b> <br> {{ Review.createdAt | checkDate }} </div>
+                    </div>
+                    <hr>
+                  <form>
+                    <div class="form-row">
+                      <div class="col">
+                        <label class="text-muted">Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" v-model="Review.author">
+                      </div>
+                      <div class="col">
+                        <label class="text-muted">Review Title</label>
+                        <input type="text" class="form-control" placeholder="e.g I like it / i dont like it" v-model="Review.title">
+                      </div>
+                    </div>
+                    <div class="form-group pt-2">
+                      <label class="text-muted">Detailed Review</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Please tell us more about your review" v-model="Review.ReviewNote"></textarea>
+                    </div>
+                     <button class="btn btn-primary" @click.prevent="createReview()" id="btSubmit" :disabled="!Review.title || !Review.author || !Review.ReviewNote || !this.auth.currentUser">Submit</button>
+                  </form>
+                  </div>
+                </div>
+                </div>
+            </div>
+          </div>
 <footerSec></footerSec>
   </div>
 </template>
 
 <script>
 import { db } from '../../firebase'
+// import { db } from '../../firebase'
 export default {
   data () {
     return {
-
+      Reviews: [],
+      Review: {
+        title: null,
+        ReviewNote: null,
+        author: null,
+        createdAt: new Date().toLocaleString()
+      },
+      profile: []
     }
   },
-  firestore () {
+  firestore (e) {
+    // if (this.auth.currentUser) {
+    // const user = this.auth.currentUser
     return {
-      products: db.collection('products')
+      products: db.collection('products'),
+      Reviews: db.collection('Reviews')
     }
+    // }
   },
   computed: {
     product () {
@@ -136,7 +192,14 @@ export default {
   methods: {
     getImage (images) {
       return images[0]
+    },
+    createReview () {
+      this.$firestore.Reviews.add(this.Review)
+      this.Review = {}
     }
+  },
+  created () {
+    // this.fetchMessages()
   }
 }
 </script>
