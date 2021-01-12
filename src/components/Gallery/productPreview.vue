@@ -105,13 +105,6 @@
             </div>
           </div>
           <!-- <h1>top reviews</h1> -->
-          <div class="container bg-white">
-            <div class="row">
-              <div class="col">
-                  <h1>reviews</h1>
-              </div>
-            </div>
-          </div>
           <div class="container">
             <div class="col px-3">
               <div class="card-group">
