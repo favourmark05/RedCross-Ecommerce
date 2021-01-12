@@ -85,7 +85,7 @@ export default {
 .cover{
     background-image: linear-gradient(rgba(10, 10, 10, 0.6),rgba(10, 10, 10, 0.6),rgba(10, 10, 10, 0.6)), url('../../assets/oil.jpg');
     background-size: cover;
-    height: 70vh;
+    height: 75vh;
     border-bottom: 3px solid orangered;
 }
 .col-sm-8 > h1 {
@@ -100,7 +100,7 @@ export default {
     font-family: 'Anton', sans-serif;
 }
 .col > p {
-    font-size: 4vw;
+    font-size: 6vw;
 }
 hr {
   overflow: visible; /* For IE */
@@ -127,6 +127,6 @@ hr:after {
     border: 4px solid white;
 }
 .about-content{
-    font-weight: bolder !important;
+    /* font-weight: bold !important; */
 }
 </style>
