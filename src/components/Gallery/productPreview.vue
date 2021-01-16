@@ -111,7 +111,7 @@
                 <div class="card col-sm-8 my-3">
                   <div class="card-body">
                     <h5 class="card-title">Product Review</h5>
-                    <div class="card border-success mb-3" style="max-width: 18rem;" v-for="(Review, product) in Reviews" :key="product.id">
+                    <div class="card border-success mb-3" style="max-width: 18rem;" v-for="(Review, index) in productReviews" :key="index.id">
                       <div class="card-header bg-transparent"> {{ Review.title }} </div>
                       <div class="card-body">
                         <p class="card-text"> {{ Review.ReviewNote }} </p>
@@ -134,7 +134,7 @@
                       <label class="text-muted">Detailed Review</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Please tell us more about your review" v-model="Review.ReviewNote"></textarea>
                     </div>
-                     <button class="btn btn-primary" @click.prevent="createReview(product.id)" id="btSubmit" :disabled="!Review.title || !Review.author || !Review.ReviewNote || !this.auth.currentUser">Submit</button>
+                     <button class="btn btn-primary" @click.prevent="createReview" id="btSubmit" :disabled="!Review.title || !Review.author || !Review.ReviewNote || !this.auth.currentUser">Submit</button>
                   </form>
                   </div>
                 </div>
@@ -152,27 +152,24 @@ export default {
   data () {
     return {
       products: [],
-      natures: [],
       Reviews: [],
       Review: {
         title: null,
         ReviewNote: null,
         author: null,
         createdAt: new Date().toLocaleString()
-        // productId: this.product.id
-      },
-      profile: []
+      }
+      // profile: []
     }
   },
   firestore (e) {
-    // if (this.auth.currentUser) {
-    // const user = this.auth.currentUser
     return {
       products: db.collection('products'),
       Reviews: db.collection('Reviews')
     }
     // }
   },
+
   computed: {
     product () {
       let match = null
@@ -183,15 +180,28 @@ export default {
         }
       })
       return match
+    },
+    productReviews (Reviews, productId) {
+      var product = this.$route.params.productId
+      const reviewItem = this.Reviews.filter(function (Review) {
+        if (Review.productId === product) {
+          return true
+        }
+      })
+      return reviewItem
     }
   },
   methods: {
     getImage (images) {
       return images[0]
     },
-    createReview (product) {
+
+    createReview () {
+      var createdAt = new Date().toLocaleString()
+      var Rid = this.product.id
+      this.Review.productId = Rid
+      this.Review.timeCreated = createdAt
       this.$firestore.Reviews.add(this.Review)
-      this.$router.push({ name: 'productPreview', params: { productId: product } })
       this.Review = {}
     }
   },
