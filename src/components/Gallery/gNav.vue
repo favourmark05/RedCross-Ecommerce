@@ -8,7 +8,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
                         <router-link to="/userDashboard" class="nav-link active">My Account <span class="sr-only">(current)</span></router-link>
-                        <a class="nav-link" href="#">Check Out</a>
+                        <!-- <a class="nav-link" href="#">Check Out</a> -->
                         <!-- <div > -->
                         <router-link to="/cartPreview" class="nav-link" >Shopping Cart <i class="fas fa-shopping-cart"></i> {{ this.$store.getters.productInCart }} items</router-link>
                         <a class="nav-link" ><i class="fas fa-dollar-sign"></i> {{ this.$store.getters.totalPrice + item.shipping }}</a>

@@ -34,7 +34,7 @@
                         </tr>
                     </tbody>
             </table>
-            <router-link to="sidebar" class="table-router">CONTINUE SHOPPING</router-link>
+            <router-link to="sideBar" class="table-router">CONTINUE SHOPPING</router-link>
         </div>
         <div class="container py-5">
             <div class="row">
@@ -58,7 +58,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="float-right table-router" @click="checkOut" :disabled="true">CHECKOUT</button>
+                    <button class="float-right table-router" @click="checkOut" >CHECKOUT</button>
                 </div>
             </div>
         </div>

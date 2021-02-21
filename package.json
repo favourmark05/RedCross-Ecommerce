@@ -23,6 +23,7 @@
     "vue-firestore": "^0.3.30",
     "vue-moment": "^4.1.0",
     "vue-router": "^3.2.0",
+    "vue-stripe-elements-plus": "^0.3.2",
     "vue-sweetalert-icons": "^4.3.0",
     "vue-sweetalert2": "^3.0.8",
     "vue-toasted": "^1.1.28",
