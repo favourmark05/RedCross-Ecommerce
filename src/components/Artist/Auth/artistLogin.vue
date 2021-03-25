@@ -75,9 +75,9 @@ export default {
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           if (this.email !== Admin) {
-            this.$router.replace('/Home')
-          } else {
             this.$router.replace('/artistPanel')
+          } else {
+            this.$router.replace('/Home')
           }
           this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
         }).catch((err) => {
