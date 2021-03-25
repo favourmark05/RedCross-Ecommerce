@@ -224,6 +224,30 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/cart/cartPreview.vue')
   },
   {
+    path: '/artistSignUp',
+    name: 'artistSignUp',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/Artist/Auth/artistSignUp.vue')
+  },
+  {
+    path: '/artistLogin',
+    name: 'artistLogin',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/Artist/Auth/artistLogin.vue')
+  },
+  {
+    path: '/resetArtist',
+    name: 'resetArtist',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/Artist/Auth/resetArtist.vue')
+  },
+  {
     path: '/checkout',
     name: 'checkout',
     // route level code-splitting
