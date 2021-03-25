@@ -23,9 +23,6 @@
           <li class="nav-item" v-show="!auth.currentUser">
             <router-link to="/signUp" class="nav-link">SignUp</router-link>
           </li>
-          <!-- <li class="nav-item" v-show="auth.currentUser">
-            <a  class="nav-link"> Hi <b>{{ profile && profile.fullName }}</b> </a>
-          </li> -->
           <div class="dropdown" v-show="auth.currentUser">
           <button class="btn btn-primary dropdown-toggle name" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Hi <b>{{ profile.fullName }}</b>
