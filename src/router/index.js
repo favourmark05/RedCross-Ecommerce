@@ -248,6 +248,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../components/Artist/Auth/resetArtist.vue')
   },
   {
+    path: '/*',
+    component: 404
+  },
+  {
     path: '/checkout',
     name: 'checkout',
     // route level code-splitting
