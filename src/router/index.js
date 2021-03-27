@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import admin from '../views/admin.vue'
 import community from '../views/community.vue'
 import userDashboard from '../views/userDashboard.vue'
+import artistPanel from '../views/artistPanel.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import productPreview from '../components/Gallery/productPreview.vue'
 import person from '../components/Gallery/person.vue'
@@ -109,6 +110,29 @@ const routes = [
     path: '/userDashboard',
     name: 'userDashboard',
     component: userDashboard,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: dashboard
+      },
+      {
+        path: '/userProfiles',
+        name: 'userProfiles',
+        component: userProfiles
+      },
+      {
+        path: '/followedArtist',
+        name: 'followedArtist',
+        component: followedArtist
+      }
+    ]
+  },
+  {
+    path: '/artistPanel',
+    name: 'artistPanel',
+    component: artistPanel,
     meta: { requiresAuth: true },
     children: [
       {
@@ -249,7 +273,7 @@ const routes = [
   },
   {
     path: '/*',
-    component: 404
+    component: () => import(/* webpackChunkName: "about" */ '../components/404Page.vue')
   },
   {
     path: '/checkout',
