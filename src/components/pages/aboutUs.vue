@@ -62,7 +62,7 @@
             <img src="../../assets/images/img-6.jpg" class="img-fluid" alt="" srcset="">
         </div>
         <div class="col-sm text-white about">
-          <h1 class="pt-5 text-white">Our Exhibition</h1>
+          <h1 class="pt-5 text-white exhibit">Our Exhibition</h1>
           <p
             class="pb-4"
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta beatae laudantium natus sapiente iure earum magni quis, iste saepe.</p>
@@ -120,8 +120,9 @@ hr:after {
   font-size: 3.5em;
   padding: 0 0.25em;
 }
-.about{
+.about,.exhibit{
     font-family: 'Sacramento', sans-serif;
+    font-size: 5vh;
 }
 .img-fluid{
     border: 4px solid white;
