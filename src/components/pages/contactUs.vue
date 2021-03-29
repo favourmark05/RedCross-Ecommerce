@@ -188,4 +188,7 @@
 i > span{
   color:rgb(129, 125, 125);
 }
+h1{
+  font-size: 3rem;
+}
 </style>
