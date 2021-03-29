@@ -1,7 +1,7 @@
 <template>
     <div>
         <navbar></navbar>
-        <h1 class="text-center text-white ">Meet-Our-Artists</h1>
+        <h1 class="text-center text-white ourArt">Meet-Our-Artists</h1>
         <div class="container">
                 <!-- <h1 class="text-center text-light pb-3">Product list</h1> -->
                 <div class="row">
@@ -62,6 +62,7 @@ export default {
 h1{
     font-family: 'Monoton', cursive;
     padding-top: 7rem;
+    font-size: 4rem;
 }
 .product-image{
   height: 20rem !important;

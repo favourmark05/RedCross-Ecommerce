@@ -126,4 +126,7 @@ hr.style-eight:after {
   background-color: orangered !important;
   text-align: center !important;
 }
+h1{
+  font-size: 3rem;
+}
 </style>
