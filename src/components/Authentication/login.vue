@@ -1,6 +1,6 @@
 <template>
 <div>
-  <navbar></navbar>
+  <!-- <navbar></navbar> -->
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -74,12 +74,15 @@ export default {
       const Admin = 'admin@oriona.com'
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          if (this.email !== Admin) {
+          if (!this.auth.currentUser.emailverified) {
+            this.$toasted.error('Please do verify your email', { icon: { name: 'fa-exclamation-triangle' } })
+            this.$router.replace('/notVerified')
+          } else if (this.email !== Admin) {
             this.$router.replace('/Home')
           } else {
             this.$router.replace('/admin')
+            this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
           }
-          this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
         }).catch((err) => {
         // Handle Errors here.
           var errorCode = err.code

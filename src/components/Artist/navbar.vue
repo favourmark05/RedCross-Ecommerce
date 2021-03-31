@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
-          <li class="nav-item" v-show="!auth.currentUser || auth.currentUser.emailVerified">
+          <li class="nav-item" v-show="!auth.currentUser">
             <router-link to="/Login" class="nav-link">Login</router-link>
           </li>
           <li class="nav-item" v-show="!auth.currentUser">
@@ -25,13 +25,12 @@
           </li>
           <div class="dropdown" v-show="auth.currentUser">
           <button class="btn btn-primary dropdown-toggle name" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hi <b>{{ profile.fullName }}</b>
+            Hi <b>{{ artistProfiles.fullName }}</b>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <router-link to="/userDashBoard" class="dropdown-item">
             <i class="fas fa-user-alt"></i>
             Account</router-link>
-            <!-- <a class="dropdown-item" href="#">Something else here</a> -->
             <a class="dropdown-item" @click="logout()">
               <i class="fas fa-power-off"></i>
               SignOut</a>
@@ -63,16 +62,14 @@ import { db } from '../firebase'
 export default {
   data () {
     return {
-      profile: []
-      // this.auth.currentUser: true
+      artistProfiles: []
     }
   },
   firestore (e) {
-    if (this.auth.currentUser && this.auth.currentUser.emailVerified) {
+    if (this.auth.currentUser) {
       const user = this.auth.currentUser
       return {
-        profile: db.collection('profiles').doc(user.uid)
-        // this.auth.currentUser.emailVerified()
+        profile: db.collection('artistProfiles').doc(user.uid)
       }
     }
   },

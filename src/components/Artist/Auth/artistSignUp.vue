@@ -5,8 +5,7 @@
           <div class="container-login100">
               <div class="wrap-login100">
               <form class="login100-form validate-form">
-                  <span class="login100-form-title p-b-43 text-uppercase">
-                    <!-- {{ $route.name }} -->
+                  <span class="login100-form-title p-b-43">
                   <i class="fas fa-user-plus"></i>
                   </span>
                   <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -58,10 +57,13 @@ export default {
       this.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then((user) => {
           // Add a new document in collection "profiles"
-          db.collection('profiles').doc(user.user.uid).set({
+          db.collection('artistProfile').doc(user.user.uid).set({
             fullName: this.fullName
           })
-          this.$router.replace('/artistPanel')
+          if (user != null) {
+            user.user.sendEmailVerification()
+          }
+          this.$router.replace('/artistLogin')
             .then(() => {
               // console.log('Document successfully written!')
             })
@@ -69,7 +71,7 @@ export default {
               console.error('Error writing document: ', error)
             })
 
-          this.$toasted.success('Account created successfuly Please update your profile', { icon: { name: 'check' } })
+          this.$toasted.success('Account created successfuly', { icon: { name: 'check' } })
           this.fullName = ''
           this.email = ''
           this.password = ''
@@ -85,9 +87,6 @@ export default {
             this.$toasted.error(errorMessage, { icon: { name: 'fa-exclamation-triangle' } })
           }
         })
-    },
-    alertDisplay () {
-
     }
   }
 
@@ -100,7 +99,6 @@ export default {
 }
 .fa-user-plus{
   font-size: 5rem;
-  /* color: rgb(11, 211, 38); */
 }
 .login100-form-btn{
   background-color:orangered
