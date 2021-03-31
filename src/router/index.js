@@ -6,6 +6,7 @@ import community from '../views/community.vue'
 import userDashboard from '../views/userDashboard.vue'
 import artistPanel from '../views/artistPanel.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
+import notVerified from '../components/notVerified'
 import productPreview from '../components/Gallery/productPreview.vue'
 import person from '../components/Gallery/person.vue'
 import street from '../components/Gallery/street.vue'
@@ -40,6 +41,11 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/notVerified',
+    name: 'notVerified',
+    component: notVerified
   },
   {
     path: '/sideBar',

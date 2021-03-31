@@ -1,6 +1,6 @@
 <template>
 <div>
-  <navbar></navbar>
+  <!-- <navbar></navbar> -->
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -60,7 +60,10 @@ export default {
           db.collection('profiles').doc(user.user.uid).set({
             fullName: this.fullName
           })
-          this.$router.replace('/Home')
+          if (user != null) {
+            user.user.sendEmailVerification()
+            window.alert('please check your mail box and verify your mail')
+          } this.$router.replace('/login')
             .then(() => {
               // console.log('Document successfully written!')
             })
@@ -68,7 +71,7 @@ export default {
               console.error('Error writing document: ', error)
             })
 
-          this.$toasted.success('Account created successfuly', { icon: { name: 'check' } })
+          this.$toasted.success('Account created successfuly, please check your mail box and verify your mail', { icon: { name: 'check' } })
           this.fullName = ''
           this.email = ''
           this.password = ''

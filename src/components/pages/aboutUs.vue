@@ -127,7 +127,7 @@ hr:after {
 .img-fluid{
     border: 4px solid white;
 }
-.about-content{
+/* .about-content{ */
     /* font-weight: bold !important; */
-}
+/* } */
 </style>
