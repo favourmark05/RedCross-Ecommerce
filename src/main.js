@@ -44,6 +44,7 @@ Vue.use(Toasted, {
 })
 
 Vue.component('navbar', require('./components/navbar.vue').default)
+// Vue.component('artistNavbar', require('./components/Artist/Dashboard/artistNavbar.vue').default)
 Vue.component('addToCart', require('./components/cart/addToCart.vue').default)
 Vue.component('followArtist', require('./components/pages/followArtist.vue').default)
 Vue.component('gNav', require('./components/Gallery/gNav.vue').default)

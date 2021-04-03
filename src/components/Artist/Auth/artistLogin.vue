@@ -1,6 +1,6 @@
 <template>
 <div>
-  <navbar></navbar>
+  <!-- <navbar></navbar> -->
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { firebase } from '../../../firebase'
+// import { firebase } from '../../../firebase'
 export default {
   name: 'login',
   components: {
@@ -71,13 +71,11 @@ export default {
   },
   methods: {
     login () {
-      // const Admin = 'admin@oriona.com'
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then((user) => {
-          // var verified = this.auth.emailVerified(this.email)
           if (!this.auth.currentUser.emailVerified) {
             this.$toasted.error('Please do verify your email', { icon: { name: 'fa-exclamation-triangle' } })
-            this.$router.replace('/notVerified')
+            this.$router.replace('/artistNotVerified')
           } else if (this.auth.currentUser.emailVerified) {
             this.$router.replace('/artistPanel')
             this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
@@ -92,59 +90,6 @@ export default {
           }
         })
     }
-  },
-  facebookLogin () {
-    // Sign in using a popup.
-    // const Admin = 'admin@oriona.com'
-    var provider = new firebase.auth.FacebookAuthProvider()
-
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // eslint-disable-next-line no-unused-vars
-      var token = result.credential.accessToken
-      // return token
-      // The signed-in user info.
-      var user = result.user
-      console.log(user)
-      this.$router.replace('/Home')
-      // ...
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code
-      var errorMessage = error.message
-      // The email of the user's account used.
-      var email = error.email
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential
-      console.log(errorCode, errorMessage, email, credential)
-      // ...
-    })
-  },
-  GoogleLogin () {
-    // Sign in using a popup.
-    // const Admin = 'admin@oriona.com'
-    var provider = new firebase.auth.GoogleAuthProvider()
-
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // var token = result.credential.accessToken
-      // The signed-in user info.
-      // Authorization: Bearer[TOKEN] 'https://www.googleapis.com/oauth2/v2/userinfo'
-
-      var user = result.user
-      console.log(user)
-      this.$router.replace('/Home')
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code
-      var errorMessage = error.message
-      // The email of the user's account used.
-      var email = error.email
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential
-      console.log(errorCode, errorMessage, email, credential)
-      // ...
-    })
   }
 }
 </script>

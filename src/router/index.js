@@ -7,6 +7,7 @@ import userDashboard from '../views/userDashboard.vue'
 import artistPanel from '../views/artistPanel.vue'
 import sideBar from '../components/Gallery/sideBar.vue'
 import notVerified from '../components/notVerified'
+import artistNotVerified from '../components/Artist/Auth/artistNotVerified'
 import productPreview from '../components/Gallery/productPreview.vue'
 import person from '../components/Gallery/person.vue'
 import street from '../components/Gallery/street.vue'
@@ -27,6 +28,8 @@ import followedArtist from '../components/users/followedArtist.vue'
 import sales from '../components/Admin/sales.vue'
 import artist from '../components/Admin/artist.vue'
 import ArtistPreview from '../components/pages/ArtistPreview.vue'
+import artistProfile from '../components/Artist/Dashboard/artistProfile.vue'
+import artistDashboard from '../components/Artist/Dashboard/artistDashboard.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -46,6 +49,11 @@ const routes = [
     path: '/notVerified',
     name: 'notVerified',
     component: notVerified
+  },
+  {
+    path: '/artistNotVerified',
+    name: 'FailedVerification',
+    component: artistNotVerified
   },
   {
     path: '/sideBar',
@@ -142,14 +150,14 @@ const routes = [
     meta: { requiresAuth: true },
     children: [
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: dashboard
+        path: '/artistDashboard',
+        name: 'artistDashboard',
+        component: artistDashboard
       },
       {
-        path: '/userProfiles',
-        name: 'userProfiles',
-        component: userProfiles
+        path: '/artistProfile',
+        name: 'artistProfile',
+        component: artistProfile
       },
       {
         path: '/followedArtist',
