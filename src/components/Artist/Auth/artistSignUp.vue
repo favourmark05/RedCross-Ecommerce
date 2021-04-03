@@ -1,6 +1,5 @@
 <template>
 <div>
-  <navbar></navbar>
       <div class="limiter">
           <div class="container-login100">
               <div class="wrap-login100">
@@ -57,15 +56,16 @@ export default {
       this.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then((user) => {
           // Add a new document in collection "profiles"
-          db.collection('artistProfile').doc(user.user.uid).set({
+          db.collection('artistProfiles').doc(user.user.uid).set({
             fullName: this.fullName
           })
           if (user != null) {
             user.user.sendEmailVerification()
+            window.alert('Please check your mail box to verify your email account')
+            // this.$toasted.warning('Please go to your mailBox and verify your Email', { icon: { name: 'check' } })
           }
           this.$router.replace('/artistLogin')
             .then(() => {
-              // console.log('Document successfully written!')
             })
             .catch((error) => {
               console.error('Error writing document: ', error)

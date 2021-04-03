@@ -206,7 +206,6 @@ export default {
         }, () => {
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             this.product.productImage.push(downloadURL)
-            // this.productImage = ''
             console.log('File available at', downloadURL)
           })
         })

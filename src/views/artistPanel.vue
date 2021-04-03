@@ -1,84 +1,111 @@
 <template>
-  <div class="user">
-    <navbar/>
-    <div class="container pt-5">
-      <div class="row pt-5">
-        <div class="col-sm-4">
-          <div class="card" style="width: 18rem;">
-            <div class="card-header">
-            <router-link to="userDashboard">
-             <h5> Welcome {{ profile.fullName }} !</h5>
-            </router-link>
-            </div>
-            <ul class="list-group list-group-flush">
-              <router-link to="Home" class="list-group-item"> <i class="fa fa-tachometer-alt"></i> Home </router-link>
-              <router-link to="#" class="list-group-item"> <i class="fas fa-money-check-alt"></i> Purchased History </router-link>
-              <router-link to="userProfiles" class="list-group-item"> <i class="fas fa-users"></i> Update Profile</router-link>
-              <router-link to="followedArtist" class="list-group-item"><i class="fas fa-users"></i> Followed Artist</router-link>
-              <a class="list-group-item" @click="logOut()"><i class="fa fa-power-off"></i> LogOut User</a>
-            </ul>
+  <div class="admin">
+    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+      <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <!-- sidebar-brand  -->
+          <div class="sidebar-item sidebar-brand">
+            <h3 class="text-white">{{ artistProfiles.fullName }}</h3>
           </div>
-        </div>
-        <div class="col-sm-8">
-          <div class="container bg-white" v-show="$route.name === 'userDashboard'">
-            <div class="row ">
-              <div class="col">
-                <h4 class="text-left pt-2"> <strong>Account Overview</strong></h4>
-                <hr>
-                <div class="card-group ">
-                <div class="card my-3 mr-2" style="width: 18rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">Account Details</h5>
-                    <hr>
-                    <h4 class="card-text"> {{ profile.fullName }} </h4>
-                    <p class="card-text"> {{ email }} </p>
-                  </div>
-                </div>
-                <div class="card my-3 ml-2" style="width: 18rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">Address Book</h5>
-                    <hr>
-                    <b><p>Your default Shipping Address </p></b>
-                    <p class="card-text"> {{ profile.fullName}} </p>
-                    <p class=""> {{ profile.mailAdd }} </p>
-                    <p class=""> {{ profile.phone }} </p>
-                  </div>
-                </div>
+          <!-- sidebar-header  -->
+          <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+            <div class="user-pic">
+              <img class="img-responsive img-rounded" :src="artistProfiles.artist_Photo_Url" alt="User picture" />
+            </div>
+            <div class="user-info">
+              <span class="user-name">
+                {{ artistProfiles.fullName }} <br>
+                <!-- <strong>{{  }}</strong> -->
+              </span>
+              <span class="user-role">{{ email }}</span>
+              <span class="user-status">
+                <i class="fa fa-circle"></i>
+                <span>Online</span>
+              </span>
+            </div>
+          </div>
+          <!-- sidebar-search  -->
+          <div class="sidebar-item sidebar-search">
+            <div>
+              <div class="input-group">
+                <input type="text" class="form-control search-menu" placeholder="Search..." />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-          <router-view></router-view>
+          <!-- sidebar-menu  -->
+          <div class="sidebar-item sidebar-menu">
+            <ul>
+              <li class="header-menu">
+                <span>General</span>
+              </li>
+              <li class="sidebar-dropdow">
+                <router-link to="artistDashboard">
+                  <i class="fa fa-tachometer-alt"></i>
+                  <span class="menu-text">Dashboard</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
+                <router-link to="/artistProfile">
+                  <i class="fas fa-user"></i>
+                  <span class="menu-text">Update info</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
+                <a @click="logout()">
+              <i class="fa fa-power-off"></i>
+              <span class="menu-text">LogOut</span>
+            </a>
+              </li>
+              <li class="header-menu">
+                <span>Extra</span>
+              </li>
+            </ul>
+          </div>
+          <!-- sidebar-menu  -->
         </div>
-      </div>
+      </nav>
+      <!-- page-content  -->
+      <main class="page-content pt-2 bg-light">
+    <div class="container-fluid p-5">
+      <div v-show="$route.name === 'artistPanel'">
+            <h1>Please do update your profile as an Artist Thanks</h1>
+          </div>
+             <router-view/>
     </div>
-    <div class="container"></div>
-    <footerSec></footerSec>
+      </main>
+
+    </div>
   </div>
 </template>
+
+<style scoped>
+span {
+  cursor: pointer !important;
+}
+</style>
 
 <script>
 import { db } from '../firebase'
 export default {
   name: 'admin',
   components: {
-
   },
   data () {
     return {
-      profiles: [],
-      products: [],
-      product: {
-        productImage: null
-      },
+      artistProfiles: [],
+      fullName: null,
       email: null
-      // displayName: null
     }
   },
   methods: {
-    logOut () {
+    logout () {
       this.auth.signOut().then(() => {
-        this.$router.replace('/')
+        this.$router.replace('/artistLogin')
       }).catch((err) => {
         console.log(err)
       })
@@ -86,32 +113,29 @@ export default {
   },
   created () {
     var user = this.auth.currentUser
+    this.fullName = user.fullName
     this.email = user.email
   },
-  getImage (images) {
-    return images[0]
-  },
-  firestore (e) {
+  firestore () {
     const user = this.auth.currentUser
     return {
-      profile: db.collection('profiles').doc(user.uid)
+      artistProfiles: db.collection('artistProfiles').doc(user.uid)
     }
   }
 }
 </script>
 
 <style scoped>
-.user{
-  background-color: white !important;
-  height: 100% !important;
+.sidebar-item > ul > li > a {
+    outline: none !important;
 }
-router-link, a {
-  cursor: pointer !important;
-  text-decoration: none !important;
-  list-style-type: none !important;
-  color: black;
+.out{
+  cursor: pointer;
 }
-router-link, a:hover{
-  color: orangered !important;
+.img-rounded {
+  border-radius: 100% !important;
+  height: 4rem !important;
+  width: 3.6rem !important;
+  z-index: 100 !important;
 }
 </style>
