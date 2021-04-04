@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav ">
-          <li class="nav-item" v-show="!auth.currentUser || auth.currentUser.emailVerified">
+          <li class="nav-item" v-show="!auth.currentUser || !auth.currentUser.emailVerified">
             <router-link to="/Login" class="nav-link">Login</router-link>
           </li>
           <li class="nav-item" v-show="!auth.currentUser">

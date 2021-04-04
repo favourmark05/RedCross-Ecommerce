@@ -74,7 +74,7 @@ export default {
       const Admin = 'admin@oriona.com'
       this.auth.signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          if (!this.auth.currentUser.emailverified) {
+          if (!this.auth.currentUser.emailVerified) {
             this.$toasted.error('Please do verify your email', { icon: { name: 'fa-exclamation-triangle' } })
             this.$router.replace('/notVerified')
           } else if (this.email !== Admin) {
@@ -83,6 +83,7 @@ export default {
             this.$router.replace('/admin')
             this.$toasted.success('Login successfuly', { icon: { name: 'check' } })
           }
+          // switch (!this.auth.currentUser.emailVerified)
         }).catch((err) => {
         // Handle Errors here.
           var errorCode = err.code
