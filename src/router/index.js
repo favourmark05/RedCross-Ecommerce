@@ -30,6 +30,7 @@ import artist from '../components/Admin/artist.vue'
 import ArtistPreview from '../components/pages/ArtistPreview.vue'
 import artistProfile from '../components/Artist/Dashboard/artistProfile.vue'
 import artistDashboard from '../components/Artist/Dashboard/artistDashboard.vue'
+import artistWork from '../components/Artist/Dashboard/artistWork.vue'
 import firebase from '../firebase'
 
 Vue.use(VueRouter)
@@ -160,9 +161,9 @@ const routes = [
         component: artistProfile
       },
       {
-        path: '/followedArtist',
-        name: 'followedArtist',
-        component: followedArtist
+        path: '/artistWork',
+        name: 'artistWork',
+        component: artistWork
       }
     ]
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-<div class="col-sm-8">
+<div class="col-sm-12">
           <div class="container bg-white" v-show="$route.name === 'artistDashboard'">
             <div class="row ">
               <div class="col">
@@ -19,12 +19,33 @@
                   <div class="card-body">
                     <h5 class="card-title">Address Book</h5>
                     <hr>
+                    <b><p>Your Address </p></b>
+                    <p class="card-text"> {{ artistProfiles.fullName}} </p>
+                    <p class=""> {{ artistProfiles.homeAdd }} </p>
+                    <p class=""> {{ artistProfiles.phone }} </p>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card-group ">
+                <div class="card my-3 mr-2" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Bio</h5>
+                    <hr>
+                    <p class="card-text"> {{ artistProfiles.bio }} </p>
+                    <p class="card-text"> {{ email }} </p>
+                  </div>
+                </div>
+                <!-- <div class="card my-3 ml-2" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Address Book</h5>
+                    <hr>
                     <b><p>Your default Shipping Address </p></b>
                     <p class="card-text"> {{ artistProfiles.fullName}} </p>
                     <p class=""> {{ artistProfiles.mailAdd }} </p>
                     <p class=""> {{ artistProfiles.phone }} </p>
                   </div>
-                </div>
+                </div> -->
                 </div>
               </div>
             </div>

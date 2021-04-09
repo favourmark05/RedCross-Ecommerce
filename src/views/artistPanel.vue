@@ -56,6 +56,12 @@
                 </router-link>
               </li>
               <li class="sidebar-dropdow">
+                <router-link to="/artistWork">
+                  <i class="fas fa-briefcase"></i>
+                  <span class="menu-text">Update your ArtWorks</span>
+                </router-link>
+              </li>
+              <li class="sidebar-dropdow">
                 <a @click="logout()">
               <i class="fa fa-power-off"></i>
               <span class="menu-text">LogOut</span>
