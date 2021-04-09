@@ -22,6 +22,10 @@
                                                         <label for="inputAddress2">Home Address </label>
                                                         <input type="text" class="form-control" id="inputAddress2" v-model="artistProfiles.homeAdd" placeholder="Apartment, studio, or floor">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="inputAddress2">Bio </label>
+                                                        <textarea type="text" class="form-control" id="inputAddress2" v-model="artistProfiles.bio" placeholder="Give full details about yourself and the kind of artwork you engage in"></textarea>
+                                                    </div>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                         <label for="inputCity">Country</label>
@@ -63,6 +67,7 @@ export default {
         homeAdd: null,
         country: null,
         state: null,
+        bio: null,
         city: null,
         zipCode: null,
         artist_Photo_Url: null
